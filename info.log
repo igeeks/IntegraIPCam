@@ -1,0 +1,209 @@
+14/09/2012 12:18:03 [ICEngine 001CB488] #0. CODEC, 512, 1
+14/09/2012 12:18:03 [ICEngine 001CB488] #1. WIDTH, 257, 640
+14/09/2012 12:18:04 [ICEngine 001CB488] #2. HEIGHT, 256, 480
+14/09/2012 12:18:04 [ICEngine 001CB488] #3. Card_Slot, 3363, -34
+14/09/2012 12:18:04 [ICEngine 001CB488] #4. Card_Slot, 3363, -1
+14/09/2012 12:18:04 [ICEngine 001CB488] Engine Srart! (is not error!)
+14/09/2012 12:18:04 [ICTransformWorker 00144FD0] ::Init() Prepare module 'ICFileIn'
+14/09/2012 12:18:04 [ICTransformWorker 0015CCD0] ::Init() Prepare module 'ICH264'
+14/09/2012 12:18:04 [ICH264 002357F0] ::FUpdate() Channel name 'ch0' to 'ch1'
+14/09/2012 12:18:04 [ICH264 002357F0] Create New Environment!
+14/09/2012 12:18:04 [ICH264 002357F0] CmdRtspStart Begin...
+14/09/2012 12:18:04 [ICH264 002357F0] Play this stream using the URL 'rtsp://192.168.1.36:8554/ch1'
+14/09/2012 12:18:04 [ICH264 002357F0] We use port 80 for optional RTSP-over-HTTP tunneling.
+14/09/2012 12:18:04 [ICH264 002357F0] CmdRtspStart OK!
+14/09/2012 12:18:04 [ICTransformWorker 00145FE0] ::Init() Prepare module 'ICFileIn'
+14/09/2012 12:18:04 [ICTransformWorker 0015C7B0] ::Init() Prepare module 'ICHttp'
+14/09/2012 12:18:05 [ICHttp 01129270] ::FUpdate() port number set to 81
+14/09/2012 12:18:05 [ICTransformWorker 01114608] ::Init() Prepare module 'ICH264'
+14/09/2012 12:18:05 [ICH264 0112B508] ::FUpdate() Channel name 'ch0' to 'ch2'
+14/09/2012 12:18:05 [ICH264 002357F0] CmdRtspStop Begin...
+14/09/2012 12:18:06 [ICTransformWorker 0015C7B0] Stop Process for 'ICHttp' !
+14/09/2012 12:18:06 [ICH264 002357F0] CmdRtspStop OK!
+14/09/2012 12:18:06 [ICH264 0112B508] CmdRtspStop Begin...
+14/09/2012 12:18:06 [ICH264 0112B508] CmdRtspStop OK!
+14/09/2012 12:18:09 [ICH264 0112B508] Create New Environment!
+14/09/2012 12:18:09 [ICH264 002357F0] CmdRtspStart Begin...
+14/09/2012 12:18:09 [ICH264 002357F0] Play this stream using the URL 'rtsp://192.168.1.36:8554/ch1'
+14/09/2012 12:18:09 [ICH264 002357F0] We use port 80 for optional RTSP-over-HTTP tunneling.
+14/09/2012 12:18:09 [ICH264 002357F0] CmdRtspStart OK!
+14/09/2012 12:18:09 [ICH264 0112B508] CmdRtspStart Begin...
+14/09/2012 12:18:09 [ICH264 0112B508] Play this stream using the URL 'rtsp://192.168.1.36:8554/ch2'
+14/09/2012 12:18:09 [ICH264 0112B508] We use port 8000 for optional RTSP-over-HTTP tunneling.
+14/09/2012 12:18:09 [ICH264 0112B508] CmdRtspStart OK!
+14/09/2012 12:18:09 [ICTransformWorker 011152C0] ::Init() Prepare module 'ICFileIn'
+14/09/2012 12:18:09 [ICTransformWorker 0112D4E8] ::Init() Prepare module 'ICH264'
+14/09/2012 12:18:09 [ICH264 0112E288] ::FUpdate() Channel name 'ch0' to 'ch3'
+14/09/2012 12:18:09 [ICH264 002357F0] CmdRtspStop Begin...
+14/09/2012 12:18:10 [ICH264 002357F0] CmdRtspStop OK!
+14/09/2012 12:18:10 [ICH264 0112B508] CmdRtspStop Begin...
+14/09/2012 12:18:11 [ICH264 0112B508] CmdRtspStop OK!
+14/09/2012 12:18:11 [ICH264 0112E288] CmdRtspStop Begin...
+14/09/2012 12:18:11 [ICH264 0112E288] CmdRtspStop OK!
+14/09/2012 12:18:15 [ICH264 0112E288] Create New Environment!
+14/09/2012 12:18:15 [ICH264 002357F0] CmdRtspStart Begin...
+14/09/2012 12:18:15 [ICH264 002357F0] Play this stream using the URL 'rtsp://192.168.1.36:8554/ch1'
+14/09/2012 12:18:15 [ICH264 002357F0] We use port 8000 for optional RTSP-over-HTTP tunneling.
+14/09/2012 12:18:15 [ICH264 002357F0] CmdRtspStart OK!
+14/09/2012 12:18:15 [ICH264 0112B508] CmdRtspStart Begin...
+14/09/2012 12:18:15 [ICH264 0112B508] Play this stream using the URL 'rtsp://192.168.1.36:8554/ch2'
+14/09/2012 12:18:15 [ICH264 0112B508] We use port 8080 for optional RTSP-over-HTTP tunneling.
+14/09/2012 12:18:15 [ICH264 0112B508] CmdRtspStart OK!
+14/09/2012 12:18:15 [ICH264 0112E288] CmdRtspStart Begin...
+14/09/2012 12:18:15 [ICH264 0112E288] We use port 8081 for optional RTSP-over-HTTP tunneling.
+14/09/2012 12:18:15 [ICH264 0112E288] CmdRtspStart OK!
+14/09/2012 12:18:15 [ICTransformWorker 0112F010] ::Init() Prepare module 'ICUpdateService'
+14/09/2012 12:18:15 [ICTransformWorker 0112FB98] ::Init() Prepare module 'ICWatchDog'
+14/09/2012 12:18:20 [ICH264 0112E288] ::Process() Beginning streaming ...
+14/09/2012 12:18:41 [ICHttp 01129270] serving client: 127.0.0.1
+14/09/2012 12:18:46 [ICHttp 01129270] serving client: 127.0.0.1
+14/09/2012 12:18:53 [ICHttp 01129270] serving client: 127.0.0.1
+14/09/2012 12:18:55 [ICHttp 01129270] serving client: 127.0.0.1
+14/09/2012 12:18:55 [ICHttp 01129270] serving client: 127.0.0.1
+14/09/2012 12:18:55 [ICHttp 01129270] serving client: 127.0.0.1
+14/09/2012 12:18:55 [ICHttp 01129270] serving client: 127.0.0.1
+14/09/2012 12:18:56 [ICHttp 01129270] serving client: 127.0.0.1
+14/09/2012 12:18:56 [ICHttp 01129270] serving client: 127.0.0.1
+14/09/2012 12:18:56 [ICHttp 01129270] serving client: 127.0.0.1
+14/09/2012 12:19:00 [ICHttp 01129270] serving client: 127.0.0.1
+14/09/2012 12:19:00 [ICHttp 01129270] serving client: 127.0.0.1
+14/09/2012 12:19:00 [ICHttp 01129270] serving client: 127.0.0.1
+14/09/2012 12:25:23 [ICEngine 0015EEE8] #0. CODEC, 512, 1
+14/09/2012 12:25:23 [ICEngine 0015EEE8] #1. WIDTH, 257, 640
+14/09/2012 12:25:23 [ICEngine 0015EEE8] #2. HEIGHT, 256, 480
+14/09/2012 12:25:23 [ICEngine 0015EEE8] #3. Card_Slot, 3363, -34
+14/09/2012 12:25:23 [ICEngine 0015EEE8] #4. Card_Slot, 3363, -1
+14/09/2012 12:25:23 [ICEngine 0015EEE8] Engine Srart! (is not error!)
+14/09/2012 12:25:24 [ICTransformWorker 0015C7B0] ::Init() Prepare module 'ICFileIn'
+14/09/2012 12:25:24 [ICTransformWorker 00144FD0] ::Init() Prepare module 'ICH264'
+14/09/2012 12:25:24 [ICH264 00235830] ::FUpdate() Channel name 'ch0' to 'ch1'
+14/09/2012 12:25:24 [ICH264 00235830] Create New Environment!
+14/09/2012 12:25:24 [ICH264 00235830] CmdRtspStart Begin...
+14/09/2012 12:25:24 [ICH264 00235830] Play this stream using the URL 'rtsp://192.168.1.36:8554/ch1'
+14/09/2012 12:25:24 [ICH264 00235830] We use port 80 for optional RTSP-over-HTTP tunneling.
+14/09/2012 12:25:24 [ICH264 00235830] CmdRtspStart OK!
+14/09/2012 12:25:24 [ICTransformWorker 001521F8] ::Init() Prepare module 'ICFileIn'
+14/09/2012 12:25:24 [ICTransformWorker 001B60F0] ::Init() Prepare module 'ICHttp'
+14/09/2012 12:25:24 [ICHttp 011297E8] ::FUpdate() port number set to 81
+14/09/2012 12:25:24 [ICTransformWorker 01114BB0] ::Init() Prepare module 'ICH264'
+14/09/2012 12:25:25 [ICH264 0112BC38] ::FUpdate() Channel name 'ch0' to 'ch2'
+14/09/2012 12:25:25 [ICH264 00235830] CmdRtspStop Begin...
+14/09/2012 12:25:26 [ICTransformWorker 001B60F0] Stop Process for 'ICHttp' !
+14/09/2012 12:25:26 [ICH264 00235830] CmdRtspStop OK!
+14/09/2012 12:25:26 [ICH264 0112BC38] CmdRtspStop Begin...
+14/09/2012 12:25:26 [ICH264 0112BC38] CmdRtspStop OK!
+14/09/2012 12:25:29 [ICH264 0112BC38] Create New Environment!
+14/09/2012 12:25:29 [ICH264 00235830] CmdRtspStart Begin...
+14/09/2012 12:25:29 [ICH264 00235830] Play this stream using the URL 'rtsp://192.168.1.36:8554/ch1'
+14/09/2012 12:25:29 [ICH264 00235830] We use port 80 for optional RTSP-over-HTTP tunneling.
+14/09/2012 12:25:29 [ICH264 00235830] CmdRtspStart OK!
+14/09/2012 12:25:29 [ICH264 0112BC38] CmdRtspStart Begin...
+14/09/2012 12:25:29 [ICH264 0112BC38] Play this stream using the URL 'rtsp://192.168.1.36:8554/ch2'
+14/09/2012 12:25:29 [ICH264 0112BC38] We use port 8000 for optional RTSP-over-HTTP tunneling.
+14/09/2012 12:25:29 [ICH264 0112BC38] CmdRtspStart OK!
+14/09/2012 12:25:29 [ICTransformWorker 01115868] ::Init() Prepare module 'ICFileIn'
+14/09/2012 12:25:29 [ICTransformWorker 0112D900] ::Init() Prepare module 'ICH264'
+14/09/2012 12:25:29 [ICH264 0112E6A0] ::FUpdate() Channel name 'ch0' to 'ch3'
+14/09/2012 12:25:29 [ICH264 00235830] CmdRtspStop Begin...
+14/09/2012 12:25:30 [ICH264 00235830] CmdRtspStop OK!
+14/09/2012 12:25:30 [ICH264 0112BC38] CmdRtspStop Begin...
+14/09/2012 12:25:31 [ICH264 0112BC38] CmdRtspStop OK!
+14/09/2012 12:25:31 [ICH264 0112E6A0] CmdRtspStop Begin...
+14/09/2012 12:25:31 [ICH264 0112E6A0] CmdRtspStop OK!
+14/09/2012 12:25:35 [ICH264 0112E6A0] Create New Environment!
+14/09/2012 12:25:35 [ICH264 00235830] CmdRtspStart Begin...
+14/09/2012 12:25:35 [ICH264 00235830] Play this stream using the URL 'rtsp://192.168.1.36:8554/ch1'
+14/09/2012 12:25:35 [ICH264 00235830] We use port 8000 for optional RTSP-over-HTTP tunneling.
+14/09/2012 12:25:35 [ICH264 00235830] CmdRtspStart OK!
+14/09/2012 12:25:35 [ICH264 0112BC38] CmdRtspStart Begin...
+14/09/2012 12:25:35 [ICH264 0112BC38] Play this stream using the URL 'rtsp://192.168.1.36:8554/ch2'
+14/09/2012 12:25:35 [ICH264 0112BC38] We use port 8080 for optional RTSP-over-HTTP tunneling.
+14/09/2012 12:25:35 [ICH264 0112BC38] CmdRtspStart OK!
+14/09/2012 12:25:35 [ICH264 0112E6A0] CmdRtspStart Begin...
+14/09/2012 12:25:35 [ICH264 0112E6A0] We use port 8081 for optional RTSP-over-HTTP tunneling.
+14/09/2012 12:25:35 [ICH264 0112E6A0] CmdRtspStart OK!
+14/09/2012 12:25:35 [ICTransformWorker 0112F428] ::Init() Prepare module 'ICUpdateService'
+14/09/2012 12:25:35 [ICTransformWorker 0112FE38] ::Init() Prepare module 'ICWatchDog'
+14/09/2012 12:25:40 [ICH264 0112E6A0] ::Process() Beginning streaming ...
+14/09/2012 12:25:50 [ICHttp 011297E8] serving client: 127.0.0.1
+14/09/2012 12:25:50 [ICHttp 011297E8] serving client: 127.0.0.1
+14/09/2012 12:25:53 [ICHttp 011297E8] serving client: 127.0.0.1
+14/09/2012 12:25:55 [ICHttp 011297E8] serving client: 127.0.0.1
+14/09/2012 12:25:55 [ICHttp 011297E8] serving client: 127.0.0.1
+14/09/2012 12:26:04 [ICHttp 011297E8] serving client: 127.0.0.1
+14/09/2012 12:26:04 [ICHttp 011297E8] serving client: 127.0.0.1
+14/09/2012 12:26:04 [ICHttp 011297E8] serving client: 127.0.0.1
+14/09/2012 12:26:04 [ICHttp 011297E8] serving client: 127.0.0.1
+14/09/2012 12:26:07 [ICHttp 011297E8] serving client: 127.0.0.1
+14/09/2012 12:26:07 [ICHttp 011297E8] serving client: 127.0.0.1
+14/09/2012 12:26:07 [ICHttp 011297E8] serving client: 127.0.0.1
+14/09/2012 12:26:08 [ICHttp 011297E8] serving client: 127.0.0.1
+14/09/2012 12:26:08 [ICHttp 011297E8] serving client: 127.0.0.1
+14/09/2012 12:26:08 [ICHttp 011297E8] serving client: 127.0.0.1
+14/09/2012 12:26:08 [ICHttp 011297E8] serving client: 127.0.0.1
+14/09/2012 12:26:08 [ICHttp 011297E8] serving client: 127.0.0.1
+14/09/2012 12:26:08 [ICHttp 011297E8] serving client: 127.0.0.1
+14/09/2012 12:26:08 [ICHttp 011297E8] serving client: 127.0.0.1
+14/09/2012 12:26:09 [ICHttp 011297E8] serving client: 127.0.0.1
+14/09/2012 12:26:09 [ICHttp 011297E8] serving client: 127.0.0.1
+14/09/2012 12:26:09 [ICHttp 011297E8] serving client: 127.0.0.1
+14/09/2012 12:29:24 [ICHttp 011297E8] serving client: 127.0.0.1
+14/09/2012 12:29:24 [ICHttp 011297E8] serving client: 127.0.0.1
+14/09/2012 12:29:24 [ICHttp 011297E8] serving client: 127.0.0.1
+14/09/2012 12:29:24 [ICHttp 011297E8] serving client: 127.0.0.1
+14/09/2012 12:29:24 [ICHttp 011297E8] serving client: 127.0.0.1
+14/09/2012 12:29:25 [ICHttp 011297E8] serving client: 127.0.0.1
+14/09/2012 12:29:25 [ICHttp 011297E8] serving client: 127.0.0.1
+14/09/2012 12:29:25 [ICHttp 011297E8] serving client: 127.0.0.1
+14/09/2012 12:29:25 [ICHttp 011297E8] serving client: 127.0.0.1
+14/09/2012 12:29:26 [ICHttp 011297E8] serving client: 127.0.0.1
+14/09/2012 12:29:26 [ICHttp 011297E8] serving client: 127.0.0.1
+14/09/2012 12:29:26 [ICHttp 011297E8] serving client: 127.0.0.1
+14/09/2012 12:29:26 [ICHttp 011297E8] serving client: 127.0.0.1
+14/09/2012 12:29:27 [ICHttp 011297E8] serving client: 127.0.0.1
+14/09/2012 12:29:28 [ICHttp 011297E8] serving client: 127.0.0.1
+14/09/2012 12:29:29 [ICHttp 011297E8] serving client: 127.0.0.1
+14/09/2012 12:29:29 [ICHttp 011297E8] serving client: 127.0.0.1
+14/09/2012 12:31:15 [ICHttp 011297E8] serving client: 127.0.0.1
+14/09/2012 12:31:16 [ICHttp 011297E8] serving client: 127.0.0.1
+14/09/2012 12:31:17 [ICHttp 011297E8] serving client: 127.0.0.1
+14/09/2012 12:31:17 [ICHttp 011297E8] serving client: 127.0.0.1
+14/09/2012 12:31:17 [ICHttp 011297E8] serving client: 127.0.0.1
+14/09/2012 12:31:17 [ICHttp 011297E8] serving client: 127.0.0.1
+14/09/2012 12:31:17 [ICHttp 011297E8] serving client: 127.0.0.1
+14/09/2012 12:31:17 [ICHttp 011297E8] serving client: 127.0.0.1
+14/09/2012 12:31:19 [ICHttp 011297E8] serving client: 127.0.0.1
+14/09/2012 12:31:19 [ICHttp 011297E8] serving client: 127.0.0.1
+14/09/2012 12:31:19 [ICHttp 011297E8] serving client: 127.0.0.1
+14/09/2012 12:31:19 [ICHttp 011297E8] serving client: 127.0.0.1
+14/09/2012 12:31:19 [ICHttp 011297E8] serving client: 127.0.0.1
+14/09/2012 12:31:19 [ICHttp 011297E8] serving client: 127.0.0.1
+14/09/2012 12:31:19 [ICHttp 011297E8] serving client: 127.0.0.1
+14/09/2012 12:31:21 [ICHttp 011297E8] serving client: 127.0.0.1
+14/09/2012 12:31:21 [ICHttp 011297E8] serving client: 127.0.0.1
+14/09/2012 12:31:21 [ICHttp 011297E8] serving client: 127.0.0.1
+14/09/2012 12:31:27 [ICHttp 011297E8] serving client: 127.0.0.1
+14/09/2012 12:31:28 [ICHttp 011297E8] serving client: 127.0.0.1
+14/09/2012 12:31:28 [ICHttp 011297E8] serving client: 127.0.0.1
+14/09/2012 12:31:29 [ICHttp 011297E8] serving client: 127.0.0.1
+14/09/2012 12:31:31 [ICHttp 011297E8] serving client: 127.0.0.1
+14/09/2012 12:31:31 [ICHttp 011297E8] serving client: 127.0.0.1
+14/09/2012 12:31:32 [ICHttp 011297E8] serving client: 127.0.0.1
+14/09/2012 12:31:34 [ICHttp 011297E8] serving client: 127.0.0.1
+14/09/2012 12:31:34 [ICHttp 011297E8] serving client: 127.0.0.1
+14/09/2012 12:31:34 [ICHttp 011297E8] serving client: 127.0.0.1
+14/09/2012 12:31:35 [ICHttp 011297E8] serving client: 127.0.0.1
+14/09/2012 12:31:36 [ICHttp 011297E8] serving client: 127.0.0.1
+14/09/2012 12:31:41 [ICHttp 011297E8] serving client: 127.0.0.1
+14/09/2012 12:31:42 [ICHttp 011297E8] serving client: 127.0.0.1
+14/09/2012 12:31:42 [ICHttp 011297E8] serving client: 127.0.0.1
+14/09/2012 12:31:42 [ICHttp 011297E8] serving client: 127.0.0.1
+14/09/2012 12:31:42 [ICHttp 011297E8] serving client: 127.0.0.1
+14/09/2012 12:31:43 [ICHttp 011297E8] serving client: 127.0.0.1
+14/09/2012 12:31:43 [ICHttp 011297E8] serving client: 127.0.0.1
+14/09/2012 12:31:45 [ICHttp 011297E8] serving client: 127.0.0.1
+14/09/2012 12:31:47 [ICHttp 011297E8] serving client: 127.0.0.1
+14/09/2012 12:31:59 [ICHttp 011297E8] serving client: 127.0.0.1
+14/09/2012 12:32:01 [ICHttp 011297E8] serving client: 127.0.0.1
+14/09/2012 12:32:07 [ICHttp 011297E8] serving client: 127.0.0.1
+14/09/2012 12:32:07 [ICHttp 011297E8] serving client: 127.0.0.1
