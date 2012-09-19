@@ -65,3 +65,28 @@
 19/09/2012 20:23:14 [ICHttp 01129550] Error! ClientWork() bad request! ''
 19/09/2012 20:24:53 [ICHttp 01129550] Error! ClientWork() bad request! ''
 19/09/2012 20:25:12 [ICHttp 01129550] Error! ClientWork() bad request! ''
+19/09/2012 20:57:07 [ICHttp 01129550] Error! ClientWork() bad request! ''
+19/09/2012 21:01:47 [ICHttp 01129550] Error! ClientWork() bad request! ''
+19/09/2012 21:02:05 [ICHttp 01129550] Error! ClientWork() bad request! ''
+19/09/2012 21:14:18 [ICHttp 01129550] Error! ClientWork() bad request! ''
+19/09/2012 21:18:50 [ICHttp 01129550] Error! ClientWork() bad request! ''
+19/09/2012 21:18:50 [ICHttp 01129550] Error! ClientWork() bad request! ''
+19/09/2012 21:18:50 [ICHttp 01129550] Error! ClientWork() bad request! ''
+19/09/2012 21:18:50 [ICHttp 01129550] Error! ClientWork() bad request! ''
+19/09/2012 21:18:50 [ICHttp 01129550] Error! ClientWork() bad request! ''
+19/09/2012 21:29:22 [ICEngine 0015EEE8] Engine Srart! (is not error!)
+19/09/2012 21:29:23 [ICMsgService 001B5A08] ::Send() channel 35584, msg 'CMD_REG_WATCHDOG' not found!
+19/09/2012 21:29:23 [ICMsgService 001B5A08] ::Send() channel 35584, msg 'CMD_WATCHDOG_RESET_DISABLE' not found!
+19/09/2012 21:29:23 [ICMsgService 001B5A08] ::Send() channel 35584, msg 'CMD_WATCHDOG_RESET_ENABLE' not found!
+19/09/2012 21:29:24 [ICMsgService 001B5A08] ::Send() channel 35584, msg 'CMD_WATCHDOG_RESET_DISABLE' not found!
+19/09/2012 21:29:25 [ICMsgService 001B5A08] ::Send() channel 35584, msg 'CMD_WATCHDOG_RESET_ENABLE' not found!
+19/09/2012 21:29:29 [ICMsgService 001B5A08] ::Send() channel 35584, msg 'CMD_WATCHDOG_RESET_DISABLE' not found!
+19/09/2012 21:29:29 [ICMsgService 001B5A08] ::Send() channel 35584, msg 'CMD_WATCHDOG_RESET_ENABLE' not found!
+19/09/2012 21:29:29 [ICMsgService 001B5A08] ::Send() channel 35584, msg 'CMD_WATCHDOG_RESET_DISABLE' not found!
+19/09/2012 21:29:31 [ICMsgService 001B5A08] ::Send() channel 35584, msg 'CMD_WATCHDOG_RESET_ENABLE' not found!
+19/09/2012 21:29:35 [ICMsgService 001B5A08] ::Send() channel 35584, msg 'CMD_WATCHDOG_RESET_DISABLE' not found!
+19/09/2012 21:29:35 [ICMsgService 001B5A08] ::Send() channel 35584, msg 'CMD_WATCHDOG_RESET_ENABLE' not found!
+19/09/2012 21:31:51 [ICHttp 011296E0] access denied
+19/09/2012 21:31:55 [ICHttp 011296E0] access denied
+19/09/2012 21:31:56 [ICHttp 011296E0] Error! ClientWork() bad request! ''
+19/09/2012 21:32:00 [ICHttp 011296E0] Error! ClientWork() bad request! ''

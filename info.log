@@ -1,661 +1,227 @@
-14/09/2012 12:18:03 [ICEngine 001CB488] #0. CODEC, 512, 1
-14/09/2012 12:18:03 [ICEngine 001CB488] #1. WIDTH, 257, 640
-14/09/2012 12:18:04 [ICEngine 001CB488] #2. HEIGHT, 256, 480
-14/09/2012 12:18:04 [ICEngine 001CB488] #3. Card_Slot, 3363, -34
-14/09/2012 12:18:04 [ICEngine 001CB488] #4. Card_Slot, 3363, -1
-14/09/2012 12:18:04 [ICEngine 001CB488] Engine Srart! (is not error!)
-14/09/2012 12:18:04 [ICTransformWorker 00144FD0] ::Init() Prepare module 'ICFileIn'
-14/09/2012 12:18:04 [ICTransformWorker 0015CCD0] ::Init() Prepare module 'ICH264'
-14/09/2012 12:18:04 [ICH264 002357F0] ::FUpdate() Channel name 'ch0' to 'ch1'
-14/09/2012 12:18:04 [ICH264 002357F0] Create New Environment!
-14/09/2012 12:18:04 [ICH264 002357F0] CmdRtspStart Begin...
-14/09/2012 12:18:04 [ICH264 002357F0] Play this stream using the URL 'rtsp://192.168.1.36:8554/ch1'
-14/09/2012 12:18:04 [ICH264 002357F0] We use port 80 for optional RTSP-over-HTTP tunneling.
-14/09/2012 12:18:04 [ICH264 002357F0] CmdRtspStart OK!
-14/09/2012 12:18:04 [ICTransformWorker 00145FE0] ::Init() Prepare module 'ICFileIn'
-14/09/2012 12:18:04 [ICTransformWorker 0015C7B0] ::Init() Prepare module 'ICHttp'
-14/09/2012 12:18:05 [ICHttp 01129270] ::FUpdate() port number set to 81
-14/09/2012 12:18:05 [ICTransformWorker 01114608] ::Init() Prepare module 'ICH264'
-14/09/2012 12:18:05 [ICH264 0112B508] ::FUpdate() Channel name 'ch0' to 'ch2'
-14/09/2012 12:18:05 [ICH264 002357F0] CmdRtspStop Begin...
-14/09/2012 12:18:06 [ICTransformWorker 0015C7B0] Stop Process for 'ICHttp' !
-14/09/2012 12:18:06 [ICH264 002357F0] CmdRtspStop OK!
-14/09/2012 12:18:06 [ICH264 0112B508] CmdRtspStop Begin...
-14/09/2012 12:18:06 [ICH264 0112B508] CmdRtspStop OK!
-14/09/2012 12:18:09 [ICH264 0112B508] Create New Environment!
-14/09/2012 12:18:09 [ICH264 002357F0] CmdRtspStart Begin...
-14/09/2012 12:18:09 [ICH264 002357F0] Play this stream using the URL 'rtsp://192.168.1.36:8554/ch1'
-14/09/2012 12:18:09 [ICH264 002357F0] We use port 80 for optional RTSP-over-HTTP tunneling.
-14/09/2012 12:18:09 [ICH264 002357F0] CmdRtspStart OK!
-14/09/2012 12:18:09 [ICH264 0112B508] CmdRtspStart Begin...
-14/09/2012 12:18:09 [ICH264 0112B508] Play this stream using the URL 'rtsp://192.168.1.36:8554/ch2'
-14/09/2012 12:18:09 [ICH264 0112B508] We use port 8000 for optional RTSP-over-HTTP tunneling.
-14/09/2012 12:18:09 [ICH264 0112B508] CmdRtspStart OK!
-14/09/2012 12:18:09 [ICTransformWorker 011152C0] ::Init() Prepare module 'ICFileIn'
-14/09/2012 12:18:09 [ICTransformWorker 0112D4E8] ::Init() Prepare module 'ICH264'
-14/09/2012 12:18:09 [ICH264 0112E288] ::FUpdate() Channel name 'ch0' to 'ch3'
-14/09/2012 12:18:09 [ICH264 002357F0] CmdRtspStop Begin...
-14/09/2012 12:18:10 [ICH264 002357F0] CmdRtspStop OK!
-14/09/2012 12:18:10 [ICH264 0112B508] CmdRtspStop Begin...
-14/09/2012 12:18:11 [ICH264 0112B508] CmdRtspStop OK!
-14/09/2012 12:18:11 [ICH264 0112E288] CmdRtspStop Begin...
-14/09/2012 12:18:11 [ICH264 0112E288] CmdRtspStop OK!
-14/09/2012 12:18:15 [ICH264 0112E288] Create New Environment!
-14/09/2012 12:18:15 [ICH264 002357F0] CmdRtspStart Begin...
-14/09/2012 12:18:15 [ICH264 002357F0] Play this stream using the URL 'rtsp://192.168.1.36:8554/ch1'
-14/09/2012 12:18:15 [ICH264 002357F0] We use port 8000 for optional RTSP-over-HTTP tunneling.
-14/09/2012 12:18:15 [ICH264 002357F0] CmdRtspStart OK!
-14/09/2012 12:18:15 [ICH264 0112B508] CmdRtspStart Begin...
-14/09/2012 12:18:15 [ICH264 0112B508] Play this stream using the URL 'rtsp://192.168.1.36:8554/ch2'
-14/09/2012 12:18:15 [ICH264 0112B508] We use port 8080 for optional RTSP-over-HTTP tunneling.
-14/09/2012 12:18:15 [ICH264 0112B508] CmdRtspStart OK!
-14/09/2012 12:18:15 [ICH264 0112E288] CmdRtspStart Begin...
-14/09/2012 12:18:15 [ICH264 0112E288] We use port 8081 for optional RTSP-over-HTTP tunneling.
-14/09/2012 12:18:15 [ICH264 0112E288] CmdRtspStart OK!
-14/09/2012 12:18:15 [ICTransformWorker 0112F010] ::Init() Prepare module 'ICUpdateService'
-14/09/2012 12:18:15 [ICTransformWorker 0112FB98] ::Init() Prepare module 'ICWatchDog'
-14/09/2012 12:18:20 [ICH264 0112E288] ::Process() Beginning streaming ...
-14/09/2012 12:18:41 [ICHttp 01129270] serving client: 127.0.0.1
-14/09/2012 12:18:46 [ICHttp 01129270] serving client: 127.0.0.1
-14/09/2012 12:18:53 [ICHttp 01129270] serving client: 127.0.0.1
-14/09/2012 12:18:55 [ICHttp 01129270] serving client: 127.0.0.1
-14/09/2012 12:18:55 [ICHttp 01129270] serving client: 127.0.0.1
-14/09/2012 12:18:55 [ICHttp 01129270] serving client: 127.0.0.1
-14/09/2012 12:18:55 [ICHttp 01129270] serving client: 127.0.0.1
-14/09/2012 12:18:56 [ICHttp 01129270] serving client: 127.0.0.1
-14/09/2012 12:18:56 [ICHttp 01129270] serving client: 127.0.0.1
-14/09/2012 12:18:56 [ICHttp 01129270] serving client: 127.0.0.1
-14/09/2012 12:19:00 [ICHttp 01129270] serving client: 127.0.0.1
-14/09/2012 12:19:00 [ICHttp 01129270] serving client: 127.0.0.1
-14/09/2012 12:19:00 [ICHttp 01129270] serving client: 127.0.0.1
-14/09/2012 12:25:23 [ICEngine 0015EEE8] #0. CODEC, 512, 1
-14/09/2012 12:25:23 [ICEngine 0015EEE8] #1. WIDTH, 257, 640
-14/09/2012 12:25:23 [ICEngine 0015EEE8] #2. HEIGHT, 256, 480
-14/09/2012 12:25:23 [ICEngine 0015EEE8] #3. Card_Slot, 3363, -34
-14/09/2012 12:25:23 [ICEngine 0015EEE8] #4. Card_Slot, 3363, -1
-14/09/2012 12:25:23 [ICEngine 0015EEE8] Engine Srart! (is not error!)
-14/09/2012 12:25:24 [ICTransformWorker 0015C7B0] ::Init() Prepare module 'ICFileIn'
-14/09/2012 12:25:24 [ICTransformWorker 00144FD0] ::Init() Prepare module 'ICH264'
-14/09/2012 12:25:24 [ICH264 00235830] ::FUpdate() Channel name 'ch0' to 'ch1'
-14/09/2012 12:25:24 [ICH264 00235830] Create New Environment!
-14/09/2012 12:25:24 [ICH264 00235830] CmdRtspStart Begin...
-14/09/2012 12:25:24 [ICH264 00235830] Play this stream using the URL 'rtsp://192.168.1.36:8554/ch1'
-14/09/2012 12:25:24 [ICH264 00235830] We use port 80 for optional RTSP-over-HTTP tunneling.
-14/09/2012 12:25:24 [ICH264 00235830] CmdRtspStart OK!
-14/09/2012 12:25:24 [ICTransformWorker 001521F8] ::Init() Prepare module 'ICFileIn'
-14/09/2012 12:25:24 [ICTransformWorker 001B60F0] ::Init() Prepare module 'ICHttp'
-14/09/2012 12:25:24 [ICHttp 011297E8] ::FUpdate() port number set to 81
-14/09/2012 12:25:24 [ICTransformWorker 01114BB0] ::Init() Prepare module 'ICH264'
-14/09/2012 12:25:25 [ICH264 0112BC38] ::FUpdate() Channel name 'ch0' to 'ch2'
-14/09/2012 12:25:25 [ICH264 00235830] CmdRtspStop Begin...
-14/09/2012 12:25:26 [ICTransformWorker 001B60F0] Stop Process for 'ICHttp' !
-14/09/2012 12:25:26 [ICH264 00235830] CmdRtspStop OK!
-14/09/2012 12:25:26 [ICH264 0112BC38] CmdRtspStop Begin...
-14/09/2012 12:25:26 [ICH264 0112BC38] CmdRtspStop OK!
-14/09/2012 12:25:29 [ICH264 0112BC38] Create New Environment!
-14/09/2012 12:25:29 [ICH264 00235830] CmdRtspStart Begin...
-14/09/2012 12:25:29 [ICH264 00235830] Play this stream using the URL 'rtsp://192.168.1.36:8554/ch1'
-14/09/2012 12:25:29 [ICH264 00235830] We use port 80 for optional RTSP-over-HTTP tunneling.
-14/09/2012 12:25:29 [ICH264 00235830] CmdRtspStart OK!
-14/09/2012 12:25:29 [ICH264 0112BC38] CmdRtspStart Begin...
-14/09/2012 12:25:29 [ICH264 0112BC38] Play this stream using the URL 'rtsp://192.168.1.36:8554/ch2'
-14/09/2012 12:25:29 [ICH264 0112BC38] We use port 8000 for optional RTSP-over-HTTP tunneling.
-14/09/2012 12:25:29 [ICH264 0112BC38] CmdRtspStart OK!
-14/09/2012 12:25:29 [ICTransformWorker 01115868] ::Init() Prepare module 'ICFileIn'
-14/09/2012 12:25:29 [ICTransformWorker 0112D900] ::Init() Prepare module 'ICH264'
-14/09/2012 12:25:29 [ICH264 0112E6A0] ::FUpdate() Channel name 'ch0' to 'ch3'
-14/09/2012 12:25:29 [ICH264 00235830] CmdRtspStop Begin...
-14/09/2012 12:25:30 [ICH264 00235830] CmdRtspStop OK!
-14/09/2012 12:25:30 [ICH264 0112BC38] CmdRtspStop Begin...
-14/09/2012 12:25:31 [ICH264 0112BC38] CmdRtspStop OK!
-14/09/2012 12:25:31 [ICH264 0112E6A0] CmdRtspStop Begin...
-14/09/2012 12:25:31 [ICH264 0112E6A0] CmdRtspStop OK!
-14/09/2012 12:25:35 [ICH264 0112E6A0] Create New Environment!
-14/09/2012 12:25:35 [ICH264 00235830] CmdRtspStart Begin...
-14/09/2012 12:25:35 [ICH264 00235830] Play this stream using the URL 'rtsp://192.168.1.36:8554/ch1'
-14/09/2012 12:25:35 [ICH264 00235830] We use port 8000 for optional RTSP-over-HTTP tunneling.
-14/09/2012 12:25:35 [ICH264 00235830] CmdRtspStart OK!
-14/09/2012 12:25:35 [ICH264 0112BC38] CmdRtspStart Begin...
-14/09/2012 12:25:35 [ICH264 0112BC38] Play this stream using the URL 'rtsp://192.168.1.36:8554/ch2'
-14/09/2012 12:25:35 [ICH264 0112BC38] We use port 8080 for optional RTSP-over-HTTP tunneling.
-14/09/2012 12:25:35 [ICH264 0112BC38] CmdRtspStart OK!
-14/09/2012 12:25:35 [ICH264 0112E6A0] CmdRtspStart Begin...
-14/09/2012 12:25:35 [ICH264 0112E6A0] We use port 8081 for optional RTSP-over-HTTP tunneling.
-14/09/2012 12:25:35 [ICH264 0112E6A0] CmdRtspStart OK!
-14/09/2012 12:25:35 [ICTransformWorker 0112F428] ::Init() Prepare module 'ICUpdateService'
-14/09/2012 12:25:35 [ICTransformWorker 0112FE38] ::Init() Prepare module 'ICWatchDog'
-14/09/2012 12:25:40 [ICH264 0112E6A0] ::Process() Beginning streaming ...
-14/09/2012 12:25:50 [ICHttp 011297E8] serving client: 127.0.0.1
-14/09/2012 12:25:50 [ICHttp 011297E8] serving client: 127.0.0.1
-14/09/2012 12:25:53 [ICHttp 011297E8] serving client: 127.0.0.1
-14/09/2012 12:25:55 [ICHttp 011297E8] serving client: 127.0.0.1
-14/09/2012 12:25:55 [ICHttp 011297E8] serving client: 127.0.0.1
-14/09/2012 12:26:04 [ICHttp 011297E8] serving client: 127.0.0.1
-14/09/2012 12:26:04 [ICHttp 011297E8] serving client: 127.0.0.1
-14/09/2012 12:26:04 [ICHttp 011297E8] serving client: 127.0.0.1
-14/09/2012 12:26:04 [ICHttp 011297E8] serving client: 127.0.0.1
-14/09/2012 12:26:07 [ICHttp 011297E8] serving client: 127.0.0.1
-14/09/2012 12:26:07 [ICHttp 011297E8] serving client: 127.0.0.1
-14/09/2012 12:26:07 [ICHttp 011297E8] serving client: 127.0.0.1
-14/09/2012 12:26:08 [ICHttp 011297E8] serving client: 127.0.0.1
-14/09/2012 12:26:08 [ICHttp 011297E8] serving client: 127.0.0.1
-14/09/2012 12:26:08 [ICHttp 011297E8] serving client: 127.0.0.1
-14/09/2012 12:26:08 [ICHttp 011297E8] serving client: 127.0.0.1
-14/09/2012 12:26:08 [ICHttp 011297E8] serving client: 127.0.0.1
-14/09/2012 12:26:08 [ICHttp 011297E8] serving client: 127.0.0.1
-14/09/2012 12:26:08 [ICHttp 011297E8] serving client: 127.0.0.1
-14/09/2012 12:26:09 [ICHttp 011297E8] serving client: 127.0.0.1
-14/09/2012 12:26:09 [ICHttp 011297E8] serving client: 127.0.0.1
-14/09/2012 12:26:09 [ICHttp 011297E8] serving client: 127.0.0.1
-14/09/2012 12:29:24 [ICHttp 011297E8] serving client: 127.0.0.1
-14/09/2012 12:29:24 [ICHttp 011297E8] serving client: 127.0.0.1
-14/09/2012 12:29:24 [ICHttp 011297E8] serving client: 127.0.0.1
-14/09/2012 12:29:24 [ICHttp 011297E8] serving client: 127.0.0.1
-14/09/2012 12:29:24 [ICHttp 011297E8] serving client: 127.0.0.1
-14/09/2012 12:29:25 [ICHttp 011297E8] serving client: 127.0.0.1
-14/09/2012 12:29:25 [ICHttp 011297E8] serving client: 127.0.0.1
-14/09/2012 12:29:25 [ICHttp 011297E8] serving client: 127.0.0.1
-14/09/2012 12:29:25 [ICHttp 011297E8] serving client: 127.0.0.1
-14/09/2012 12:29:26 [ICHttp 011297E8] serving client: 127.0.0.1
-14/09/2012 12:29:26 [ICHttp 011297E8] serving client: 127.0.0.1
-14/09/2012 12:29:26 [ICHttp 011297E8] serving client: 127.0.0.1
-14/09/2012 12:29:26 [ICHttp 011297E8] serving client: 127.0.0.1
-14/09/2012 12:29:27 [ICHttp 011297E8] serving client: 127.0.0.1
-14/09/2012 12:29:28 [ICHttp 011297E8] serving client: 127.0.0.1
-14/09/2012 12:29:29 [ICHttp 011297E8] serving client: 127.0.0.1
-14/09/2012 12:29:29 [ICHttp 011297E8] serving client: 127.0.0.1
-14/09/2012 12:31:15 [ICHttp 011297E8] serving client: 127.0.0.1
-14/09/2012 12:31:16 [ICHttp 011297E8] serving client: 127.0.0.1
-14/09/2012 12:31:17 [ICHttp 011297E8] serving client: 127.0.0.1
-14/09/2012 12:31:17 [ICHttp 011297E8] serving client: 127.0.0.1
-14/09/2012 12:31:17 [ICHttp 011297E8] serving client: 127.0.0.1
-14/09/2012 12:31:17 [ICHttp 011297E8] serving client: 127.0.0.1
-14/09/2012 12:31:17 [ICHttp 011297E8] serving client: 127.0.0.1
-14/09/2012 12:31:17 [ICHttp 011297E8] serving client: 127.0.0.1
-14/09/2012 12:31:19 [ICHttp 011297E8] serving client: 127.0.0.1
-14/09/2012 12:31:19 [ICHttp 011297E8] serving client: 127.0.0.1
-14/09/2012 12:31:19 [ICHttp 011297E8] serving client: 127.0.0.1
-14/09/2012 12:31:19 [ICHttp 011297E8] serving client: 127.0.0.1
-14/09/2012 12:31:19 [ICHttp 011297E8] serving client: 127.0.0.1
-14/09/2012 12:31:19 [ICHttp 011297E8] serving client: 127.0.0.1
-14/09/2012 12:31:19 [ICHttp 011297E8] serving client: 127.0.0.1
-14/09/2012 12:31:21 [ICHttp 011297E8] serving client: 127.0.0.1
-14/09/2012 12:31:21 [ICHttp 011297E8] serving client: 127.0.0.1
-14/09/2012 12:31:21 [ICHttp 011297E8] serving client: 127.0.0.1
-14/09/2012 12:31:27 [ICHttp 011297E8] serving client: 127.0.0.1
-14/09/2012 12:31:28 [ICHttp 011297E8] serving client: 127.0.0.1
-14/09/2012 12:31:28 [ICHttp 011297E8] serving client: 127.0.0.1
-14/09/2012 12:31:29 [ICHttp 011297E8] serving client: 127.0.0.1
-14/09/2012 12:31:31 [ICHttp 011297E8] serving client: 127.0.0.1
-14/09/2012 12:31:31 [ICHttp 011297E8] serving client: 127.0.0.1
-14/09/2012 12:31:32 [ICHttp 011297E8] serving client: 127.0.0.1
-14/09/2012 12:31:34 [ICHttp 011297E8] serving client: 127.0.0.1
-14/09/2012 12:31:34 [ICHttp 011297E8] serving client: 127.0.0.1
-14/09/2012 12:31:34 [ICHttp 011297E8] serving client: 127.0.0.1
-14/09/2012 12:31:35 [ICHttp 011297E8] serving client: 127.0.0.1
-14/09/2012 12:31:36 [ICHttp 011297E8] serving client: 127.0.0.1
-14/09/2012 12:31:41 [ICHttp 011297E8] serving client: 127.0.0.1
-14/09/2012 12:31:42 [ICHttp 011297E8] serving client: 127.0.0.1
-14/09/2012 12:31:42 [ICHttp 011297E8] serving client: 127.0.0.1
-14/09/2012 12:31:42 [ICHttp 011297E8] serving client: 127.0.0.1
-14/09/2012 12:31:42 [ICHttp 011297E8] serving client: 127.0.0.1
-14/09/2012 12:31:43 [ICHttp 011297E8] serving client: 127.0.0.1
-14/09/2012 12:31:43 [ICHttp 011297E8] serving client: 127.0.0.1
-14/09/2012 12:31:45 [ICHttp 011297E8] serving client: 127.0.0.1
-14/09/2012 12:31:47 [ICHttp 011297E8] serving client: 127.0.0.1
-14/09/2012 12:31:59 [ICHttp 011297E8] serving client: 127.0.0.1
-14/09/2012 12:32:01 [ICHttp 011297E8] serving client: 127.0.0.1
-14/09/2012 12:32:07 [ICHttp 011297E8] serving client: 127.0.0.1
-14/09/2012 12:32:07 [ICHttp 011297E8] serving client: 127.0.0.1
-14/09/2012 13:11:29 [ICEngine 0015EEE8] #0. CODEC, 512, 1
-14/09/2012 13:11:29 [ICEngine 0015EEE8] #1. WIDTH, 257, 640
-14/09/2012 13:11:29 [ICEngine 0015EEE8] #2. HEIGHT, 256, 480
-14/09/2012 13:11:29 [ICEngine 0015EEE8] #3. Card_Slot, 3363, -34
-14/09/2012 13:11:29 [ICEngine 0015EEE8] #4. Card_Slot, 3363, -1
-14/09/2012 13:11:30 [ICEngine 0015EEE8] Engine Srart! (is not error!)
-14/09/2012 13:11:30 [ICTransformWorker 0015C7B0] ::Init() Prepare module 'ICFileIn'
-14/09/2012 13:11:30 [ICTransformWorker 00144FD0] ::Init() Prepare module 'ICH264'
-14/09/2012 13:11:30 [ICH264 00235830] ::FUpdate() Channel name 'ch0' to 'ch1'
-14/09/2012 13:11:30 [ICH264 00235830] Create New Environment!
-14/09/2012 13:11:30 [ICH264 00235830] CmdRtspStart Begin...
-14/09/2012 13:11:30 [ICH264 00235830] Play this stream using the URL 'rtsp://192.168.1.36:8554/ch1'
-14/09/2012 13:11:31 [ICH264 00235830] We use port 80 for optional RTSP-over-HTTP tunneling.
-14/09/2012 13:11:31 [ICH264 00235830] CmdRtspStart OK!
-14/09/2012 13:11:31 [ICTransformWorker 001521F8] ::Init() Prepare module 'ICFileIn'
-14/09/2012 13:11:31 [ICTransformWorker 001B60F0] ::Init() Prepare module 'ICHttp'
-14/09/2012 13:11:31 [ICHttp 01129398] ::FUpdate() port number set to 81
-14/09/2012 13:11:31 [ICTransformWorker 01114738] ::Init() Prepare module 'ICH264'
-14/09/2012 13:11:31 [ICH264 0112B4B8] ::FUpdate() Channel name 'ch0' to 'ch2'
-14/09/2012 13:11:31 [ICH264 00235830] CmdRtspStop Begin...
-14/09/2012 13:11:32 [ICTransformWorker 001B60F0] Stop Process for 'ICHttp' !
-14/09/2012 13:11:32 [ICH264 00235830] CmdRtspStop OK!
-14/09/2012 13:11:32 [ICH264 0112B4B8] CmdRtspStop Begin...
-14/09/2012 13:11:32 [ICH264 0112B4B8] CmdRtspStop OK!
-14/09/2012 13:11:36 [ICH264 0112B4B8] Create New Environment!
-14/09/2012 13:11:36 [ICH264 00235830] CmdRtspStart Begin...
-14/09/2012 13:11:36 [ICH264 00235830] Play this stream using the URL 'rtsp://192.168.1.36:8554/ch1'
-14/09/2012 13:11:36 [ICH264 00235830] We use port 80 for optional RTSP-over-HTTP tunneling.
-14/09/2012 13:11:36 [ICH264 00235830] CmdRtspStart OK!
-14/09/2012 13:11:36 [ICH264 0112B4B8] CmdRtspStart Begin...
-14/09/2012 13:11:36 [ICH264 0112B4B8] Play this stream using the URL 'rtsp://192.168.1.36:8554/ch2'
-14/09/2012 13:11:36 [ICH264 0112B4B8] We use port 8000 for optional RTSP-over-HTTP tunneling.
-14/09/2012 13:11:36 [ICH264 0112B4B8] CmdRtspStart OK!
-14/09/2012 13:11:36 [ICTransformWorker 011153F0] ::Init() Prepare module 'ICFileIn'
-14/09/2012 13:11:36 [ICTransformWorker 0112D3E8] ::Init() Prepare module 'ICH264'
-14/09/2012 13:11:36 [ICH264 0112E188] ::FUpdate() Channel name 'ch0' to 'ch3'
-14/09/2012 13:11:36 [ICH264 00235830] CmdRtspStop Begin...
-14/09/2012 13:11:37 [ICH264 00235830] CmdRtspStop OK!
-14/09/2012 13:11:37 [ICH264 0112B4B8] CmdRtspStop Begin...
-14/09/2012 13:11:38 [ICH264 0112B4B8] CmdRtspStop OK!
-14/09/2012 13:11:38 [ICH264 0112E188] CmdRtspStop Begin...
-14/09/2012 13:11:38 [ICH264 0112E188] CmdRtspStop OK!
-14/09/2012 13:11:41 [ICH264 0112E188] Create New Environment!
-14/09/2012 13:11:41 [ICH264 00235830] CmdRtspStart Begin...
-14/09/2012 13:11:41 [ICH264 00235830] Play this stream using the URL 'rtsp://192.168.1.36:8554/ch1'
-14/09/2012 13:11:41 [ICH264 00235830] We use port 8000 for optional RTSP-over-HTTP tunneling.
-14/09/2012 13:11:41 [ICH264 00235830] CmdRtspStart OK!
-14/09/2012 13:11:41 [ICH264 0112B4B8] CmdRtspStart Begin...
-14/09/2012 13:11:42 [ICH264 0112B4B8] Play this stream using the URL 'rtsp://192.168.1.36:8554/ch2'
-14/09/2012 13:11:42 [ICH264 0112B4B8] We use port 8080 for optional RTSP-over-HTTP tunneling.
-14/09/2012 13:11:42 [ICH264 0112B4B8] CmdRtspStart OK!
-14/09/2012 13:11:42 [ICH264 0112E188] CmdRtspStart Begin...
-14/09/2012 13:11:42 [ICH264 0112E188] We use port 8081 for optional RTSP-over-HTTP tunneling.
-14/09/2012 13:11:42 [ICH264 0112E188] CmdRtspStart OK!
-14/09/2012 13:11:42 [ICTransformWorker 0112EEC8] ::Init() Prepare module 'ICUpdateService'
-14/09/2012 13:11:42 [ICTransformWorker 0112FA50] ::Init() Prepare module 'ICWatchDog'
-14/09/2012 13:11:47 [ICH264 0112E188] ::Process() Beginning streaming ...
-14/09/2012 13:11:58 [ICHttp 01129398] serving client: 127.0.0.1
-14/09/2012 13:11:58 [ICHttp 01129398] serving client: 127.0.0.1
-14/09/2012 13:11:58 [ICHttp 01129398] serving client: 127.0.0.1
-14/09/2012 13:11:58 [ICHttp 01129398] serving client: 127.0.0.1
-14/09/2012 13:11:58 [ICHttp 01129398] serving client: 127.0.0.1
-14/09/2012 13:11:58 [ICHttp 01129398] serving client: 127.0.0.1
-14/09/2012 13:12:04 [ICHttp 01129398] serving client: 127.0.0.1
-14/09/2012 13:12:04 [ICHttp 01129398] serving client: 127.0.0.1
-14/09/2012 13:12:05 [ICHttp 01129398] serving client: 127.0.0.1
-14/09/2012 13:12:05 [ICHttp 01129398] serving client: 127.0.0.1
-14/09/2012 13:12:06 [ICHttp 01129398] serving client: 127.0.0.1
-14/09/2012 13:12:06 [ICHttp 01129398] serving client: 127.0.0.1
-14/09/2012 13:12:06 [ICHttp 01129398] serving client: 127.0.0.1
-14/09/2012 13:12:07 [ICHttp 01129398] serving client: 127.0.0.1
-14/09/2012 13:12:07 [ICHttp 01129398] serving client: 127.0.0.1
-14/09/2012 13:12:07 [ICHttp 01129398] serving client: 127.0.0.1
-14/09/2012 13:12:08 [ICHttp 01129398] serving client: 127.0.0.1
-14/09/2012 13:12:10 [ICHttp 01129398] serving client: 127.0.0.1
-14/09/2012 13:12:11 [ICHttp 01129398] serving client: 127.0.0.1
-14/09/2012 13:12:13 [ICHttp 01129398] serving client: 127.0.0.1
-14/09/2012 13:12:15 [ICHttp 01129398] serving client: 127.0.0.1
-14/09/2012 13:12:16 [ICHttp 01129398] serving client: 127.0.0.1
-14/09/2012 13:12:17 [ICHttp 01129398] serving client: 127.0.0.1
-19/09/2012 19:28:04 [ICEngine 0015EEE8] #0. CODEC, 512, 1
-19/09/2012 19:28:04 [ICEngine 0015EEE8] #1. WIDTH, 257, 640
-19/09/2012 19:28:04 [ICEngine 0015EEE8] #2. HEIGHT, 256, 480
-19/09/2012 19:28:04 [ICEngine 0015EEE8] #3. Card_Slot, 3363, -34
-19/09/2012 19:28:04 [ICEngine 0015EEE8] #4. Card_Slot, 3363, -1
-19/09/2012 19:28:05 [ICEngine 0015EEE8] Engine Srart! (is not error!)
-19/09/2012 19:28:05 [ICTransformWorker 0015C7B0] ::Init() Prepare module 'ICFileIn'
-19/09/2012 19:28:05 [ICTransformWorker 00144FD0] ::Init() Prepare module 'ICH264'
-19/09/2012 19:28:05 [ICH264 00235830] ::FUpdate() Channel name 'ch0' to 'ch1'
-19/09/2012 19:28:05 [ICH264 00235830] Create New Environment!
-19/09/2012 19:28:06 [ICH264 00235830] CmdRtspStart Begin...
-19/09/2012 19:28:06 [ICH264 00235830] Play this stream using the URL 'rtsp://192.168.1.36:8554/ch1'
-19/09/2012 19:28:06 [ICH264 00235830] We use port 80 for optional RTSP-over-HTTP tunneling.
-19/09/2012 19:28:06 [ICH264 00235830] CmdRtspStart OK!
-19/09/2012 19:28:06 [ICTransformWorker 001521F8] ::Init() Prepare module 'ICFileIn'
-19/09/2012 19:28:06 [ICTransformWorker 001B60F0] ::Init() Prepare module 'ICHttp'
-19/09/2012 19:28:06 [ICHttp 01129550] ::FUpdate() port number set to 81
-19/09/2012 19:28:06 [ICTransformWorker 01114918] ::Init() Prepare module 'ICH264'
-19/09/2012 19:28:07 [ICH264 0112BD70] ::FUpdate() Channel name 'ch0' to 'ch2'
-19/09/2012 19:28:07 [ICH264 00235830] CmdRtspStop Begin...
-19/09/2012 19:28:07 [ICTransformWorker 001B60F0] Stop Process for 'ICHttp' !
-19/09/2012 19:28:08 [ICH264 00235830] CmdRtspStop OK!
-19/09/2012 19:28:08 [ICH264 0112BD70] CmdRtspStop Begin...
-19/09/2012 19:28:08 [ICH264 0112BD70] CmdRtspStop OK!
-19/09/2012 19:28:11 [ICH264 0112BD70] Create New Environment!
-19/09/2012 19:28:11 [ICH264 00235830] CmdRtspStart Begin...
-19/09/2012 19:28:12 [ICH264 00235830] Play this stream using the URL 'rtsp://192.168.1.36:8554/ch1'
-19/09/2012 19:28:12 [ICH264 00235830] We use port 80 for optional RTSP-over-HTTP tunneling.
-19/09/2012 19:28:12 [ICH264 00235830] CmdRtspStart OK!
-19/09/2012 19:28:12 [ICH264 0112BD70] CmdRtspStart Begin...
-19/09/2012 19:28:12 [ICH264 0112BD70] Play this stream using the URL 'rtsp://192.168.1.36:8554/ch2'
-19/09/2012 19:28:12 [ICH264 0112BD70] We use port 8000 for optional RTSP-over-HTTP tunneling.
-19/09/2012 19:28:12 [ICH264 0112BD70] CmdRtspStart OK!
-19/09/2012 19:28:12 [ICTransformWorker 011155D0] ::Init() Prepare module 'ICFileIn'
-19/09/2012 19:28:12 [ICTransformWorker 0112D7C8] ::Init() Prepare module 'ICH264'
-19/09/2012 19:28:13 [ICH264 0112E568] ::FUpdate() Channel name 'ch0' to 'ch3'
-19/09/2012 19:28:13 [ICH264 00235830] CmdRtspStop Begin...
-19/09/2012 19:28:14 [ICH264 00235830] CmdRtspStop OK!
-19/09/2012 19:28:14 [ICH264 0112BD70] CmdRtspStop Begin...
-19/09/2012 19:28:15 [ICH264 0112BD70] CmdRtspStop OK!
-19/09/2012 19:28:15 [ICH264 0112E568] CmdRtspStop Begin...
-19/09/2012 19:28:15 [ICH264 0112E568] CmdRtspStop OK!
-19/09/2012 19:28:18 [ICH264 0112E568] Create New Environment!
-19/09/2012 19:28:18 [ICH264 00235830] CmdRtspStart Begin...
-19/09/2012 19:28:18 [ICH264 00235830] Play this stream using the URL 'rtsp://192.168.1.36:8554/ch1'
-19/09/2012 19:28:18 [ICH264 00235830] We use port 8000 for optional RTSP-over-HTTP tunneling.
-19/09/2012 19:28:18 [ICH264 00235830] CmdRtspStart OK!
-19/09/2012 19:28:18 [ICH264 0112BD70] CmdRtspStart Begin...
-19/09/2012 19:28:18 [ICH264 0112BD70] Play this stream using the URL 'rtsp://192.168.1.36:8554/ch2'
-19/09/2012 19:28:18 [ICH264 0112BD70] We use port 8080 for optional RTSP-over-HTTP tunneling.
-19/09/2012 19:28:18 [ICH264 0112BD70] CmdRtspStart OK!
-19/09/2012 19:28:18 [ICH264 0112E568] CmdRtspStart Begin...
-19/09/2012 19:28:18 [ICH264 0112E568] We use port 8081 for optional RTSP-over-HTTP tunneling.
-19/09/2012 19:28:18 [ICH264 0112E568] CmdRtspStart OK!
-19/09/2012 19:28:18 [ICTransformWorker 0112F190] ::Init() Prepare module 'ICUpdateService'
-19/09/2012 19:28:18 [ICTransformWorker 0112FEE0] ::Init() Prepare module 'ICWatchDog'
-19/09/2012 19:28:23 [ICH264 0112E568] ::Process() Beginning streaming ...
-19/09/2012 19:28:46 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:28:46 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:28:46 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:28:46 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:28:46 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:28:46 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:28:51 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:28:51 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:28:51 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:28:52 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:28:52 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:28:52 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:28:52 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:28:52 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:28:52 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:28:53 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:28:53 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:28:56 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:28:57 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:28:57 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:28:58 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:29:01 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:29:01 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:29:03 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:29:05 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:29:06 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:29:06 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:29:06 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:29:06 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:29:12 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:29:13 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:29:14 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:29:18 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:29:19 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:29:22 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:29:23 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:40:18 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:40:18 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:40:18 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:40:18 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:40:18 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:40:18 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:40:19 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:40:19 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:40:20 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:40:20 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:40:20 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:40:20 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:40:21 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:40:21 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:40:21 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:40:22 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:40:22 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:40:22 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:40:22 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:40:22 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:44:30 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:44:30 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:44:30 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:44:30 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:44:31 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:44:31 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:44:31 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:44:31 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:44:31 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:44:31 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:44:31 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:44:32 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:44:32 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:44:32 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:44:34 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:44:35 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:44:36 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:44:37 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:44:37 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:44:37 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:44:37 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:44:37 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:44:37 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:44:38 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:44:38 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:44:38 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:44:38 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:44:38 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:44:39 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:44:39 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:45:34 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:45:34 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:45:34 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:45:34 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:45:34 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:45:34 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:45:35 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:45:36 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:45:38 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:45:41 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:45:41 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:45:43 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:45:43 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:45:43 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:47:59 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:48:01 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:48:03 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:48:03 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:48:03 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:48:03 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:48:03 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:48:03 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:48:03 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:48:04 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:48:04 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:48:05 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:48:05 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:48:05 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:48:10 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:48:42 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:48:42 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:48:43 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:48:43 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:48:43 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:48:44 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:48:45 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:48:46 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:48:46 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:48:46 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:48:46 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:48:48 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:48:48 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:48:48 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:48:49 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:48:50 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:53:58 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:54:00 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:54:01 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:54:01 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:54:01 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:54:01 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:54:02 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:54:03 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:54:04 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:54:07 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:54:08 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:54:09 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:54:09 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:54:09 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:54:10 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:54:39 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:54:41 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:54:41 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:54:42 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:54:44 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:54:44 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:55:01 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:55:01 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:55:01 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 19:55:01 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:02:07 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:02:08 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:02:08 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:02:08 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:02:08 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:02:08 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:02:08 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:02:09 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:02:09 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:02:09 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:02:09 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:02:10 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:02:10 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:02:10 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:02:11 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:02:12 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:02:12 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:02:13 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:02:13 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:02:13 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:02:13 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:02:13 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:10:17 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:10:19 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:10:19 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:10:19 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:10:19 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:10:19 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:10:21 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:10:21 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:10:21 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:10:21 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:10:21 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:10:22 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:10:22 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:10:22 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:10:25 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:10:27 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:10:27 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:10:28 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:10:28 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:10:29 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:18:33 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:18:34 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:18:34 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:18:35 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:18:35 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:18:36 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:20:31 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:20:31 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:20:31 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:20:32 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:20:32 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:20:32 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:23:04 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:23:05 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:23:05 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:23:06 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:23:06 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:23:06 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:24:43 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:24:44 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:24:44 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:24:45 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:24:45 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:24:45 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:25:00 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:25:00 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:25:01 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:25:01 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:25:01 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:25:02 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:29:42 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:29:42 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:29:42 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:29:42 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:29:42 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:29:46 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:30:19 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:30:29 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:30:31 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:30:39 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:30:40 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:30:53 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:30:53 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:31:08 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:31:10 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:31:11 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:31:12 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:31:14 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:31:15 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:31:15 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:31:15 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:31:15 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:41:35 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:41:36 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:41:38 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:41:39 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:41:39 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:41:39 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:41:39 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:41:40 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:41:41 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:41:41 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:41:41 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:41:42 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:41:42 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:41:42 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:41:42 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:41:43 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:41:44 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:41:44 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:41:45 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:41:47 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:41:47 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:41:47 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:41:48 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:41:48 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:41:48 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:45:20 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:45:22 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:45:22 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:45:22 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:45:23 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:45:23 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:45:24 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:45:25 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:45:25 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:45:25 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:45:26 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:45:26 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:45:26 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:45:26 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:45:31 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:45:32 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:45:32 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:45:33 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:45:35 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:45:35 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:46:07 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:46:10 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:46:10 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:46:10 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:46:11 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:46:11 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:46:11 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:46:12 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:46:12 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:46:13 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:46:13 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:46:13 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:46:13 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:46:13 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:46:15 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:46:15 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:46:15 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:46:17 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:46:25 [ICHttp 01129550] serving client: 127.0.0.1
-19/09/2012 20:46:25 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:01:51 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:01:53 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:01:54 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:01:55 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:04:18 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:04:25 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:04:29 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:04:34 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:04:47 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:05:06 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:05:07 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:05:31 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:05:54 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:06:37 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:07:03 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:08:02 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:08:09 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:08:09 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:08:42 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:08:45 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:08:47 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:08:48 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:08:48 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:08:49 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:08:49 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:08:53 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:08:55 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:08:55 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:08:56 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:08:56 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:08:56 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:08:56 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:08:57 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:08:59 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:08:59 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:09:03 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:09:04 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:09:04 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:13:43 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:13:44 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:13:44 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:13:44 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:13:44 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:13:44 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:13:44 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:13:44 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:13:45 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:13:45 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:13:45 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:13:45 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:13:46 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:13:46 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:13:46 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:13:47 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:13:47 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:13:48 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:13:50 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:13:50 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:14:04 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:14:07 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:14:08 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:14:08 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:14:08 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:14:08 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:16:25 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:16:27 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:16:28 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:16:28 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:16:29 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:16:29 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:16:29 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:16:30 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:16:30 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:16:31 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:16:31 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:16:32 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:16:35 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:16:36 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:16:37 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:16:37 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:16:38 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:16:39 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:16:41 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:16:41 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:18:40 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:18:40 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:18:40 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:18:40 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:18:40 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:18:40 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:20:23 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:20:25 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:20:25 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:20:26 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:20:27 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:20:27 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:20:28 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:20:33 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:20:34 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:20:34 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:20:37 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:20:38 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:20:39 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:20:39 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:20:39 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:20:40 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:20:40 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:20:41 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:20:43 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:20:43 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:21:20 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:21:22 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:21:22 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:21:22 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:21:22 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:21:23 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:21:23 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:21:23 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:21:23 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:21:24 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:21:25 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:21:29 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:21:30 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:21:30 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:21:33 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:21:33 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:21:33 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:21:34 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:21:36 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:21:37 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:23:59 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:24:01 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:24:01 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:24:01 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:24:01 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:24:01 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:24:01 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:24:02 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:24:02 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:24:02 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:24:04 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:24:04 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:24:06 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:24:07 [ICHttp 01129550] serving client: 127.0.0.1
+19/09/2012 21:29:22 [ICEngine 0015EEE8] #0. CODEC, 512, 1
+19/09/2012 21:29:22 [ICEngine 0015EEE8] #1. WIDTH, 257, 640
+19/09/2012 21:29:22 [ICEngine 0015EEE8] #2. HEIGHT, 256, 480
+19/09/2012 21:29:22 [ICEngine 0015EEE8] #3. Card_Slot, 3363, -34
+19/09/2012 21:29:22 [ICEngine 0015EEE8] #4. Card_Slot, 3363, -1
+19/09/2012 21:29:22 [ICEngine 0015EEE8] Engine Srart! (is not error!)
+19/09/2012 21:29:22 [ICTransformWorker 0015C7B0] ::Init() Prepare module 'ICFileIn'
+19/09/2012 21:29:22 [ICTransformWorker 00144FD0] ::Init() Prepare module 'ICH264'
+19/09/2012 21:29:23 [ICH264 00235830] ::FUpdate() Channel name 'ch0' to 'ch1'
+19/09/2012 21:29:23 [ICH264 00235830] Create New Environment!
+19/09/2012 21:29:23 [ICH264 00235830] CmdRtspStart Begin...
+19/09/2012 21:29:23 [ICH264 00235830] Play this stream using the URL 'rtsp://192.168.1.36:8554/ch1'
+19/09/2012 21:29:23 [ICH264 00235830] We use port 80 for optional RTSP-over-HTTP tunneling.
+19/09/2012 21:29:23 [ICH264 00235830] CmdRtspStart OK!
+19/09/2012 21:29:23 [ICTransformWorker 001521F8] ::Init() Prepare module 'ICFileIn'
+19/09/2012 21:29:23 [ICTransformWorker 001B60F0] ::Init() Prepare module 'ICHttp'
+19/09/2012 21:29:24 [ICHttp 011296E0] ::FUpdate() port number set to 81
+19/09/2012 21:29:24 [ICTransformWorker 01114A78] ::Init() Prepare module 'ICH264'
+19/09/2012 21:29:24 [ICH264 0112BF00] ::FUpdate() Channel name 'ch0' to 'ch2'
+19/09/2012 21:29:24 [ICH264 00235830] CmdRtspStop Begin...
+19/09/2012 21:29:25 [ICTransformWorker 001B60F0] Stop Process for 'ICHttp' !
+19/09/2012 21:29:25 [ICH264 00235830] CmdRtspStop OK!
+19/09/2012 21:29:25 [ICH264 0112BF00] CmdRtspStop Begin...
+19/09/2012 21:29:25 [ICH264 0112BF00] CmdRtspStop OK!
+19/09/2012 21:29:29 [ICH264 0112BF00] Create New Environment!
+19/09/2012 21:29:29 [ICH264 00235830] CmdRtspStart Begin...
+19/09/2012 21:29:29 [ICH264 00235830] Play this stream using the URL 'rtsp://192.168.1.36:8554/ch1'
+19/09/2012 21:29:29 [ICH264 00235830] We use port 80 for optional RTSP-over-HTTP tunneling.
+19/09/2012 21:29:29 [ICH264 00235830] CmdRtspStart OK!
+19/09/2012 21:29:29 [ICH264 0112BF00] CmdRtspStart Begin...
+19/09/2012 21:29:29 [ICH264 0112BF00] Play this stream using the URL 'rtsp://192.168.1.36:8554/ch2'
+19/09/2012 21:29:29 [ICH264 0112BF00] We use port 8000 for optional RTSP-over-HTTP tunneling.
+19/09/2012 21:29:29 [ICH264 0112BF00] CmdRtspStart OK!
+19/09/2012 21:29:29 [ICTransformWorker 01115730] ::Init() Prepare module 'ICFileIn'
+19/09/2012 21:29:29 [ICTransformWorker 0112DA68] ::Init() Prepare module 'ICH264'
+19/09/2012 21:29:29 [ICH264 0112E808] ::FUpdate() Channel name 'ch0' to 'ch3'
+19/09/2012 21:29:29 [ICH264 00235830] CmdRtspStop Begin...
+19/09/2012 21:29:30 [ICH264 00235830] CmdRtspStop OK!
+19/09/2012 21:29:30 [ICH264 0112BF00] CmdRtspStop Begin...
+19/09/2012 21:29:31 [ICH264 0112BF00] CmdRtspStop OK!
+19/09/2012 21:29:31 [ICH264 0112E808] CmdRtspStop Begin...
+19/09/2012 21:29:31 [ICH264 0112E808] CmdRtspStop OK!
+19/09/2012 21:29:35 [ICH264 0112E808] Create New Environment!
+19/09/2012 21:29:35 [ICH264 00235830] CmdRtspStart Begin...
+19/09/2012 21:29:35 [ICH264 00235830] Play this stream using the URL 'rtsp://192.168.1.36:8554/ch1'
+19/09/2012 21:29:35 [ICH264 00235830] We use port 8000 for optional RTSP-over-HTTP tunneling.
+19/09/2012 21:29:35 [ICH264 00235830] CmdRtspStart OK!
+19/09/2012 21:29:35 [ICH264 0112BF00] CmdRtspStart Begin...
+19/09/2012 21:29:35 [ICH264 0112BF00] Play this stream using the URL 'rtsp://192.168.1.36:8554/ch2'
+19/09/2012 21:29:35 [ICH264 0112BF00] We use port 8080 for optional RTSP-over-HTTP tunneling.
+19/09/2012 21:29:35 [ICH264 0112BF00] CmdRtspStart OK!
+19/09/2012 21:29:35 [ICH264 0112E808] CmdRtspStart Begin...
+19/09/2012 21:29:35 [ICH264 0112E808] We use port 8081 for optional RTSP-over-HTTP tunneling.
+19/09/2012 21:29:35 [ICH264 0112E808] CmdRtspStart OK!
+19/09/2012 21:29:35 [ICTransformWorker 0112F568] ::Init() Prepare module 'ICUpdateService'
+19/09/2012 21:29:35 [ICTransformWorker 01130118] ::Init() Prepare module 'ICWatchDog'
+19/09/2012 21:29:40 [ICH264 0112E808] ::Process() Beginning streaming ...
+19/09/2012 21:31:46 [ICHttp 011296E0] serving client: 127.0.0.1
+19/09/2012 21:31:51 [ICHttp 011296E0] serving client: 127.0.0.1
+19/09/2012 21:31:52 [ICHttp 011296E0] serving client: 127.0.0.1
+19/09/2012 21:31:52 [ICHttp 011296E0] serving client: 127.0.0.1
+19/09/2012 21:31:54 [ICHttp 011296E0] serving client: 127.0.0.1
+19/09/2012 21:31:54 [ICHttp 011296E0] serving client: 127.0.0.1
+19/09/2012 21:32:01 [ICHttp 011296E0] serving client: 127.0.0.1
+19/09/2012 21:32:05 [ICHttp 011296E0] serving client: 127.0.0.1
+19/09/2012 21:32:07 [ICHttp 011296E0] serving client: 127.0.0.1
+19/09/2012 21:32:08 [ICHttp 011296E0] serving client: 127.0.0.1
+19/09/2012 21:32:08 [ICHttp 011296E0] serving client: 127.0.0.1
+19/09/2012 21:32:10 [ICHttp 011296E0] serving client: 127.0.0.1
+19/09/2012 21:32:11 [ICHttp 011296E0] serving client: 127.0.0.1
+19/09/2012 21:32:13 [ICHttp 011296E0] serving client: 127.0.0.1
+19/09/2012 21:32:14 [ICHttp 011296E0] serving client: 127.0.0.1
+19/09/2012 21:32:14 [ICHttp 011296E0] serving client: 127.0.0.1
+19/09/2012 21:32:14 [ICHttp 011296E0] serving client: 127.0.0.1
+19/09/2012 21:32:14 [ICHttp 011296E0] serving client: 127.0.0.1
+19/09/2012 21:32:14 [ICHttp 011296E0] serving client: 127.0.0.1
+19/09/2012 21:32:14 [ICHttp 011296E0] serving client: 127.0.0.1
+19/09/2012 21:32:14 [ICHttp 011296E0] serving client: 127.0.0.1
+19/09/2012 21:32:15 [ICHttp 011296E0] serving client: 127.0.0.1
+19/09/2012 21:32:15 [ICHttp 011296E0] serving client: 127.0.0.1
+19/09/2012 21:32:15 [ICHttp 011296E0] serving client: 127.0.0.1
+19/09/2012 21:32:44 [ICHttp 011296E0] serving client: 127.0.0.1
+19/09/2012 21:32:46 [ICHttp 011296E0] serving client: 127.0.0.1

@@ -354,7 +354,7 @@ function addParams(data) {
 				$( '<a href="#"><span id="returnArrow" for="' + key + '" class="ui-icon ui-icon-arrowreturnthick-1-w"></span></a>' ).appendTo(parent);
 			}
 		});
-		
+
 		// Создать и добавить кнопку "Сохранить изменения"
 		$('<button>Сохранить изменения</button>').addClass('btn disabled').attr('id', 'saveBtn').attr( 'disabled', 'disabled' ).appendTo( $('div.span9') );
 		
@@ -442,7 +442,9 @@ function addControl(parent, paramName, attrs) {
 				input.addClass('span3');
 			}
 			*/
-			var input = $('<input type="text" />').attr('name', 'date').attr( 'class', 'datepicker' ).appendTo(parent);
+			var input = $('<input type="text" value=""/>').attr('name', 'date').attr( 'id', paramName ).appendTo(parent);
+
+			$( '#' + paramName ).datetimepicker();
 		}
 		
 		
