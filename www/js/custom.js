@@ -348,7 +348,8 @@ function addParams(data) {
                 var row = $('<tr></tr>').appendTo( $('#paramsTable tbody') );
                 
                 // Добавить название параметра в таблицу
-                $('<td><span>'+ key +'</span></td>').addClass('col1').appendTo( row );
+                var param_name = val.COMMENT.Value ? val.COMMENT.Value : key;
+                $('<td><span>'+ param_name +'</span></td>').addClass('col1').appendTo( row );
                 
                 // Создать и добавить контрол для параметра
                 var parent = $('<td class="control-group"></td>').addClass('col2').attr( 'id', key ).appendTo( row );
@@ -452,7 +453,7 @@ function addControl(parent, paramName, attrs) {
                 input.addClass('input-xlarge');
             } 
             else if ( attrs.Type == 'DATETIME' ) {
-                input.addClass('input-large');
+                input.addClass('input-medium');
             }
             else {
                 input.addClass('span3');
