@@ -18,3 +18,11 @@
 19/09/2012 21:29:22 [ICEngine 0015EEE8] Test DMA Copy End!
 19/09/2012 21:29:22 [ICEngine 0015EEE8] Engine Srart! (is not error!)
 19/09/2012 21:29:35 [ICH264 0112E808] Error! bad CODEC fourcc!
+21/09/2012 17:26:40 [ICEngine 0015EEE8] Test DMA Copy Begin...
+21/09/2012 17:26:40 [ICEngine 0015EEE8] Test DMA Copy End!
+21/09/2012 17:26:40 [ICEngine 0015EEE8] Engine Srart! (is not error!)
+21/09/2012 17:26:52 [ICH264 0112E600] Error! bad CODEC fourcc!
+21/09/2012 17:31:10 [ICEngine 001CB0E8] Test DMA Copy Begin...
+21/09/2012 17:31:10 [ICEngine 001CB0E8] Test DMA Copy End!
+21/09/2012 17:31:10 [ICEngine 001CB0E8] Engine Srart! (is not error!)
+21/09/2012 17:31:22 [ICH264 0112DA38] Error! bad CODEC fourcc!

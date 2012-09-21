@@ -61,13 +61,19 @@ var DATA_TYPES = {
 		HINT: 				"Формат данных строка",
 		ABBREVIATED_NAME: 	"fcc"
 	},
-	DATETIME: { 			// TODO протестить, контроль макс мин не делаю, т.к. лучше это делать на сервере слишком ерьезная проверка?
+	DATETIME: { 			// TODO протестить
 		ALLOW_CHARS: 		/[\d\.\/\s\:]/,
-		FORMAT: 			/(^.*$)/,								// TODO После установки контрола
+		FORMAT: 			/(^.*$)/,				// TODO После установки контрола
 		HINT: 				"Формат данных: 00/00/0000 00:00:00.000",
 		ABBREVIATED_NAME: 	"dt"
 	},
 	BOOL: { 				// TODO протестить
+		ABBREVIATED_NAME: 	"b"
+	},
+	FILE: { 				// TODO пока это только заглушка
+		ABBREVIATED_NAME: 	"b"
+	},
+	TEXT: { 				// TODO протестить
 		ABBREVIATED_NAME: 	"b"
 	},
 	DATA: { 				// TODO протестить
@@ -431,7 +437,7 @@ function addControl(parent, paramName, attrs) {
 		} 
 		else {
 			// Создание обычного инпута для цифрового или строкового типа
-			/*
+			
 			// Создать и добавить контрол
 			var input = $('<input type="text" >').attr('value', attrs.Value).attr( 'id', paramName ).appendTo(parent);
 			
@@ -441,13 +447,7 @@ function addControl(parent, paramName, attrs) {
 			} else {
 				input.addClass('span3');
 			}
-			*/
-			var input = $('<input type="text" value=""/>').attr('name', 'date').attr( 'id', paramName ).appendTo(parent);
-
-			$( '#' + paramName ).datetimepicker();
 		}
-		
-		
 	} // if (attrs)
 }
 

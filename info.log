@@ -225,3 +225,230 @@
 19/09/2012 21:32:15 [ICHttp 011296E0] serving client: 127.0.0.1
 19/09/2012 21:32:44 [ICHttp 011296E0] serving client: 127.0.0.1
 19/09/2012 21:32:46 [ICHttp 011296E0] serving client: 127.0.0.1
+21/09/2012 17:26:40 [ICEngine 0015EEE8] #0. CODEC, 512, 1
+21/09/2012 17:26:40 [ICEngine 0015EEE8] #1. WIDTH, 257, 640
+21/09/2012 17:26:40 [ICEngine 0015EEE8] #2. HEIGHT, 256, 480
+21/09/2012 17:26:40 [ICEngine 0015EEE8] #3. Card_Slot, 3363, -34
+21/09/2012 17:26:40 [ICEngine 0015EEE8] #4. Card_Slot, 3363, -1
+21/09/2012 17:26:40 [ICEngine 0015EEE8] Engine Srart! (is not error!)
+21/09/2012 17:26:40 [ICTransformWorker 0015C7B0] ::Init() Prepare module 'ICFileIn'
+21/09/2012 17:26:40 [ICTransformWorker 00144FD0] ::Init() Prepare module 'ICH264'
+21/09/2012 17:26:41 [ICH264 00235830] ::FUpdate() Channel name 'ch0' to 'ch1'
+21/09/2012 17:26:41 [ICH264 00235830] Create New Environment!
+21/09/2012 17:26:41 [ICH264 00235830] CmdRtspStart Begin...
+21/09/2012 17:26:41 [ICH264 00235830] Play this stream using the URL 'rtsp://192.168.1.36:8554/ch1'
+21/09/2012 17:26:41 [ICH264 00235830] We use port 80 for optional RTSP-over-HTTP tunneling.
+21/09/2012 17:26:41 [ICH264 00235830] CmdRtspStart OK!
+21/09/2012 17:26:41 [ICTransformWorker 001521F8] ::Init() Prepare module 'ICFileIn'
+21/09/2012 17:26:41 [ICTransformWorker 001B60F0] ::Init() Prepare module 'ICHttp'
+21/09/2012 17:26:41 [ICHttp 011296E0] ::FUpdate() port number set to 81
+21/09/2012 17:26:41 [ICTransformWorker 01114AA0] ::Init() Prepare module 'ICH264'
+21/09/2012 17:26:41 [ICH264 0112B7D8] ::FUpdate() Channel name 'ch0' to 'ch2'
+21/09/2012 17:26:41 [ICH264 00235830] CmdRtspStop Begin...
+21/09/2012 17:26:42 [ICTransformWorker 001B60F0] Stop Process for 'ICHttp' !
+21/09/2012 17:26:42 [ICH264 00235830] CmdRtspStop OK!
+21/09/2012 17:26:42 [ICH264 0112B7D8] CmdRtspStop Begin...
+21/09/2012 17:26:42 [ICH264 0112B7D8] CmdRtspStop OK!
+21/09/2012 17:26:46 [ICH264 0112B7D8] Create New Environment!
+21/09/2012 17:26:46 [ICH264 00235830] CmdRtspStart Begin...
+21/09/2012 17:26:46 [ICH264 00235830] Play this stream using the URL 'rtsp://192.168.1.36:8554/ch1'
+21/09/2012 17:26:46 [ICH264 00235830] We use port 80 for optional RTSP-over-HTTP tunneling.
+21/09/2012 17:26:46 [ICH264 00235830] CmdRtspStart OK!
+21/09/2012 17:26:46 [ICH264 0112B7D8] CmdRtspStart Begin...
+21/09/2012 17:26:46 [ICH264 0112B7D8] Play this stream using the URL 'rtsp://192.168.1.36:8554/ch2'
+21/09/2012 17:26:46 [ICH264 0112B7D8] We use port 8000 for optional RTSP-over-HTTP tunneling.
+21/09/2012 17:26:46 [ICH264 0112B7D8] CmdRtspStart OK!
+21/09/2012 17:26:46 [ICTransformWorker 01115758] ::Init() Prepare module 'ICFileIn'
+21/09/2012 17:26:46 [ICTransformWorker 0112D860] ::Init() Prepare module 'ICH264'
+21/09/2012 17:26:46 [ICH264 0112E600] ::FUpdate() Channel name 'ch0' to 'ch3'
+21/09/2012 17:26:46 [ICH264 00235830] CmdRtspStop Begin...
+21/09/2012 17:26:47 [ICH264 00235830] CmdRtspStop OK!
+21/09/2012 17:26:47 [ICH264 0112B7D8] CmdRtspStop Begin...
+21/09/2012 17:26:48 [ICH264 0112B7D8] CmdRtspStop OK!
+21/09/2012 17:26:48 [ICH264 0112E600] CmdRtspStop Begin...
+21/09/2012 17:26:48 [ICH264 0112E600] CmdRtspStop OK!
+21/09/2012 17:26:52 [ICH264 0112E600] Create New Environment!
+21/09/2012 17:26:52 [ICH264 00235830] CmdRtspStart Begin...
+21/09/2012 17:26:52 [ICH264 00235830] Play this stream using the URL 'rtsp://192.168.1.36:8554/ch1'
+21/09/2012 17:26:52 [ICH264 00235830] We use port 8000 for optional RTSP-over-HTTP tunneling.
+21/09/2012 17:26:52 [ICH264 00235830] CmdRtspStart OK!
+21/09/2012 17:26:52 [ICH264 0112B7D8] CmdRtspStart Begin...
+21/09/2012 17:26:52 [ICH264 0112B7D8] Play this stream using the URL 'rtsp://192.168.1.36:8554/ch2'
+21/09/2012 17:26:52 [ICH264 0112B7D8] We use port 8080 for optional RTSP-over-HTTP tunneling.
+21/09/2012 17:26:52 [ICH264 0112B7D8] CmdRtspStart OK!
+21/09/2012 17:26:52 [ICH264 0112E600] CmdRtspStart Begin...
+21/09/2012 17:26:52 [ICH264 0112E600] We use port 8081 for optional RTSP-over-HTTP tunneling.
+21/09/2012 17:26:52 [ICH264 0112E600] CmdRtspStart OK!
+21/09/2012 17:26:52 [ICTransformWorker 0112F360] ::Init() Prepare module 'ICUpdateService'
+21/09/2012 17:26:52 [ICTransformWorker 0112FF10] ::Init() Prepare module 'ICWatchDog'
+21/09/2012 17:26:54 [ICHttp 011296E0] serving client: 192.168.1.35
+21/09/2012 17:26:57 [ICH264 0112E600] ::Process() Beginning streaming ...
+21/09/2012 17:26:57 [ICHttp 011296E0] serving client: 192.168.1.35
+21/09/2012 17:26:58 [ICHttp 011296E0] serving client: 192.168.1.35
+21/09/2012 17:26:59 [ICHttp 011296E0] serving client: 192.168.1.35
+21/09/2012 17:26:59 [ICHttp 011296E0] serving client: 192.168.1.35
+21/09/2012 17:26:59 [ICHttp 011296E0] serving client: 192.168.1.35
+21/09/2012 17:27:14 [ICHttp 011296E0] serving client: 192.168.1.35
+21/09/2012 17:27:14 [ICHttp 011296E0] serving client: 192.168.1.35
+21/09/2012 17:27:14 [ICHttp 011296E0] serving client: 192.168.1.35
+21/09/2012 17:27:14 [ICHttp 011296E0] serving client: 192.168.1.35
+21/09/2012 17:27:14 [ICHttp 011296E0] serving client: 192.168.1.35
+21/09/2012 17:27:14 [ICHttp 011296E0] serving client: 192.168.1.35
+21/09/2012 17:27:14 [ICHttp 011296E0] serving client: 192.168.1.35
+21/09/2012 17:27:14 [ICHttp 011296E0] serving client: 192.168.1.35
+21/09/2012 17:27:14 [ICHttp 011296E0] serving client: 192.168.1.35
+21/09/2012 17:27:15 [ICHttp 011296E0] serving client: 192.168.1.35
+21/09/2012 17:27:15 [ICHttp 011296E0] serving client: 192.168.1.35
+21/09/2012 17:27:15 [ICHttp 011296E0] serving client: 192.168.1.35
+21/09/2012 17:27:15 [ICHttp 011296E0] serving client: 192.168.1.35
+21/09/2012 17:27:15 [ICHttp 011296E0] serving client: 192.168.1.35
+21/09/2012 17:27:15 [ICHttp 011296E0] serving client: 192.168.1.35
+21/09/2012 17:27:15 [ICHttp 011296E0] serving client: 192.168.1.35
+21/09/2012 17:27:17 [ICHttp 011296E0] serving client: 192.168.1.35
+21/09/2012 17:27:17 [ICHttp 011296E0] serving client: 192.168.1.35
+21/09/2012 17:27:17 [ICHttp 011296E0] serving client: 192.168.1.35
+21/09/2012 17:27:19 [ICHttp 011296E0] serving client: 192.168.1.35
+21/09/2012 17:27:19 [ICHttp 011296E0] serving client: 192.168.1.35
+21/09/2012 17:27:20 [ICHttp 011296E0] serving client: 192.168.1.35
+21/09/2012 17:27:22 [ICHttp 011296E0] serving client: 192.168.1.35
+21/09/2012 17:27:22 [ICHttp 011296E0] serving client: 192.168.1.35
+21/09/2012 17:27:23 [ICHttp 011296E0] serving client: 192.168.1.35
+21/09/2012 17:27:24 [ICHttp 011296E0] serving client: 192.168.1.35
+21/09/2012 17:27:24 [ICHttp 011296E0] serving client: 192.168.1.35
+21/09/2012 17:27:25 [ICHttp 011296E0] serving client: 192.168.1.35
+21/09/2012 17:27:26 [ICHttp 011296E0] serving client: 192.168.1.35
+21/09/2012 17:27:26 [ICHttp 011296E0] serving client: 192.168.1.35
+21/09/2012 17:27:27 [ICHttp 011296E0] serving client: 192.168.1.35
+21/09/2012 17:27:28 [ICHttp 011296E0] serving client: 192.168.1.35
+21/09/2012 17:27:35 [ICHttp 011296E0] serving client: 192.168.1.35
+21/09/2012 17:31:10 [ICEngine 001CB0E8] #0. CODEC, 512, 1
+21/09/2012 17:31:10 [ICEngine 001CB0E8] #1. WIDTH, 257, 640
+21/09/2012 17:31:10 [ICEngine 001CB0E8] #2. HEIGHT, 256, 480
+21/09/2012 17:31:10 [ICEngine 001CB0E8] #3. Card_Slot, 3363, -34
+21/09/2012 17:31:10 [ICEngine 001CB0E8] #4. Card_Slot, 3363, -1
+21/09/2012 17:31:10 [ICEngine 001CB0E8] Engine Srart! (is not error!)
+21/09/2012 17:31:10 [ICTransformWorker 0015C810] ::Init() Prepare module 'ICFileIn'
+21/09/2012 17:31:10 [ICTransformWorker 00144FD0] ::Init() Prepare module 'ICH264'
+21/09/2012 17:31:10 [ICH264 00235040] ::FUpdate() Channel name 'ch0' to 'ch1'
+21/09/2012 17:31:10 [ICH264 00235040] Create New Environment!
+21/09/2012 17:31:11 [ICH264 00235040] Play this stream using the URL 'rtsp://192.168.1.36:8554/ch1'
+21/09/2012 17:31:11 [ICH264 00235040] We use port 80 for optional RTSP-over-HTTP tunneling.
+21/09/2012 17:31:11 [ICTransformWorker 0015CD30] ::Init() Prepare module 'ICFileIn'
+21/09/2012 17:31:11 [ICTransformWorker 001B5D30] ::Init() Prepare module 'ICHttp'
+21/09/2012 17:31:11 [ICHttp 01128BE8] ::FUpdate() port number set to 81
+21/09/2012 17:31:11 [ICTransformWorker 01113EA8] ::Init() Prepare module 'ICH264'
+21/09/2012 17:31:11 [ICH264 0112B010] ::FUpdate() Channel name 'ch0' to 'ch2'
+21/09/2012 17:31:12 [ICTransformWorker 001B5D30] Stop Process for 'ICHttp' !
+21/09/2012 17:31:16 [ICH264 0112B010] Create New Environment!
+21/09/2012 17:31:16 [ICH264 00235040] Play this stream using the URL 'rtsp://192.168.1.36:8554/ch1'
+21/09/2012 17:31:16 [ICH264 00235040] We use port 80 for optional RTSP-over-HTTP tunneling.
+21/09/2012 17:31:16 [ICH264 0112B010] Play this stream using the URL 'rtsp://192.168.1.36:8554/ch2'
+21/09/2012 17:31:16 [ICH264 0112B010] We use port 8000 for optional RTSP-over-HTTP tunneling.
+21/09/2012 17:31:16 [ICTransformWorker 01114D00] ::Init() Prepare module 'ICFileIn'
+21/09/2012 17:31:16 [ICTransformWorker 0112CC98] ::Init() Prepare module 'ICH264'
+21/09/2012 17:31:16 [ICH264 0112DA38] ::FUpdate() Channel name 'ch0' to 'ch3'
+21/09/2012 17:31:21 [ICH264 0112DA38] Create New Environment!
+21/09/2012 17:31:21 [ICH264 00235040] Play this stream using the URL 'rtsp://192.168.1.36:8554/ch1'
+21/09/2012 17:31:21 [ICH264 00235040] We use port 8000 for optional RTSP-over-HTTP tunneling.
+21/09/2012 17:31:21 [ICH264 0112B010] Play this stream using the URL 'rtsp://192.168.1.36:8554/ch2'
+21/09/2012 17:31:21 [ICH264 0112B010] We use port 8080 for optional RTSP-over-HTTP tunneling.
+21/09/2012 17:31:22 [ICH264 0112DA38] We use port 8081 for optional RTSP-over-HTTP tunneling.
+21/09/2012 17:31:22 [ICTransformWorker 0112E7C0] ::Init() Prepare module 'ICUpdateService'
+21/09/2012 17:31:22 [ICTransformWorker 0112F348] ::Init() Prepare module 'ICWatchDog'
+21/09/2012 17:31:27 [ICH264 0112DA38] ::Process() Beginning streaming ...
+21/09/2012 17:31:35 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:31:35 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:31:35 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:31:35 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:31:35 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:31:35 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:31:35 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:31:35 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:31:35 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:31:35 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:31:35 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:31:35 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:31:35 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:31:35 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:31:35 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:31:35 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:31:35 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:31:37 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:31:38 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:31:39 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:31:39 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:31:42 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:31:44 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:31:52 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:32:33 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:32:33 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:32:33 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:32:33 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:32:33 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:32:33 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:32:33 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:32:33 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:32:33 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:32:34 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:32:34 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:32:34 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:32:34 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:32:34 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:32:34 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:32:34 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:32:34 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:32:35 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:32:36 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:32:36 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:32:50 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:32:50 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:33:12 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:33:12 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:33:12 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:33:12 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:33:12 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:33:12 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:33:12 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:33:12 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:33:12 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:33:12 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:33:12 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:33:12 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:33:12 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:33:12 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:33:12 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:33:12 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:33:12 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:33:13 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:33:14 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:33:14 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:33:21 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:33:32 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:33:46 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:33:47 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:34:25 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:34:26 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:34:28 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:34:29 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:35:12 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:35:12 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:35:12 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:35:12 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:35:12 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:35:12 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:35:12 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:35:12 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:35:12 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:35:12 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:35:12 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:35:12 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:35:12 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:35:12 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:35:13 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:35:13 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:35:13 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:35:14 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:35:14 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:35:14 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:35:17 [ICHttp 01128BE8] serving client: 192.168.1.35
+21/09/2012 17:35:18 [ICHttp 01128BE8] serving client: 192.168.1.35

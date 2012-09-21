@@ -90,3 +90,28 @@
 19/09/2012 21:31:55 [ICHttp 011296E0] access denied
 19/09/2012 21:31:56 [ICHttp 011296E0] Error! ClientWork() bad request! ''
 19/09/2012 21:32:00 [ICHttp 011296E0] Error! ClientWork() bad request! ''
+21/09/2012 17:26:40 [ICEngine 0015EEE8] Engine Srart! (is not error!)
+21/09/2012 17:26:41 [ICMsgService 001B5A08] ::Send() channel 35584, msg 'CMD_REG_WATCHDOG' not found!
+21/09/2012 17:26:41 [ICMsgService 001B5A08] ::Send() channel 35584, msg 'CMD_WATCHDOG_RESET_DISABLE' not found!
+21/09/2012 17:26:41 [ICMsgService 001B5A08] ::Send() channel 35584, msg 'CMD_WATCHDOG_RESET_ENABLE' not found!
+21/09/2012 17:26:41 [ICMsgService 001B5A08] ::Send() channel 35584, msg 'CMD_WATCHDOG_RESET_DISABLE' not found!
+21/09/2012 17:26:42 [ICMsgService 001B5A08] ::Send() channel 35584, msg 'CMD_WATCHDOG_RESET_ENABLE' not found!
+21/09/2012 17:26:46 [ICMsgService 001B5A08] ::Send() channel 35584, msg 'CMD_WATCHDOG_RESET_DISABLE' not found!
+21/09/2012 17:26:46 [ICMsgService 001B5A08] ::Send() channel 35584, msg 'CMD_WATCHDOG_RESET_ENABLE' not found!
+21/09/2012 17:26:46 [ICMsgService 001B5A08] ::Send() channel 35584, msg 'CMD_WATCHDOG_RESET_DISABLE' not found!
+21/09/2012 17:26:48 [ICMsgService 001B5A08] ::Send() channel 35584, msg 'CMD_WATCHDOG_RESET_ENABLE' not found!
+21/09/2012 17:26:52 [ICMsgService 001B5A08] ::Send() channel 35584, msg 'CMD_WATCHDOG_RESET_DISABLE' not found!
+21/09/2012 17:26:52 [ICMsgService 001B5A08] ::Send() channel 35584, msg 'CMD_WATCHDOG_RESET_ENABLE' not found!
+21/09/2012 17:26:54 [ICHttp 011296E0] access denied
+21/09/2012 17:31:10 [ICEngine 001CB0E8] Engine Srart! (is not error!)
+21/09/2012 17:31:10 [ICMsgService 001B5648] ::Send() channel 35584, msg 'CMD_REG_WATCHDOG' not found!
+21/09/2012 17:31:11 [ICMsgService 001B5648] ::Send() channel 35584, msg 'CMD_WATCHDOG_RESET_DISABLE' not found!
+21/09/2012 17:31:11 [ICMsgService 001B5648] ::Send() channel 35584, msg 'CMD_WATCHDOG_RESET_ENABLE' not found!
+21/09/2012 17:31:11 [ICMsgService 001B5648] ::Send() channel 35584, msg 'CMD_WATCHDOG_RESET_DISABLE' not found!
+21/09/2012 17:31:12 [ICMsgService 001B5648] ::Send() channel 35584, msg 'CMD_WATCHDOG_RESET_ENABLE' not found!
+21/09/2012 17:31:16 [ICMsgService 001B5648] ::Send() channel 35584, msg 'CMD_WATCHDOG_RESET_DISABLE' not found!
+21/09/2012 17:31:16 [ICMsgService 001B5648] ::Send() channel 35584, msg 'CMD_WATCHDOG_RESET_ENABLE' not found!
+21/09/2012 17:31:16 [ICMsgService 001B5648] ::Send() channel 35584, msg 'CMD_WATCHDOG_RESET_DISABLE' not found!
+21/09/2012 17:31:18 [ICMsgService 001B5648] ::Send() channel 35584, msg 'CMD_WATCHDOG_RESET_ENABLE' not found!
+21/09/2012 17:31:21 [ICMsgService 001B5648] ::Send() channel 35584, msg 'CMD_WATCHDOG_RESET_DISABLE' not found!
+21/09/2012 17:31:22 [ICMsgService 001B5648] ::Send() channel 35584, msg 'CMD_WATCHDOG_RESET_ENABLE' not found!
