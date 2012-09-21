@@ -458,8 +458,6 @@ function addControl(parent, paramName, attrs) {
             else {
                 input.addClass('span3');
             }
-
-
         }
     } // if (attrs)
 }
