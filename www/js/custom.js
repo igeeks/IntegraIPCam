@@ -243,14 +243,13 @@ $('#saveBtn').live('click', function () {
 });
 
 $('#returnArrow').live('click', function () {
-    
     // Поиск и получение соответствующего инпута
-    var parent = $( 'td#' + $(this).attr('for') );
-    var input = $(parent).find( '#' + $(this).attr('for') )[0];
+    var input = $( '#' + $(this).attr('for') )[0];
+    var parent = $(input).parent()[0];
     
     // Отмена изменений
-    if ( input.tagName == 'SELECT' && input.value != curParams[ $(this).attr('for') ].Value ) { // Если выбранный инпут типа селект
-        
+    // Если выбранный инпут типа селект
+    if ( input.tagName == 'SELECT' && input.value != curParams[ $(this).attr('for') ].Value ) { 
         // Найти опцию с соответствующим значением и установить выбранной
         var i = 0;
         while ( i < input.childNodes.length && input.childNodes[i].value != curParams[ $(this).attr('for') ].Value ) {
@@ -268,22 +267,23 @@ $('#returnArrow').live('click', function () {
             newParams[ $(this).attr('for') ].Value = curParams[ $(this).attr('for') ].Value;
         }
     }
-    else if ( input.type == 'checkbox' && input.checked != curParams[ $(this).attr('for') ].Value ) { // Checkbox
-        
+    // Checkbox
+    else if ( input.type == 'checkbox' && input.checked != curParams[ $(this).attr('for') ].Value ) { 
         // Отменить изменения в форме
         input.checked = curParams[ $(this).attr('for') ].Value;
         
         // Отменить изменения в переменных
         newParams[ $(this).attr('for') ].Value = curParams[ $(this).attr('for') ].Value;
     }
-    else if ( input.value != curParams[ $(this).attr('for') ].Value ) { // Все остальные инпуты
-        input.value = curParams[ $(this).attr('for') ].Value;   // .val( curParams[ $(this).attr('for') ].Value ); 
+    // Все остальные инпуты
+    else if ( input.value != curParams[ $(this).attr('for') ].Value ) { 
+        input.value = curParams[ $(this).attr('for') ].Value;
         
         // Отменить изменения в переменных
         newParams[ $(this).attr('for') ].Value = curParams[ $(this).attr('for') ].Value;
         
         // Сгенерировать событие change для изменения значения слайдера
-        $(input).trigger('change');                             //$( 'td#' + $(this).attr('for') ).find( '#' + $(this).attr('for') ).trigger('change');
+        $(input).trigger('change');
     }
 });
 
@@ -352,7 +352,7 @@ function addParams(data) {
                 $('<td><span>'+ param_name +'</span></td>').addClass('col1').appendTo( row );
                 
                 // Создать и добавить контрол для параметра
-                var parent = $('<td class="control-group"></td>').addClass('col2').attr( 'id', key ).appendTo( row );
+                var parent = $('<td class="control-group"></td>').addClass('col2').appendTo( row );
                 addControl(parent, key, val);
                 
                 // Создать и добавить кнопку "отменить"
