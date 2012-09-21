@@ -22,11 +22,10 @@
     	
         <link href="/css/style.css" rel="stylesheet">
     	
-        <link href="/css/jquery-ui-1.8.21.custom.css" rel="stylesheet">
+        <link href="/css/jquery-ui-1.8.23.custom.css" rel="stylesheet">
         
         <!-- Datetime picker css -->
         <link rel="stylesheet" media="all" type="text/css" href="/css/jquery-ui-timepicker-addon.css" />
-        <link rel="stylesheet" media="all" type="text/css" href="http://code.jquery.com/ui/1.8.23/themes/smoothness/jquery-ui.css" />
 
         <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
         <!--[if lt IE 9]>
@@ -35,7 +34,8 @@
     </head>
 
     <body>
-    	<div class="startLoaderWrap">
+
+        <div class="startLoaderWrap">
     		<img class="startLoader" src="/img/ajax-loader.gif" />
     	</div>
 
@@ -50,6 +50,8 @@
     			<div class="welcome">
     				<h3>Начало работы</h3>
     				<p>Чтобы начать работу выберите один из каналов для конфигурирования</p>
+
+
     			</div>
     		</div><!--/span-->
           </div><!--/row-->
@@ -66,16 +68,22 @@
         ================================================== -->
         <!-- Placed at the end of the document so the pages load faster -->
         <script src="/js/jquery.js"></script>
-    	<script src="/js/jquery-ui-1.8.21.custom.min.js"></script>
+        <script src="/js/jquery-ui-1.8.23.custom.min.js"></script>
 
     	<script src="/js/custom.js"></script>
 
         <!-- Datetime picker js -->
-        <script type="text/javascript" src="/js/jquery-ui-sliderAccess.js"></script>
         <script type="text/javascript" src="/js/jquery-ui-timepicker-addon.js"></script>
+        <script type="text/javascript" src="/js/jquery-ui-sliderAccess.js"></script>
 
     	<script src="/js/bootstrap-alert.js"></script>
         <script src="/js/bootstrap-typeahead.js"></script>
     	<script src="/js/bootstrap-collapse.js"></script>
+
+        <script type="text/javascript">
+            var input = $('<input type="text" >').attr('value', 'sdf').attr( 'id', 'basic_example_1' ).addClass('input-large').appendTo( $( '.welcome' ) );
+
+            $('#basic_example_1').datetimepicker();
+        </script>
     </body>
 </html>
