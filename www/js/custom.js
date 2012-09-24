@@ -90,7 +90,6 @@ $(document).ready(function() {
     //$('#accordion1 .accordion-body').collapse('show');
     
     // Анимация инициализации
-    $('#black_bg').css("height",$(document).height());
     $('img.startLoader').css({
         position:'absolute',
         left: ($(window).width() - $('.startLoader').outerWidth())/2,
