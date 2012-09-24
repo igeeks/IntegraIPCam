@@ -73,14 +73,13 @@ var DATA_TYPES = {
     FILE: {                 // TODO пока это только заглушка
         ABBREVIATED_NAME:   "b"
     },
-    TEXT: {                 // TODO протестить
+    TEXT: {                 // TODO пока это только заглушка
         ABBREVIATED_NAME:   "b"
     },
-    DATA: {                 // TODO протестить
+    DATA: {                 // TODO пока это только заглушка
         ABBREVIATED_NAME:   "data"
     },
     PARAMS: { //TODO что с ним делать? не документированный тип.
-        
     }
 }
 
@@ -144,12 +143,6 @@ $('#paramsTable input').live('keydown', function(event) {
     } else {
         return false;
     }
-/*  
-    // Если инпут со слайдером, установить значение слайдера равное значению инпута
-    if ( $(this).attr( 'for' ) == 'slider' ) {
-        $(this).parent().next().slider( "value", val );
-    }
-*/  
 })
 
 $('#paramsTable input').live('change', function() {
@@ -186,7 +179,7 @@ $('#paramsTable input').live('change', function() {
                     this.value = curParams[ $(this).attr('id') ].Max;
                 }
                 // Установить значение слайдера равное значению инпута
-                $('.control-group#' + $(this).attr( 'id' ) + ' #slider-range-min').slider( "value", this.value );
+                $(this).parent().find('#slider-range-min').slider( "value", this.value );
             } else if ( parseInt( this.value ) < parseInt( DATA_TYPES[ curParams[ $(this).attr('id') ].Type ].MIN ) ) {
                 $(this).parent().addClass( 'error' );
                 $(this).parent().append( '<span class="help-inline">Минимальное значение для этого параметра: ' + DATA_TYPES[ curParams[ $(this).attr('id') ].Type ].MIN + '</span>' );
@@ -401,7 +394,7 @@ function addControl(parent, paramName, attrs) {
         // Создать и добавить элемент
         $('<select class="input-large" id="' + paramName + '">').appendTo(parent);
 
-        // Добавить опции електа
+        // Добавить опции селекта
         for (var key in attrs.Enum) {
             var opt = $('<option>' + attrs.Enum[key] + '</option>').appendTo('select#' + paramName);
             if ( attrs.Enum[key] == attrs.Value ) {
@@ -416,13 +409,6 @@ function addControl(parent, paramName, attrs) {
         var checkbox = $( '<input type="checkbox" id="' + paramName + '">' ).appendTo(parent);
         
         // Инициализация
-        // А чо это она закоменчена???
-        /*if ( attrs.Value == true ) {
-            checkbox[0].disabled = false;
-        }
-        else {
-            checkbox[0].disabled = true;            
-        }*/
         checkbox[0].checked = attrs.Value;
     }
     else if (attrs.hasOwnProperty("Min") && attrs.hasOwnProperty("Max")) { 
@@ -441,10 +427,9 @@ function addControl(parent, paramName, attrs) {
                     max: attrs.Max,
                     slide: function( event, ui ) {
                         $( 'input#' + paramName ).val( ui.value );
-                        $(this).parent().parent().find( 'input' ).trigger('change');
+                        $( 'input#' + paramName ).trigger('change');
                     }
             });
-            //$( 'input#' + paramName ).; // TODO удалить 
         } else {
             $('div.span9').empty();
             myAlert( 'Error', 'Не корректные входные данные. Value находится за диапозоном значений Min Max', 'alert-error' );

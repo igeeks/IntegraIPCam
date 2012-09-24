@@ -34,3 +34,8 @@
 24/09/2012 18:16:37 [ICEngine 001CB0E8] Test DMA Copy End!
 24/09/2012 18:16:37 [ICEngine 001CB0E8] Engine Srart! (is not error!)
 24/09/2012 18:16:48 [ICH264 0112DB10] Error! bad CODEC fourcc!
+24/09/2012 19:06:19 [ICH264 0112DB10] Error! bad CODEC fourcc!
+24/09/2012 19:06:20 [ICTransformWorker 0112F3B8] ::SaveConfig() Error! GetInfo() 'ICWatchDog' failed!
+24/09/2012 19:06:39 [ICH264 0112DB10] Error! bad CODEC fourcc!
+24/09/2012 19:06:40 [ICTransformWorker 0112F3B8] ::SaveConfig() Error! GetInfo() 'ICWatchDog' failed!
+24/09/2012 19:06:54 [ICTransformWorker 0112F3B8] ::SaveConfig() Error! GetInfo() 'ICWatchDog' failed!

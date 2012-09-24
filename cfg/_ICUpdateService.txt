@@ -1,1 +1,3 @@
+CHANNEL_ID:264:DWORD=2048
+Format SDcard:3332:FILE=?
 COMMENT:15:STRING=Обновление прошивки
