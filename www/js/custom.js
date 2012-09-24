@@ -116,7 +116,6 @@ $('.nav-list li').live('click', function(){
     $('div.span9').empty();
     $('<div></div>').addClass('contentLoaderWrap').appendTo($('div.span9'));
     // Отправка запроса параметров модуля 
-    // http://localhost:75/?action=command&COMMAND=CMD_GET_PARAMS&CHANNEL_ID=501&MODULE_NAME=ICH264
     sendCmd( {'COMMAND': 'CMD_GET_PARAMS', 'CHANNEL_ID': $(this).attr('chanid'), 'MODULE_NAME': $(this).attr('modname') }, addParams );
     // Сохранить выбранный модуль
     curMod = $(this).attr('modname');
@@ -339,28 +338,42 @@ function addParams(data) {
         $('<h1>'+ getCurModParam(curMod).COMMENT.Value +'</h1>').appendTo( $('div.page-header') );
         
         // Создание и заполнение таблицы с параметрами
-        $.each(data, function(key, val){
-            if (key == "CHANNEL_ID") {
-                // TODO: Можно сравнивать его с id выбранного канала
-            } else if (key != "RESULT") { 
-                
-                // Создать ряд таблицы
-                var row = $('<tr></tr>').appendTo( $('#paramsTable tbody') );
-                
-                // Добавить название параметра в таблицу
-                var param_name = val.COMMENT !== undefined ? val.COMMENT.Value : key;
-                $('<td><span>'+ param_name +'</span></td>').addClass('col1').appendTo( row );
-                
-                // Создать и добавить контрол для параметра
-                var parent = $('<td class="control-group"></td>').addClass('col2').appendTo( row );
-                addControl(parent, key, val);
-                
-                // Создать и добавить кнопку "отменить"
-                parent = $('<td></td>').addClass('col3').appendTo(row);
-                //$( '<a href="#"><i class="icon-remove" for="' + key + '"></i></a>' ).appendTo(parent);
-                $( '<a href="#"><span id="returnArrow" for="' + key + '" class="ui-icon ui-icon-arrowreturnthick-1-w"></span></a>' ).appendTo(parent);
+        for ( var key in data ) {
+            if (key == "CHANNEL_ID" || key == "RESULT") {
+                continue;
             }
-        });
+
+            var val = data[key];
+
+            // Названия параметров не должны содержать пробелы
+            if ( /\s+/.test( key ) ) {
+                $('div.span9').empty();
+
+                myAlert( 
+                    'Error', 
+                    'Ошибка парсинга ответа сервера: имена свойств должны быть без пробелов, параметр: ' + key, 
+                    'alert-error' 
+                );
+
+                return;
+            }   
+
+            // Создать ряд таблицы
+            var row = $('<tr></tr>').appendTo( $('#paramsTable tbody') );
+            
+            // Добавить название параметра в таблицу
+            var param_name = val.COMMENT !== undefined ? val.COMMENT.Value : key;
+            $('<td><span>'+ param_name +'</span></td>').addClass('col1').appendTo( row );
+            
+            // Создать и добавить контрол для параметра
+            var parent = $('<td class="control-group"></td>').addClass('col2').appendTo( row );
+            addControl(parent, key, val);
+            
+            // Создать и добавить кнопку "отменить"
+            parent = $('<td></td>').addClass('col3').appendTo(row);
+            //$( '<a href="#"><i class="icon-remove" for="' + key + '"></i></a>' ).appendTo(parent);
+            $( '<a href="#"><span id="returnArrow" for="' + key + '" class="ui-icon ui-icon-arrowreturnthick-1-w"></span></a>' ).appendTo(parent);
+        }
 
         // Создать и добавить кнопку "Сохранить изменения"
         $('<button>Сохранить изменения</button>').addClass('btn disabled').attr('id', 'saveBtn').attr( 'disabled', 'disabled' ).appendTo( $('div.span9') );
@@ -380,86 +393,86 @@ function addParams(data) {
 // paramName - имя параметра
 // attrs - экземпляр объекта с аттрибутами параметра камеры
 function addControl(parent, paramName, attrs) {
-    if (attrs) {
-        if (attrs.hasOwnProperty("Enum")) {
-            // Создание селекта для любого типа с полем Enum
+    if ( ! attrs ) { return };
 
-            // Создать и добавить элемент
-            $('<select class="input-large" id="' + paramName + '">').appendTo(parent);
+    if (attrs.hasOwnProperty("Enum")) {
+        // Создание селекта для любого типа с полем Enum
 
-            // Добавить опции електа
-            for (var key in attrs.Enum) {
-                var opt = $('<option>' + attrs.Enum[key] + '</option>').appendTo('select#' + paramName);
-                if ( attrs.Enum[key] == attrs.Value ) {
-                    opt.attr('selected', 'selected');
-                }
+        // Создать и добавить элемент
+        $('<select class="input-large" id="' + paramName + '">').appendTo(parent);
+
+        // Добавить опции електа
+        for (var key in attrs.Enum) {
+            var opt = $('<option>' + attrs.Enum[key] + '</option>').appendTo('select#' + paramName);
+            if ( attrs.Enum[key] == attrs.Value ) {
+                opt.attr('selected', 'selected');
             }
-        } 
-        else if ( attrs.Type == "BOOL" ) {
-            // Создание CheckBox
-            
-            // Создать и добавить элемент
-            var checkbox = $( '<input type="checkbox" id="' + paramName + '">' ).appendTo(parent);
-            
-            // Инициализация
-            // А чо это она закоменчена???
-            /*if ( attrs.Value == true ) {
-                checkbox[0].disabled = false;
-            }
-            else {
-                checkbox[0].disabled = true;            
-            }*/
-            checkbox[0].checked = attrs.Value;
         }
-        else if (attrs.hasOwnProperty("Min") && attrs.hasOwnProperty("Max")) { 
-            // Создание обычного инпута со слайдером для цифровых тпиов
-            if ( attrs.Value >= attrs.Min && attrs.Value <= attrs.Max ) { 
-                
-                // Создать и добавить инпут
-                $('<input type="text" for="slider" class="input-small" id="' + paramName + '">').attr( 'value', attrs.Value ).appendTo(parent);
-
-                // Добавление ползунка
-                parent = $('<div></div>').addClass('sliderWrap').appendTo(parent);
-                $('<div id="slider-range-min"></div>').appendTo(parent).slider({
-                        range: "min",
-                        value: attrs.Value,
-                        min: attrs.Min,
-                        max: attrs.Max,
-                        slide: function( event, ui ) {
-                            $( 'input#' + paramName ).val( ui.value );
-                            $(this).parent().parent().find( 'input' ).trigger('change');
-                        }
-                });
-                //$( 'input#' + paramName ).; // TODO удалить 
-            } else {
-                $('div.span9').empty();
-                myAlert( 'Error', 'Не корректные входные данные. Value находится за диапозоном значений Min Max', 'alert-error' );
-                return;
-            }
-        } 
+    } 
+    else if ( attrs.Type == "BOOL" ) {
+        // Создание CheckBox
+        
+        // Создать и добавить элемент
+        var checkbox = $( '<input type="checkbox" id="' + paramName + '">' ).appendTo(parent);
+        
+        // Инициализация
+        // А чо это она закоменчена???
+        /*if ( attrs.Value == true ) {
+            checkbox[0].disabled = false;
+        }
         else {
-            // Создание обычного инпута для чисел, строки и даты
+            checkbox[0].disabled = true;            
+        }*/
+        checkbox[0].checked = attrs.Value;
+    }
+    else if (attrs.hasOwnProperty("Min") && attrs.hasOwnProperty("Max")) { 
+        // Создание обычного инпута со слайдером для цифровых тпиов
+        if ( attrs.Value >= attrs.Min && attrs.Value <= attrs.Max ) { 
             
-            // Создать и добавить контрол
-            var input = $('<input type="text" >').attr('value', attrs.Value).attr( 'id', paramName ).appendTo(parent);
+            // Создать и добавить инпут
+            $('<input type="text" for="slider" class="input-small" id="' + paramName + '">').attr( 'value', attrs.Value ).appendTo(parent);
 
-            // Инициализация календаря
-            if ( attrs.Type == 'DATETIME' ) { 
-                $( 'input#' + paramName ).datetimepicker(); 
-            }
-            
-            // Определить размер поля в зависимости от типа данных
-            if ( attrs.Type == 'STRING' ) {
-                input.addClass('input-xlarge');
-            } 
-            else if ( attrs.Type == 'DATETIME' ) {
-                input.addClass('input-medium');
-            }
-            else {
-                input.addClass('span3');
-            }
+            // Добавление ползунка
+            parent = $('<div></div>').addClass('sliderWrap').appendTo(parent);
+            $('<div id="slider-range-min"></div>').appendTo(parent).slider({
+                    range: "min",
+                    value: attrs.Value,
+                    min: attrs.Min,
+                    max: attrs.Max,
+                    slide: function( event, ui ) {
+                        $( 'input#' + paramName ).val( ui.value );
+                        $(this).parent().parent().find( 'input' ).trigger('change');
+                    }
+            });
+            //$( 'input#' + paramName ).; // TODO удалить 
+        } else {
+            $('div.span9').empty();
+            myAlert( 'Error', 'Не корректные входные данные. Value находится за диапозоном значений Min Max', 'alert-error' );
+            return;
         }
-    } // if (attrs)
+    } 
+    else {
+        // Создание обычного инпута для чисел, строки и даты
+        
+        // Создать и добавить контрол
+        var input = $('<input type="text" >').attr('value', attrs.Value).attr( 'id', paramName ).appendTo(parent);
+
+        // Инициализация календаря
+        if ( attrs.Type == 'DATETIME' ) { 
+            $( 'input#' + paramName ).datetimepicker(); 
+        }
+        
+        // Определить размер поля в зависимости от типа данных
+        if ( attrs.Type == 'STRING' ) {
+            input.addClass('input-xlarge');
+        } 
+        else if ( attrs.Type == 'DATETIME' ) {
+            input.addClass('input-medium');
+        }
+        else {
+            input.addClass('span3');
+        }
+    }
 }
 
 //Добавить модули в меню
@@ -563,14 +576,16 @@ function sendCmd(params, callback) {
             cmd += params[key];
         }
     }
-    $.getJSON(cmd, callback).error(function(jqXHR, textStatus, errorThrown) {
-        console.log("error " + textStatus);
-        console.log("incoming Text " + jqXHR.responseText);
+    $.getJSON(cmd, callback)
+        .error(
+            function(jqXHR, textStatus, errorThrown) {
+            console.log("error " + textStatus);
+            console.log("incoming Text " + jqXHR.responseText);
 
-        $('div.span9').empty();
+            $('div.span9').empty();
 
-        myAlert( 'Error', 'Ошибка парсинга ответа сервера', 'alert-error' );
-    });
+            myAlert( 'Error', 'Ошибка парсинга ответа сервера', 'alert-error' );
+        });
 }
 
 // Получить экземпляр объекта выбранного модуля
