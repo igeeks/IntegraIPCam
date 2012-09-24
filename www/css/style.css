@@ -57,6 +57,24 @@
 	display: none;
 }
 
+.sendLoaderWrap {
+	position:absolute;
+	width:100%;
+	left: 0px; top: 0px; right: 0px; bottom: 0px;
+	background: #9BA2AB;
+	opacity: 0.8;
+	filter: alpha(opacity=80);
+	z-index: 50;
+}
+
+.sendLoader {
+	margin: 0 auto;
+	display: block;
+	width: 220px;
+	display: none;
+	z-index: 51;
+}
+
 .modLoader {
 	margin-left: 10px;
 	background-image: url(/img/ajax-loader3.gif);

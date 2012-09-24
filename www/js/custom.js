@@ -208,9 +208,13 @@ $('#saveBtn').live('click', function () {
     if ( !$(this).is('.disabled') ) {
         
         // Включить анимацию отправки данных
-        $('.span9').children().fadeOut(0);
-        $('<div></div>').addClass('contentLoaderWrap').appendTo($('div.span9'));
-        
+        $('<div class="sendLoaderWrap"><img class="sendLoader" src="/img/ajax-loader.gif" /></div>').appendTo( $('div.span9') );
+        $('img.sendLoader').css({
+            position:'absolute',
+            left: ($(window).width() - $('.startLoader').outerWidth())/2,
+            top: ($(window).height() - $('.startLoader').outerHeight())/2
+        }).show();
+
         // Отправить команду на установку параметров
         var cmd = {};
         cmd['COMMAND'] = 'CMD_SET_PARAMS';
@@ -278,8 +282,7 @@ $('#returnArrow').live('click', function () {
 function cbSetParams(data) {
     
     // Удалить анимацию отправки и показать таблицу с параметрами
-    $('.contentLoaderWrap').remove();
-    $('.span9').children().fadeIn(100);
+    $('.sendLoaderWrap').fadeOut(100).remove();
     
     // Вывести сообщение с результатом операции
     if ( !data.RESULT ) {
