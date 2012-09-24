@@ -62,7 +62,7 @@ var DATA_TYPES = {
         ABBREVIATED_NAME:   "fcc"
     },
     DATETIME: {             // TODO протестить
-        ALLOW_CHARS:        /[\d\.\/\s\:]/,
+        ALLOW_CHARS:        /[\d\.\/\s\:]/,         // TODO Проверить в винде
         FORMAT:             /(^.*$)/,               // TODO После установки контрола
         HINT:               "Формат данных: 00/00/0000 00:00:00.000",
         ABBREVIATED_NAME:   "dt"
@@ -138,11 +138,7 @@ $('#paramsTable input').live('keydown', function(event) {
     if ( event.ctrlKey || event.altKey || event.metaKey || event.shiftKey ) return;
     if ( keyCode < 48 ) return; // спец. символ - не обрабатываем
     
-    if ( DATA_TYPES[ curParams[ $(this).attr('id') ].Type ].ALLOW_CHARS.test( val ) )   { 
-        return true;
-    } else {
-        return false;
-    }
+    return DATA_TYPES[ curParams[ $(this).attr('id') ].Type ].ALLOW_CHARS.test( val );
 })
 
 $('#paramsTable input').live('change', function() {
