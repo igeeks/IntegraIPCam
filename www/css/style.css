@@ -30,41 +30,12 @@
 	margin-top: 7px;
 }
 
-.contentLoaderWrap {
-	background-image: url(/img/ajax-loader3.gif);
-	height: 24px;
-	width: 24px;
-}
-
-.contentLoader {
-	margin-top: 10px;
-	margin-left: 20px;
-	display: block;
-}
-
 .startLoaderWrap{
-	position:absolute;
-	width:100%;
-	left: 0px; top: 0px; right: 0px; bottom: 0px;
-	background:#FFFFFF;
-	z-index: 50;
-}
-
-.startLoader {
-	margin: 0 auto;
-	display: block;
-	width: 220px;
-	display: none;
-}
-
-.sendLoaderWrap {
-	position:absolute;
-	width:100%;
-	left: 0px; top: 0px; right: 0px; bottom: 0px;
-	background: #9BA2AB;
-	opacity: 0.8;
-	filter: alpha(opacity=80);
-	z-index: 50;
+   position:absolute;
+   width:100%;
+   left: 0px; top: 0px; right: 0px; bottom: 0px;
+   background:#FFFFFF;
+   z-index: 50;
 }
 
 .sendLoader {

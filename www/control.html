@@ -34,9 +34,14 @@
     </head>
 
     <body>
-        <div class="startLoaderWrap">
-            <img class="startLoader" src="/img/ajax-loader.gif" />
+        <div class="startLoaderWrap"></div> <!-- хак для скрытия элементов страницы при инициализации -->
+
+        <div class="modal hide fade" id="loaderModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-body" id="loaderModalBody">
+                <img src="/img/ajax-loader.gif" />
+            </div>
         </div>
+
         <div class="container">
           <div class="row-fluid">
     		<div class="span3">
@@ -48,8 +53,6 @@
     			<div class="welcome">
     				<h3>Начало работы</h3>
     				<p>Чтобы начать работу выберите один из каналов для конфигурирования</p>
-
-
     			</div>
     		</div><!--/span-->
           </div><!--/row-->
@@ -74,8 +77,6 @@
         <script type="text/javascript" src="/js/jquery-ui-timepicker-addon.js"></script>
         <script type="text/javascript" src="/js/jquery-ui-sliderAccess.js"></script>
 
-    	<script src="/js/bootstrap-alert.js"></script>
-        <script src="/js/bootstrap-typeahead.js"></script>
-    	<script src="/js/bootstrap-collapse.js"></script>
+    	<script src="/js/bootstrap.js"></script>
     </body>
 </html>

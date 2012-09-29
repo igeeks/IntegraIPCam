@@ -90,11 +90,7 @@ $(document).ready(function() {
     //$('#accordion1 .accordion-body').collapse('show');
     
     // Анимация инициализации
-    $('img.startLoader').css({
-        position:'absolute',
-        left: ($(window).width() - $('.startLoader').outerWidth())/2,
-        top: ($(window).height() - $('.startLoader').outerHeight())/2
-    }).show();
+    show_loader('init', 'Загрузка');
     
     // Запрос списка каналов
     sendCmd( {'COMMAND': 'CMD_GET_CHANNELS_LIST'}, addChannels );
@@ -208,12 +204,7 @@ $('#saveBtn').live('click', function () {
     if ( !$(this).is('.disabled') ) {
         
         // Включить анимацию отправки данных
-        $('<div class="sendLoaderWrap"><img class="sendLoader" src="/img/ajax-loader.gif" /></div>').appendTo( $('div.span9') );
-        $('img.sendLoader').css({
-            position:'absolute',
-            left: ($(window).width() - $('.startLoader').outerWidth())/2,
-            top: ($(window).height() - $('.startLoader').outerHeight())/2
-        }).show();
+        show_loader( 'send', 'Сохранение изменений' );
 
         // Отправить команду на установку параметров
         var cmd = {};
@@ -282,7 +273,7 @@ $('#returnArrow').live('click', function () {
 function cbSetParams(data) {
     
     // Удалить анимацию отправки и показать таблицу с параметрами
-    $('.sendLoaderWrap').fadeOut(100).remove();
+    hide_loader('send');
     
     // Вывести сообщение с результатом операции
     if ( !data.RESULT ) {
@@ -520,7 +511,7 @@ function addChannels(data) {
     }
     
     // Отключить анимацию инициализации
-    $('div.startLoaderWrap').css({ display: 'none' });
+    hide_loader('init');
 }
         
 //Создать HTML кода элемента
@@ -590,4 +581,37 @@ function myAlert(head, msg, alertClass) {
     $('<div id="myAlert" class="alert alert-block fade in"><button type="button" class="close" data-dismiss="alert">×</button><h3>' + head + '</h3><p>' + msg + '</p></div>').addClass(alertClass).appendTo( $('div.span9') );
     $('#myAlert').alert();
     $('#myAlert').delay(2000).fadeOut(400);
+}
+
+function show_loader(type, msg) {
+    $('#loaderModal').css({
+        width: 'auto',
+        'text-align': 'center',
+        'margin-left': function () {
+            return -($(this).width() / 2);
+        }
+    }).modal({
+        keyboard: 'false',
+        backdrop: 'static'
+    });
+
+    $('#loaderModalBody').prepend( 
+        $('<span class="modal_msg">' + msg + '</span>').css({
+            display: 'block',
+            'margin-bottom': '5px',
+        })
+    );
+
+    $('#loaderModal').modal('show');
+}
+
+function hide_loader(type) {
+    //хак для скрытия элементов страницы при инициализации
+    if ( type == 'init' ) { 
+        $('div.startLoaderWrap').css({ display: 'none' }); 
+    }
+
+    $('#loaderModal').modal('hide');
+
+    $('span.modal_msg').remove();
 }
