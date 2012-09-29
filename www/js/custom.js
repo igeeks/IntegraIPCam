@@ -353,7 +353,7 @@ function addParams(data) {
             var row = $('<tr></tr>').appendTo( $('#paramsTable tbody') );
             
             // Добавить название параметра в таблицу
-            var param_name = val.COMMENT !== undefined ? val.COMMENT.Value : key;
+            var param_name = val.COMMENT !== undefined ? val.COMMENT : key;
             $('<td><span>'+ param_name +'</span></td>').addClass('col1').appendTo( row );
             
             // Создать и добавить контрол для параметра
