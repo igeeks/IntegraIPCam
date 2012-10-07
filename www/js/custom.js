@@ -580,7 +580,7 @@ function myAlert(head, msg, alertClass) {
     $('.alert').remove();
     $('<div id="myAlert" class="alert alert-block fade in"><button type="button" class="close" data-dismiss="alert">×</button><h3>' + head + '</h3><p>' + msg + '</p></div>').addClass(alertClass).appendTo( $('div.span9') );
     $('#myAlert').alert();
-    $('#myAlert').delay(2000).fadeOut(400);
+    // $('#myAlert').delay(2000).fadeOut(400);
 }
 
 function show_loader(type, msg) {
