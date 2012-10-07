@@ -17,7 +17,7 @@ var DATA_TYPES = {
         HINT:               "Можно использовать только цифры",
         ABBREVIATED_NAME:   "w"
     },
-    INT32: {                // TODO протестить
+    INT32: {
         MIN:                -2147483648,
         MAX:                2147483647,
         ALLOW_CHARS:        /[\+\-\d]/,
@@ -25,7 +25,7 @@ var DATA_TYPES = {
         HINT:               "Формат данных: -123456",
         ABBREVIATED_NAME:   "i32"
     },
-    INT64: {                // TODO протестить
+    INT64: {
         MIN:                -9223372036854775808,
         MAX:                9223372036854775807,
         ALLOW_CHARS:        /[\+\-\d]/,
@@ -33,7 +33,7 @@ var DATA_TYPES = {
         HINT:               "Формат данных: -123456",
         ABBREVIATED_NAME:   "i64"
     },
-    FLOAT: {                // TODO протестить
+    FLOAT: {
         MIN:                3.4e-38,
         MAX:                3.4e38,
         ALLOW_CHARS:        /[\d\.]/,
@@ -41,7 +41,7 @@ var DATA_TYPES = {
         HINT:               "Формат данных: 0.123456",
         ABBREVIATED_NAME:   "f"
     },
-    DOUBLE: {               // TODO протестить
+    DOUBLE: {
         MIN:                1.7e-308,
         MAX:                1.7e308,
         ALLOW_CHARS:        /[\d\.]/,
@@ -49,37 +49,41 @@ var DATA_TYPES = {
         HINT:               "Формат данных: 0.123456",
         ABBREVIATED_NAME:   "dbl"
     },
-    STRING: {               // TODO протестить
+    STRING: {
         ALLOW_CHARS:        /./,
         FORMAT:             /(^.*$)/,
         HINT:               "Формат данных строка",
         ABBREVIATED_NAME:   "s"
     },
-    FOURCC: {               // TODO протестить
+    FOURCC: {
         ALLOW_CHARS:        /./,
         FORMAT:             /(^.*$)/,
         HINT:               "Формат данных строка",
         ABBREVIATED_NAME:   "fcc"
     },
-    DATETIME: {             // TODO протестить
-        ALLOW_CHARS:        /[\d\.\/\s\:]/,         // TODO Проверить в винде
-        FORMAT:             /(^.*$)/,               // TODO После установки контрола
+    DATETIME: {             
+        ALLOW_CHARS:        /[\d\.\/\s\:]/,
+        FORMAT:             /(^.*$)/,
         HINT:               "Формат данных: 00/00/0000 00:00:00.000",
         ABBREVIATED_NAME:   "dt"
     },
-    BOOL: {                 // TODO протестить
+    BOOL: {
         ABBREVIATED_NAME:   "b"
     },
-    FILE: {                 // TODO пока это только заглушка
-        ABBREVIATED_NAME:   "b"
+    FILE: {                 
+        // TODO пока это только заглушка
     },
-    TEXT: {                 // TODO пока это только заглушка
-        ABBREVIATED_NAME:   "b"
+    TEXT: {                 
+        // TODO пока это только заглушка
     },
-    DATA: {                 // TODO пока это только заглушка
-        ABBREVIATED_NAME:   "data"
+    DATA: {                 
+        // TODO пока это только заглушка
     },
-    PARAMS: { //TODO что с ним делать? не документированный тип.
+    PARAMS: { 
+        // что с ним делать? не документированный тип.
+    },
+    undefined: {
+        // Заглушка
     }
 }
 
@@ -133,7 +137,7 @@ $('#paramsTable input').live('keydown', function(event) {
     if ( event.ctrlKey || event.altKey || event.metaKey || event.shiftKey ) return;
     if ( keyCode < 48 ) return; // спец. символ - не обрабатываем
     
-    return DATA_TYPES[ curParams[ $(this).attr('id') ].Type ].ALLOW_CHARS.test( val );
+    return DATA_TYPES[ curParams[ $(this).attr('id') ].TYPE ].ALLOW_CHARS.test( val );
 })
 
 $('#paramsTable input').live('change', function() {
@@ -143,9 +147,9 @@ $('#paramsTable input').live('change', function() {
     $( '.control-group#' + $(this).attr( 'id' ) + ' > .help-inline' ).remove();
     
     // Если цифровой или строковый инпут
-    if ( curParams[ $(this).attr('id') ].Type == "DWORD" || curParams[ $(this).attr('id') ].Type == "WORD" || curParams[ $(this).attr('id') ].Type == "INT32" ||
-      curParams[ $(this).attr('id') ].Type == "INT64" || curParams[ $(this).attr('id') ].Type == "FLOAT" || curParams[ $(this).attr('id') ].Type == "DOUBLE" ||
-      curParams[ $(this).attr('id') ].Type == "STRING" ) 
+    if ( curParams[ $(this).attr('id') ].TYPE == "DWORD" || curParams[ $(this).attr('id') ].TYPE == "WORD" || curParams[ $(this).attr('id') ].TYPE == "INT32" ||
+      curParams[ $(this).attr('id') ].TYPE == "INT64" || curParams[ $(this).attr('id') ].TYPE == "FLOAT" || curParams[ $(this).attr('id') ].TYPE == "DOUBLE" ||
+      curParams[ $(this).attr('id') ].TYPE == "STRING" ) 
     {
         // Если строка пустая преобразовать в 0
         if ( $.trim( this.value ) == '' ) {
@@ -153,11 +157,11 @@ $('#paramsTable input').live('change', function() {
         }
 
         // Проверка соответсвия всего выражения формату
-        if( ! DATA_TYPES[ curParams[ $(this).attr('id') ].Type ].FORMAT.test( this.value ) )    { 
+        if( ! DATA_TYPES[ curParams[ $(this).attr('id') ].TYPE ].FORMAT.test( this.value ) )    { 
             // Если нет, то добавить сообщение об ошибке
             if ( !$(this).parent().is( '.error' ) ) {
                 $(this).parent().addClass( 'error' );
-                $(this).parent().append( '<span class="help-inline">' +  DATA_TYPES[ curParams[ $(this).attr('id') ].Type ].HINT + '</span>' );
+                $(this).parent().append( '<span class="help-inline">' +  DATA_TYPES[ curParams[ $(this).attr('id') ].TYPE ].HINT + '</span>' );
             }
             return false;
         } else {
@@ -171,18 +175,18 @@ $('#paramsTable input').live('change', function() {
                 }
                 // Установить значение слайдера равное значению инпута
                 $(this).parent().find('#slider-range-min').slider( "value", this.value );
-            } else if ( parseInt( this.value ) < parseInt( DATA_TYPES[ curParams[ $(this).attr('id') ].Type ].MIN ) ) {
+            } else if ( parseInt( this.value ) < parseInt( DATA_TYPES[ curParams[ $(this).attr('id') ].TYPE ].MIN ) ) {
                 $(this).parent().addClass( 'error' );
-                $(this).parent().append( '<span class="help-inline">Минимальное значение для этого параметра: ' + DATA_TYPES[ curParams[ $(this).attr('id') ].Type ].MIN + '</span>' );
-            } else if ( parseInt( this.value ) > parseInt( DATA_TYPES[ curParams[ $(this).attr('id') ].Type ].MAX ) ) {
+                $(this).parent().append( '<span class="help-inline">Минимальное значение для этого параметра: ' + DATA_TYPES[ curParams[ $(this).attr('id') ].TYPE ].MIN + '</span>' );
+            } else if ( parseInt( this.value ) > parseInt( DATA_TYPES[ curParams[ $(this).attr('id') ].TYPE ].MAX ) ) {
                 $(this).parent().addClass( 'error' );
-                $(this).parent().append( '<span class="help-inline">Максимальное значение для этого параметра: ' + DATA_TYPES[ curParams[ $(this).attr('id') ].Type ].MAX + '</span>' );
+                $(this).parent().append( '<span class="help-inline">Максимальное значение для этого параметра: ' + DATA_TYPES[ curParams[ $(this).attr('id') ].TYPE ].MAX + '</span>' );
             }
         }
 
         newParams[ $(this).attr('id') ].VALUE = this.value;
     }
-    else if ( curParams[ $(this).attr('id') ].Type == "BOOL" ) { // Если чекбокс
+    else if ( curParams[ $(this).attr('id') ].TYPE == "BOOL" ) { // Если чекбокс
         newParams[ $(this).attr('id') ].VALUE = this.checked;
     }
     
@@ -213,10 +217,10 @@ $('#saveBtn').live('click', function () {
         cmd['MODULE_NAME'] = "s:'" + getCurModParam(curMod).NAME.VALUE + "'";
         $.each( newParams, function(key, val) {
             if ( key != "RESULT" && key != "CHANNEL_ID" ) {
-                if ( val.Type == 'STRING' )  {
-                    cmd[key] = DATA_TYPES[ val.Type ].ABBREVIATED_NAME + ":'" + encodeURIComponent(val.VALUE) + "'";
+                if ( val.TYPE == 'STRING' )  {
+                    cmd[key] = DATA_TYPES[ val.TYPE ].ABBREVIATED_NAME + ":'" + encodeURIComponent(val.VALUE) + "'";
                 } else {
-                    cmd[key] = DATA_TYPES[ val.Type ].ABBREVIATED_NAME + ":" + encodeURIComponent(val.Value);
+                    cmd[key] = DATA_TYPES[ val.TYPE ].ABBREVIATED_NAME + ":" + encodeURIComponent(val.Value);
                 }
             }
         });
@@ -306,8 +310,8 @@ function addParams(data) {
         
         // Проверка полученных данных
         for ( var key in data ) {
-            if ( DATA_TYPES[ data[key].Type ] == undefined )  {
-                myAlert( 'ERROR', 'Неизвестный тип данных: ' + data[key].Type + ', у параметра: ' + key, 'alert-error' );
+            if ( DATA_TYPES[ data[key].TYPE ] == undefined )  {
+                myAlert( 'ERROR', 'Неизвестный тип данных: ' + data[key].TYPE + ', у параметра: ' + key, 'alert-error' );
                 return false;
             }
         }
@@ -391,7 +395,7 @@ function addControl(parent, paramName, attrs) {
             }
         }
     } 
-    else if ( attrs.Type == "BOOL" ) {
+    else if ( attrs.TYPE == "BOOL" ) {
         // Создание CheckBox
         
         // Создать и добавить элемент
@@ -432,15 +436,15 @@ function addControl(parent, paramName, attrs) {
         var input = $('<input type="text" >').attr('value', attrs.VALUE).attr( 'id', paramName ).appendTo(parent);
 
         // Инициализация календаря
-        if ( attrs.Type == 'DATETIME' ) { 
+        if ( attrs.TYPE == 'DATETIME' ) { 
             $( 'input#' + paramName ).datetimepicker(); 
         }
         
         // Определить размер поля в зависимости от типа данных
-        if ( attrs.Type == 'STRING' ) {
+        if ( attrs.TYPE == 'STRING' ) {
             input.addClass('input-xlarge');
         } 
-        else if ( attrs.Type == 'DATETIME' ) {
+        else if ( attrs.TYPE == 'DATETIME' ) {
             input.addClass('input-medium');
         }
         else {
