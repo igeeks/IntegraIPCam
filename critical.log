@@ -116,3 +116,5 @@
 07/10/2012 22:19:45 [ICH264 0113DC60] Error! bad CODEC fourcc!
 07/10/2012 23:28:03 [ICH264 0113DC60] Error! bad CODEC fourcc!
 07/10/2012 23:28:03 [ICTransformWorker 011539F0] ::SaveConfig() Error! GetInfo() 'ICWatchDog' failed!
+08/10/2012 00:11:05 [ICH264 0113DC60] Error! bad CODEC fourcc!
+08/10/2012 00:11:05 [ICTransformWorker 011539F0] ::SaveConfig() Error! GetInfo() 'ICWatchDog' failed!

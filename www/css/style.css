@@ -10,6 +10,10 @@
 	margin-top: 18px;
 }
 
+#left_menu {
+	padding-top: 10px;
+}
+
 .col1 {
   width: 20%;
 }
@@ -52,3 +56,9 @@
 	height: 24px;
 	width: 24px;
 }
+
+section {
+	padding-top: 10px;
+	padding-bottom: 20px;
+}
+

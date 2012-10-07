@@ -79,8 +79,14 @@ var DATA_TYPES = {
     DATA: {                 
         // TODO пока это только заглушка
     },
+    DATE: {                 
+        // TODO пока это только заглушка
+    },
+    TIME: {                 
+        // TODO пока это только заглушка
+    },
     PARAMS: { 
-        // что с ним делать? не документированный тип.
+        // Ответ сервера.
     }
 }
 
@@ -313,9 +319,17 @@ function addParams(data) {
             }
         }
         
-        // Создание страницы
-        $('<div></div>').addClass('page-header').appendTo( $('div.span9') );
-        $('<table><thead><tr><th>Параметр</th><th>Значение</th><th>Сбросить</th></tr></thead><tbody></tbody></table>').addClass('table table-bordered table-striped').attr('id', 'paramsTable').appendTo( $('div.span9') );
+        // TODO жесть -- удалить:
+        var has_file = 0;
+
+        // ================== Создание таблицы настроек
+        $('<section id="paramsSection"></section>')
+            .appendTo( $('div.span9') );
+        $('<div></div>').addClass('page-header').appendTo( $('#paramsSection') );
+        $('<table><thead><tr><th>Параметр</th><th>Значение</th><th>Сбросить</th></tr></thead><tbody></tbody></table>')
+            .addClass('table table-bordered table-striped')
+            .attr('id', 'paramsTable')
+            .appendTo( $('#paramsSection') );
         
         // Выводить название и комент модуля из хранимых данных
         $('<h1>'+ getCurModParam(curMod).COMMENT.VALUE +'</h1>').appendTo( $('div.page-header') );
@@ -325,8 +339,6 @@ function addParams(data) {
             if (key == "CHANNEL_ID" || key == "RESULT") {
                 continue;
             }
-
-            var val = data[key];
 
             // Названия параметров не должны содержать пробелы
             if ( /\s+/.test( key ) ) {
@@ -340,6 +352,14 @@ function addParams(data) {
 
                 return;
             }   
+
+            var val = data[key];
+
+            // Хак для демострации файлов TODO удалить
+            if ( val.TYPE == "FILE" ) {
+                has_file = 1;
+                continue;
+            }
 
             // Создать ряд таблицы
             var row = $('<tr></tr>').appendTo( $('#paramsTable tbody') );
@@ -359,9 +379,56 @@ function addParams(data) {
         }
 
         // Создать и добавить кнопку "Сохранить изменения"
-        $('<button>Сохранить изменения</button>').addClass('btn disabled').attr('id', 'saveBtn').attr( 'disabled', 'disabled' ).appendTo( $('div.span9') );
+        $('<button>Сохранить изменения</button>')
+            .addClass('btn disabled')
+            .attr('id', 'saveBtn')
+            .attr( 'disabled', 'disabled' )
+            .appendTo( $('#paramsSection') );
         
+        if ( has_file == 1 ) {
+            // ================== Создание таблицы файлов
+            $('<section id="filesSection"></section>')
+                .appendTo( $('div.span9') );
+            $('<br/><div class="page-header"><h1>Файлы</h1></div>').appendTo( $('#filesSection') );
+            $('<table><tbody></tbody></table>')
+                .addClass('table table-bordered table-striped')
+                .attr('id', 'filesTable')
+                .appendTo( $('#filesSection') );
+
+            for ( var key in data ) {
+                if (key == "CHANNEL_ID" || key == "RESULT") { // TODO только для теста
+                    continue;
+                }
+
+                var val = data[key];
+
+                // Хак для демострации файлов TODO удалить
+                if ( val.TYPE == "FILE" ) {
+                    // Создать ряд таблицы
+                    var row = $('<tr></tr>').appendTo( $('#filesTable tbody') );
+                    
+                    // Добавить название параметра в таблицу
+                    var param_name = val.COMMENT !== undefined ? val.COMMENT : key;
+                    $('<td><span>'+ param_name +'</span></td>').addClass('col1').appendTo( row );
+                    
+                    // Создать и добавить кнопку "отменить"
+                    parent = $('<td></td>').appendTo(row);
+                    var input = 
+                        $('<input type="text" clas="input-xlarge">')
+                            .attr('value', '')
+                            .appendTo(parent);
+                    var browse_btn = 
+                        $('<button class="btn">...</button>')
+                        .appendTo(parent);
+                    var submit_btn = 
+                        $('<button class="btn">submit</button>')
+                        .appendTo(parent);
+                }
+            }
+        }
+
         // Сохранение данных в объект.
+        // TODO не хранить информацию о файлах, ее же все равно не надо отправлять на сервер?
         curParams = data;
         newParams = null;
         newParams = $.extend( true, newParams, curParams ); // Рекурсивное клонирование объекта
