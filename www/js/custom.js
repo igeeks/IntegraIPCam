@@ -180,10 +180,10 @@ $('#paramsTable input').live('change', function() {
             }
         }
 
-        newParams[ $(this).attr('id') ].Value = this.value;
+        newParams[ $(this).attr('id') ].VALUE = this.value;
     }
     else if ( curParams[ $(this).attr('id') ].Type == "BOOL" ) { // Если чекбокс
-        newParams[ $(this).attr('id') ].Value = this.checked;
+        newParams[ $(this).attr('id') ].VALUE = this.checked;
     }
     
     // Сделать кнопку сохранения изменения активной
@@ -194,7 +194,7 @@ $('#paramsTable input').live('change', function() {
 
 $('#paramsTable select').live('change', function() {
         
-    newParams[ $(this).attr('id') ].Value = this.value;
+    newParams[ $(this).attr('id') ].VALUE = this.value;
     $('#saveBtn').removeClass('disabled').removeAttr('disabled');
     
     return true;
@@ -209,12 +209,12 @@ $('#saveBtn').live('click', function () {
         // Отправить команду на установку параметров
         var cmd = {};
         cmd['COMMAND'] = 'CMD_SET_PARAMS';
-        cmd['CHANNEL_ID'] = "dw:" + newParams.CHANNEL_ID.Value;
-        cmd['MODULE_NAME'] = "s:'" + getCurModParam(curMod).NAME.Value + "'";
+        cmd['CHANNEL_ID'] = "dw:" + newParams.CHANNEL_ID.VALUE;
+        cmd['MODULE_NAME'] = "s:'" + getCurModParam(curMod).NAME.VALUE + "'";
         $.each( newParams, function(key, val) {
             if ( key != "RESULT" && key != "CHANNEL_ID" ) {
                 if ( val.Type == 'STRING' )  {
-                    cmd[key] = DATA_TYPES[ val.Type ].ABBREVIATED_NAME + ":'" + encodeURIComponent(val.Value) + "'";
+                    cmd[key] = DATA_TYPES[ val.Type ].ABBREVIATED_NAME + ":'" + encodeURIComponent(val.VALUE) + "'";
                 } else {
                     cmd[key] = DATA_TYPES[ val.Type ].ABBREVIATED_NAME + ":" + encodeURIComponent(val.Value);
                 }
@@ -231,38 +231,38 @@ $('#returnArrow').live('click', function () {
     
     // Отмена изменений
     // Если выбранный инпут типа селект
-    if ( input.tagName == 'SELECT' && input.value != curParams[ $(this).attr('for') ].Value ) { 
+    if ( input.tagName == 'SELECT' && input.value != curParams[ $(this).attr('for') ].VALUE ) { 
         // Найти опцию с соответствующим значением и установить выбранной
         var i = 0;
-        while ( i < input.childNodes.length && input.childNodes[i].value != curParams[ $(this).attr('for') ].Value ) {
+        while ( i < input.childNodes.length && input.childNodes[i].value != curParams[ $(this).attr('for') ].VALUE ) {
             i++;
         }
         if ( i == input.childNodes.length ) {
             myAlert( 'ERROR', 'Неправильное значение опции списка', 'alert-error' );
-            console.log( 'ERROR: Попытка установить выбранным значение ' + curParams[ $(this).attr('for') ].Value + ', которого нет в списке опций селекта' );
+            console.log( 'ERROR: Попытка установить выбранным значение ' + curParams[ $(this).attr('for') ].VALUE + ', которого нет в списке опций селекта' );
         }
         else {
             // Отменить изменения в форме
             input.childNodes[i].selected = true;
             
             // Отменить изменения в переменных
-            newParams[ $(this).attr('for') ].Value = curParams[ $(this).attr('for') ].Value;
+            newParams[ $(this).attr('for') ].VALUE = curParams[ $(this).attr('for') ].VALUE;
         }
     }
     // Checkbox
-    else if ( input.type == 'checkbox' && input.checked != curParams[ $(this).attr('for') ].Value ) { 
+    else if ( input.type == 'checkbox' && input.checked != curParams[ $(this).attr('for') ].VALUE ) { 
         // Отменить изменения в форме
-        input.checked = curParams[ $(this).attr('for') ].Value;
+        input.checked = curParams[ $(this).attr('for') ].VALUE;
         
         // Отменить изменения в переменных
-        newParams[ $(this).attr('for') ].Value = curParams[ $(this).attr('for') ].Value;
+        newParams[ $(this).attr('for') ].VALUE = curParams[ $(this).attr('for') ].VALUE;
     }
     // Все остальные инпуты
-    else if ( input.value != curParams[ $(this).attr('for') ].Value ) { 
-        input.value = curParams[ $(this).attr('for') ].Value;
+    else if ( input.value != curParams[ $(this).attr('for') ].VALUE ) { 
+        input.value = curParams[ $(this).attr('for') ].VALUE;
         
         // Отменить изменения в переменных
-        newParams[ $(this).attr('for') ].Value = curParams[ $(this).attr('for') ].Value;
+        newParams[ $(this).attr('for') ].VALUE = curParams[ $(this).attr('for') ].VALUE;
         
         // Сгенерировать событие change для изменения значения слайдера
         $(input).trigger('change');
@@ -279,9 +279,9 @@ function cbSetParams(data) {
     if ( !data.RESULT ) {
         myAlert( 'ERROR', 'Неверный формат ответа', 'alert-error' );
     
-    } else if (data.RESULT.Value.CODE.Value == 0) { // Успешное сохранение изменений
+    } else if (data.RESULT.VALUE.CODE.VALUE == 0) { // Успешное сохранение изменений
         
-        myAlert( data.RESULT.Value.TEXT.Value, data.RESULT.Value.MESSAGE.Value, 'alert-success' ); 
+        myAlert( data.RESULT.VALUE.TEXT.VALUE, data.RESULT.VALUE.MESSAGE.VALUE, 'alert-success' ); 
         
         // Деактивация кнопки "Сохранить изменения"
         $( '#saveBtn' ).addClass('btn disabled').attr( 'disabled', 'disabled' );
@@ -291,7 +291,7 @@ function cbSetParams(data) {
         curParams = $.extend( true, curParams, newParams ); // Рекурсивное клонирование объекта
     } 
     else { // fail
-        myAlert( data.RESULT.Value.TEXT.Value, data.RESULT.Value.MESSAGE.Value, 'alert-error' );
+        myAlert( data.RESULT.VALUE.TEXT.VALUE, data.RESULT.VALUE.MESSAGE.VALUE, 'alert-error' );
     }
 }
 
@@ -302,7 +302,7 @@ function addParams(data) {
     $('div.span9').empty();
     
     // Если запрос выполнен успешно
-    if (data.RESULT.Value.CODE.Value == 0) {
+    if (data.RESULT.VALUE.CODE.VALUE == 0) {
         
         // Проверка полученных данных
         for ( var key in data ) {
@@ -317,7 +317,7 @@ function addParams(data) {
         $('<table><thead><tr><th>Параметр</th><th>Значение</th><th>Сбросить</th></tr></thead><tbody></tbody></table>').addClass('table table-bordered table-striped').attr('id', 'paramsTable').appendTo( $('div.span9') );
         
         // Выводить название и комент модуля из хранимых данных
-        $('<h1>'+ getCurModParam(curMod).COMMENT.Value +'</h1>').appendTo( $('div.page-header') );
+        $('<h1>'+ getCurModParam(curMod).COMMENT.VALUE +'</h1>').appendTo( $('div.page-header') );
         
         // Создание и заполнение таблицы с параметрами
         for ( var key in data ) {
@@ -366,7 +366,7 @@ function addParams(data) {
         newParams = $.extend( true, newParams, curParams ); // Рекурсивное клонирование объекта
         
     } else {
-        myAlert( data.RESULT.Value.TEXT.Value, data.RESULT.Value.MESSAGE.Value, 'alert-error' );
+        myAlert( data.RESULT.VALUE.TEXT.VALUE, data.RESULT.VALUE.MESSAGE.VALUE, 'alert-error' );
     }
 }
 
@@ -377,16 +377,16 @@ function addParams(data) {
 function addControl(parent, paramName, attrs) {
     if ( ! attrs ) { return };
 
-    if (attrs.hasOwnProperty("Enum")) {
-        // Создание селекта для любого типа с полем Enum
+    if (attrs.hasOwnProperty("ENUM")) {
+        // Создание селекта для любого типа с полем ENUM
 
         // Создать и добавить элемент
         $('<select class="input-large" id="' + paramName + '">').appendTo(parent);
 
         // Добавить опции селекта
-        for (var key in attrs.Enum) {
-            var opt = $('<option>' + attrs.Enum[key] + '</option>').appendTo('select#' + paramName);
-            if ( attrs.Enum[key] == attrs.Value ) {
+        for (var key in attrs.ENUM) {
+            var opt = $('<option>' + attrs.ENUM[key] + '</option>').appendTo('select#' + paramName);
+            if ( attrs.ENUM[key] == attrs.VALUE ) {
                 opt.attr('selected', 'selected');
             }
         }
@@ -398,20 +398,20 @@ function addControl(parent, paramName, attrs) {
         var checkbox = $( '<input type="checkbox" id="' + paramName + '">' ).appendTo(parent);
         
         // Инициализация
-        checkbox[0].checked = attrs.Value;
+        checkbox[0].checked = attrs.VALUE;
     }
     else if (attrs.hasOwnProperty("Min") && attrs.hasOwnProperty("Max")) { 
         // Создание обычного инпута со слайдером для цифровых тпиов
-        if ( attrs.Value >= attrs.Min && attrs.Value <= attrs.Max ) { 
+        if ( attrs.VALUE >= attrs.Min && attrs.VALUE <= attrs.Max ) { 
             
             // Создать и добавить инпут
-            $('<input type="text" for="slider" class="input-small" id="' + paramName + '">').attr( 'value', attrs.Value ).appendTo(parent);
+            $('<input type="text" for="slider" class="input-small" id="' + paramName + '">').attr( 'value', attrs.VALUE ).appendTo(parent);
 
             // Добавление ползунка
             parent = $('<div></div>').addClass('sliderWrap').appendTo(parent);
             $('<div id="slider-range-min"></div>').appendTo(parent).slider({
                     range: "min",
-                    value: attrs.Value,
+                    value: attrs.VALUE,
                     min: attrs.Min,
                     max: attrs.Max,
                     slide: function( event, ui ) {
@@ -429,7 +429,7 @@ function addControl(parent, paramName, attrs) {
         // Создание обычного инпута для чисел, строки и даты
         
         // Создать и добавить контрол
-        var input = $('<input type="text" >').attr('value', attrs.Value).attr( 'id', paramName ).appendTo(parent);
+        var input = $('<input type="text" >').attr('value', attrs.VALUE).attr( 'id', paramName ).appendTo(parent);
 
         // Инициализация календаря
         if ( attrs.Type == 'DATETIME' ) { 
@@ -451,14 +451,14 @@ function addControl(parent, paramName, attrs) {
 
 //Добавить модули в меню
 function addModules(data) {
-    if (data.RESULT.Value.CODE.Value == 0) {
+    if (data.RESULT.VALUE.CODE.VALUE == 0) {
         var chanId;
         if (data.CHANNEL_LIST_ID) {
-            chanId = data.CHANNEL_LIST_ID.Value;
+            chanId = data.CHANNEL_LIST_ID.VALUE;
             $('#accordion-group' + chanId + ' ul').empty();
-            $.each(data.MODULES_LIST.Enum, function(key, val){
-                $('<li></li>').attr('chanId', chanId).attr('modName', val.NAME.Value).appendTo($('#accordion-group' + chanId + ' ul'));
-                $('<a>'+val.COMMENT.Value+'</a>').attr('href', '#').appendTo($("[modName = "+val.NAME.Value+"][chanId = "+chanId+"]")); // $('<a>'+val.NAME.Value+'</a>').attr('href', '#').appendTo($("[modName = "+val.NAME.Value+"][chanId = "+chanId+"]"));
+            $.each(data.MODULES_LIST.ENUM, function(key, val){
+                $('<li></li>').attr('chanId', chanId).attr('modName', val.NAME.VALUE).appendTo($('#accordion-group' + chanId + ' ul'));
+                $('<a>'+val.COMMENT.VALUE+'</a>').attr('href', '#').appendTo($("[modName = "+val.NAME.VALUE+"][chanId = "+chanId+"]")); // $('<a>'+val.NAME.VALUE+'</a>').attr('href', '#').appendTo($("[modName = "+val.NAME.VALUE+"][chanId = "+chanId+"]"));
             });
         }
         else { alert('Нет номера канала'); }
@@ -472,7 +472,7 @@ function addModules(data) {
         // Сохранение всего списка модулей
         modules = data;
     } else {
-        $('<div><h3>' + data.RESULT.Value.TEXT.Value + '</h3><p>' + data.RESULT.Value.MESSAGE.Value + '</p></div>').appendTo( $('div.span9') );
+        $('<div><h3>' + data.RESULT.VALUE.TEXT.VALUE + '</h3><p>' + data.RESULT.VALUE.MESSAGE.VALUE + '</p></div>').appendTo( $('div.span9') );
     }
     
     // Отключить анимацию загрузки
@@ -481,33 +481,33 @@ function addModules(data) {
 
 //Создание акордеона с каналами, подготовка контейнера для меню модулей
 function addChannels(data) {
-    if (data.RESULT.Value.CODE.Value == 0) {    
-        $.each(data.CHANNELS_LIST.Enum, function(key, val) {
+    if (data.RESULT.VALUE.CODE.VALUE == 0) {    
+        $.each(data.CHANNELS_LIST.ENUM, function(key, val) {
             var parent = document.getElementById('accordion1');
             parent.appendChild(myCreateElement('div',
-              {'class': 'accordion-group', 'id': 'accordion-group' + val.ID.Value }));
+              {'class': 'accordion-group', 'id': 'accordion-group' + val.ID.VALUE }));
             
-            parent = document.getElementById( 'accordion-group' + val.ID.Value );
+            parent = document.getElementById( 'accordion-group' + val.ID.VALUE );
             parent.appendChild(myCreateElement('div',
-              {'class': 'accordion-heading', 'id': val.ID.Value }));
+              {'class': 'accordion-heading', 'id': val.ID.VALUE }));
             parent.appendChild(myCreateElement('div',
-              {'class': 'accordion-body collapse', 'id': 'collapse' + val.ID.Value },
+              {'class': 'accordion-body collapse', 'id': 'collapse' + val.ID.VALUE },
               {'height': '0px'} )); //  {'height': 'auto', 'display': 'none'} ));
             
-            parent = document.getElementById( val.ID.Value );
+            parent = document.getElementById( val.ID.VALUE );
             parent.appendChild(myCreateElement('a',
-              {'class': 'accordion-toggle', 'data-toggle': 'collapse', 'data-parent':'#accordion1', 'href':'#collapse' + val.ID.Value },
+              {'class': 'accordion-toggle', 'data-toggle': 'collapse', 'data-parent':'#accordion1', 'href':'#collapse' + val.ID.VALUE },
               {},
-              val.COMMENT.Value ));//'Channel #' + val.ID.Value ));
+              val.COMMENT.VALUE ));//'Channel #' + val.ID.VALUE ));
                         
-            $('<div></div>').addClass('accordion-inner').appendTo($('#accordion-group' + val.ID.Value + ' > #collapse' + val.ID.Value ));
-            $('<ul></ul>').addClass('nav nav-list').appendTo($('#accordion-group' + val.ID.Value + ' > #collapse' + val.ID.Value + ' > .accordion-inner'));
-            $('<div></div>').addClass('modLoader').appendTo($('#accordion-group' + val.ID.Value + ' div.accordion-inner'));
+            $('<div></div>').addClass('accordion-inner').appendTo($('#accordion-group' + val.ID.VALUE + ' > #collapse' + val.ID.VALUE ));
+            $('<ul></ul>').addClass('nav nav-list').appendTo($('#accordion-group' + val.ID.VALUE + ' > #collapse' + val.ID.VALUE + ' > .accordion-inner'));
+            $('<div></div>').addClass('modLoader').appendTo($('#accordion-group' + val.ID.VALUE + ' div.accordion-inner'));
         });
         // Сохранение всего списка модулей
         channels = data;
     } else {
-        $('<div><h3>' + data.RESULT.Value.TEXT.Value + '</h3><p>' + data.RESULT.Value.MESSAGE.Value + '</p></div>').appendTo( $('div.span9') );
+        $('<div><h3>' + data.RESULT.VALUE.TEXT.VALUE + '</h3><p>' + data.RESULT.VALUE.MESSAGE.VALUE + '</p></div>').appendTo( $('div.span9') );
     }
     
     // Отключить анимацию инициализации
@@ -565,13 +565,13 @@ function sendCmd(params, callback) {
 // Получить экземпляр объекта выбранного модуля
 function getCurModParam(modName) {
     var i = 0;
-    while ( i < modules.MODULES_LIST.Enum.length && modules.MODULES_LIST.Enum[i].NAME.Value != modName ) {
+    while ( i < modules.MODULES_LIST.ENUM.length && modules.MODULES_LIST.ENUM[i].NAME.VALUE != modName ) {
         i++;
     }
-    if ( i >= modules.MODULES_LIST.Enum.length ) { 
+    if ( i >= modules.MODULES_LIST.ENUM.length ) { 
         return -1; 
     } else {
-        return modules.MODULES_LIST.Enum[i];
+        return modules.MODULES_LIST.ENUM[i];
     }
 }
 
