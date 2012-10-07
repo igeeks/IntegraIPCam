@@ -169,9 +169,9 @@ $('#paramsTable input').live('change', function() {
             if ( $(this).attr( 'for' ) == 'slider' ) {
                 // Проверить превышение границ диапозона значений, если есть превышение, то значение прировнять к граничному
                 if ( parseInt( this.value ) < parseInt( curParams[ $(this).attr('id') ].Min ) ) {
-                    this.value = curParams[ $(this).attr('id') ].Min;
-                } else if ( parseInt( this.value ) > parseInt( curParams[ $(this).attr('id') ].Max ) ) {
-                    this.value = curParams[ $(this).attr('id') ].Max;
+                    this.value = curParams[ $(this).attr('id') ].MIN;
+                } else if ( parseInt( this.value ) > parseInt( curParams[ $(this).attr('id') ].MAX ) ) {
+                    this.value = curParams[ $(this).attr('id') ].MAX;
                 }
                 // Установить значение слайдера равное значению инпута
                 $(this).parent().find('#slider-range-min').slider( "value", this.value );
@@ -404,9 +404,9 @@ function addControl(parent, paramName, attrs) {
         // Инициализация
         checkbox[0].checked = attrs.VALUE;
     }
-    else if (attrs.hasOwnProperty("Min") && attrs.hasOwnProperty("Max")) { 
+    else if (attrs.hasOwnProperty("MIN") && attrs.hasOwnProperty("MAX")) { 
         // Создание обычного инпута со слайдером для цифровых тпиов
-        if ( attrs.VALUE >= attrs.Min && attrs.VALUE <= attrs.Max ) { 
+        if ( attrs.VALUE >= attrs.MIN && attrs.VALUE <= attrs.MAX ) { 
             
             // Создать и добавить инпут
             $('<input type="text" for="slider" class="input-small" id="' + paramName + '">').attr( 'value', attrs.VALUE ).appendTo(parent);
@@ -416,8 +416,8 @@ function addControl(parent, paramName, attrs) {
             $('<div id="slider-range-min"></div>').appendTo(parent).slider({
                     range: "min",
                     value: attrs.VALUE,
-                    min: attrs.Min,
-                    max: attrs.Max,
+                    min: attrs.MIN,
+                    max: attrs.MAX,
                     slide: function( event, ui ) {
                         $( 'input#' + paramName ).val( ui.value );
                         $( 'input#' + paramName ).trigger('change');
@@ -425,7 +425,7 @@ function addControl(parent, paramName, attrs) {
             });
         } else {
             $('div.span9').empty();
-            myAlert( 'Error', 'Не корректные входные данные. Value находится за диапозоном значений Min Max', 'alert-error' );
+            myAlert( 'Error', 'Не корректные входные данные. Value находится за диапозоном значений MIN MAX', 'alert-error' );
             return;
         }
     } 
