@@ -81,9 +81,6 @@ var DATA_TYPES = {
     },
     PARAMS: { 
         // что с ним делать? не документированный тип.
-    },
-    undefined: {
-        // Заглушка
     }
 }
 
@@ -220,7 +217,7 @@ $('#saveBtn').live('click', function () {
                 if ( val.TYPE == 'STRING' )  {
                     cmd[key] = DATA_TYPES[ val.TYPE ].ABBREVIATED_NAME + ":'" + encodeURIComponent(val.VALUE) + "'";
                 } else {
-                    cmd[key] = DATA_TYPES[ val.TYPE ].ABBREVIATED_NAME + ":" + encodeURIComponent(val.Value);
+                    cmd[key] = DATA_TYPES[ val.TYPE ].ABBREVIATED_NAME + ":" + encodeURIComponent(val.VALUE);
                 }
             }
         });
@@ -348,7 +345,7 @@ function addParams(data) {
             var row = $('<tr></tr>').appendTo( $('#paramsTable tbody') );
             
             // Добавить название параметра в таблицу
-            var param_name = val.Comment !== undefined ? val.Comment : key;
+            var param_name = val.COMMENT !== undefined ? val.COMMENT : key;
             $('<td><span>'+ param_name +'</span></td>').addClass('col1').appendTo( row );
             
             // Создать и добавить контрол для параметра
