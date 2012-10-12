@@ -1,95 +1,3 @@
-﻿var curParams, newParams, curChan, curMod, channels, modules;
-
-var DATA_TYPES = {  
-    DWORD: {
-        MIN:                0,
-        MAX:                4294967295,
-        ALLOW_CHARS:        /\d/,
-        FORMAT:             /^\d+$/,
-        HINT:               "Можно использовать только цифры",
-        ABBREVIATED_NAME:   "dw"
-    },
-    WORD: {
-        MIN:                0,
-        MAX:                65535,
-        ALLOW_CHARS:        /\d/,
-        FORMAT:             /^\d+$/,
-        HINT:               "Можно использовать только цифры",
-        ABBREVIATED_NAME:   "w"
-    },
-    INT32: {
-        MIN:                -2147483648,
-        MAX:                2147483647,
-        ALLOW_CHARS:        /[\+\-\d]/,
-        FORMAT:             /(^[\+\-\d]\d+$|^\d+$)/,
-        HINT:               "Формат данных: -123456",
-        ABBREVIATED_NAME:   "i32"
-    },
-    INT64: {
-        MIN:                -9223372036854775808,
-        MAX:                9223372036854775807,
-        ALLOW_CHARS:        /[\+\-\d]/,
-        FORMAT:             /(^[\+\-\d]\d+$|^\d+$)/,
-        HINT:               "Формат данных: -123456",
-        ABBREVIATED_NAME:   "i64"
-    },
-    FLOAT: {
-        MIN:                3.4e-38,
-        MAX:                3.4e38,
-        ALLOW_CHARS:        /[\d\.]/,
-        FORMAT:             /(^\d+\.\d+$|^\d+$)/,
-        HINT:               "Формат данных: 0.123456",
-        ABBREVIATED_NAME:   "f"
-    },
-    DOUBLE: {
-        MIN:                1.7e-308,
-        MAX:                1.7e308,
-        ALLOW_CHARS:        /[\d\.]/,
-        FORMAT:             /(^\d+\.\d+$|^\d+$)/,
-        HINT:               "Формат данных: 0.123456",
-        ABBREVIATED_NAME:   "dbl"
-    },
-    STRING: {
-        ALLOW_CHARS:        /./,
-        FORMAT:             /(^.*$)/,
-        HINT:               "Формат данных строка",
-        ABBREVIATED_NAME:   "s"
-    },
-    FOURCC: {
-        ALLOW_CHARS:        /./,
-        FORMAT:             /(^.*$)/,
-        HINT:               "Формат данных строка",
-        ABBREVIATED_NAME:   "fcc"
-    },
-    DATETIME: {             
-        ALLOW_CHARS:        /[\d\.\/\s\:]/,
-        FORMAT:             /(^.*$)/,
-        HINT:               "Формат данных: 00/00/0000 00:00:00.000",
-        ABBREVIATED_NAME:   "dt"
-    },
-    BOOL: {
-        ABBREVIATED_NAME:   "b"
-    },
-    FILE: {                 
-        // TODO пока это только заглушка
-    },
-    TEXT: {                 
-        // TODO пока это только заглушка
-    },
-    DATA: {                 
-        // TODO пока это только заглушка
-    },
-    DATE: {                 
-        // TODO пока это только заглушка
-    },
-    TIME: {                 
-        // TODO пока это только заглушка
-    },
-    PARAMS: { 
-        // Ответ сервера.
-    }
-}
-
 $(document).ready(function() {
     $('#accordion1 .accordion-body').collapse({
       toggle: false
@@ -302,6 +210,26 @@ function cbSetParams(data) {
     }
 }
 
+function add_table_container(prefix, header) {
+    var section_id  = prefix + 'Section';
+    var table_id    = prefix + 'Table';
+
+    $('<section id="' + section_id + '"></section>')
+        .appendTo( $('div.span9') );
+
+    $('<h1>'+ header +'</h1>')
+        .appendTo( 
+            $('<div></div>')
+                .addClass('page-header')
+                .appendTo( $('#' + section_id) )
+        );
+
+    return $('<table></table>')
+        .addClass('table table-bordered table-striped')
+        .attr('id', table_id )
+        .appendTo( $('#' + section_id) );
+}
+
 // Создание HTMl кода для параметров камеры
 function addParams(data) {
     
@@ -309,72 +237,39 @@ function addParams(data) {
     $('div.span9').empty();
     
     // Если запрос выполнен успешно
-    if (data.RESULT.VALUE.CODE.VALUE == 0) {
-        
-        // Проверка полученных данных
-        for ( var key in data ) {
-            if ( DATA_TYPES[ data[key].TYPE ] == undefined )  {
-                myAlert( 'ERROR', 'Неизвестный тип данных: ' + data[key].TYPE + ', у параметра: ' + key, 'alert-error' );
-                return false;
-            }
+    if ( check_result(data) ) {
+        if ( ! check_data(data) ) {
+            $('div.span9').empty();
+            myAlert( 'ERROR', Error_code, 'alert-error' );
+            return;
         }
         
-        // TODO жесть -- удалить:
-        var has_file = 0;
+        // ================== Создание таблицы параметров
+        // Создание контейнера для таблицы
+        var table = add_table_container( 'params', get_cur_mod_comment() );
+        $('<thead><tr><th>Параметр</th><th>Значение</th><th>Сбросить</th></tr></thead><tbody></tbody>')
+            .appendTo( table );
 
-        // ================== Создание таблицы настроек
-        $('<section id="paramsSection"></section>')
-            .appendTo( $('div.span9') );
-        $('<div></div>').addClass('page-header').appendTo( $('#paramsSection') );
-        $('<table><thead><tr><th>Параметр</th><th>Значение</th><th>Сбросить</th></tr></thead><tbody></tbody></table>')
-            .addClass('table table-bordered table-striped')
-            .attr('id', 'paramsTable')
-            .appendTo( $('#paramsSection') );
-        
-        // Выводить название и комент модуля из хранимых данных
-        $('<h1>'+ getCurModParam(curMod).COMMENT.VALUE +'</h1>').appendTo( $('div.page-header') );
-        
-        // Создание и заполнение таблицы с параметрами
-        for ( var key in data ) {
-            if (key == "CHANNEL_ID" || key == "RESULT") {
-                continue;
-            }
-
-            // Названия параметров не должны содержать пробелы
-            if ( /\s+/.test( key ) ) {
-                $('div.span9').empty();
-
-                myAlert( 
-                    'Error', 
-                    'Ошибка парсинга ответа сервера: имена свойств должны быть без пробелов, параметр: ' + key, 
-                    'alert-error' 
-                );
-
-                return;
-            }   
-
-            var val = data[key];
-
-            // Хак для демострации файлов TODO удалить
-            if ( val.TYPE == "FILE" ) {
-                has_file = 1;
-                continue;
-            }
+        // Заполнение таблицы с параметрами
+        var params = get_params(data);
+        for ( var key in params ) {
+            var val = params[key];
 
             // Создать ряд таблицы
             var row = $('<tr></tr>').appendTo( $('#paramsTable tbody') );
             
             // Добавить название параметра в таблицу
-            var param_name = val.COMMENT !== undefined ? val.COMMENT : key;
-            $('<td><span>'+ param_name +'</span></td>').addClass('col1').appendTo( row );
+            $('<td><span>'+ get_param_comment( key, data ) +'</span></td>')
+                .addClass('col1').appendTo( row );
             
             // Создать и добавить контрол для параметра
-            var parent = $('<td class="control-group"></td>').addClass('col2').appendTo( row );
+            var parent = $('<td class="control-group"></td>')
+                .addClass('col2').appendTo( row );
+            
             addControl(parent, key, val);
             
             // Создать и добавить кнопку "отменить"
             parent = $('<td></td>').addClass('col3').appendTo(row);
-            //$( '<a href="#"><i class="icon-remove" for="' + key + '"></i></a>' ).appendTo(parent);
             $( '<a href="#"><span id="returnArrow" for="' + key + '" class="ui-icon ui-icon-arrowreturnthick-1-w"></span></a>' ).appendTo(parent);
         }
 
@@ -384,46 +279,40 @@ function addParams(data) {
             .attr('id', 'saveBtn')
             .attr( 'disabled', 'disabled' )
             .appendTo( $('#paramsSection') );
-        
-        if ( has_file == 1 ) {
-            // ================== Создание таблицы файлов
-            $('<section id="filesSection"></section>')
-                .appendTo( $('div.span9') );
-            $('<br/><div class="page-header"><h1>Файлы</h1></div>').appendTo( $('#filesSection') );
-            $('<table><tbody></tbody></table>')
-                .addClass('table table-bordered table-striped')
-                .attr('id', 'filesTable')
-                .appendTo( $('#filesSection') );
 
-            for ( var key in data ) {
-                if (key == "CHANNEL_ID" || key == "RESULT") { // TODO только для теста
-                    continue;
-                }
+        // ================== Создание таблицы файлов
+        params = get_files_params(data);
+        if ( ! $.isEmptyObject( params ) ) {
+            // Создание контейнера для таблицы
+            var table = add_table_container( 'files', 'Файлы' );
+            $('<tbody></tbody>')
+                .appendTo( table );
 
-                var val = data[key];
+            // Заполнение таблицы
+            for ( var key in params ) {
+                var val = params[key];
 
-                // Хак для демострации файлов TODO удалить
-                if ( val.TYPE == "FILE" ) {
-                    // Создать ряд таблицы
-                    var row = $('<tr></tr>').appendTo( $('#filesTable tbody') );
-                    
-                    // Добавить название параметра в таблицу
-                    var param_name = val.COMMENT !== undefined ? val.COMMENT : key;
-                    $('<td><span>'+ param_name +'</span></td>').addClass('col1').appendTo( row );
-                    
-                    // Создать и добавить кнопку "отменить"
-                    parent = $('<td></td>').appendTo(row);
-                    var input = 
-                        $('<input type="text" clas="input-xlarge">')
-                            .attr('value', '')
-                            .appendTo(parent);
-                    var browse_btn = 
-                        $('<button class="btn">...</button>')
+                // Создать ряд таблицы
+                var row = $('<tr></tr>').appendTo( $('#filesTable tbody') );
+                
+                // Добавить название параметра в таблицу
+                $('<td><span>'+ get_param_comment( key, data ) +'</span></td>')
+                    .addClass('col1').appendTo( row );
+                
+                // Создать и добавить контрол для параметра
+                var parent = $('<td class="control-group"></td>')
+                    .addClass('col2').appendTo( row );
+                
+                var input = 
+                    $('<input type="text" clas="input-xlarge">')
+                        .attr('value', '')
                         .appendTo(parent);
-                    var submit_btn = 
-                        $('<button class="btn">submit</button>')
-                        .appendTo(parent);
-                }
+                var browse_btn = 
+                    $('<button class="btn">...</button>')
+                    .appendTo(parent);
+                var submit_btn = 
+                    $('<button class="btn">submit</button>')
+                    .appendTo(parent);
             }
         }
 
@@ -628,19 +517,6 @@ function sendCmd(params, callback) {
 
             myAlert( 'Error', 'Ошибка парсинга ответа сервера', 'alert-error' );
         });
-}
-
-// Получить экземпляр объекта выбранного модуля
-function getCurModParam(modName) {
-    var i = 0;
-    while ( i < modules.MODULES_LIST.ENUM.length && modules.MODULES_LIST.ENUM[i].NAME.VALUE != modName ) {
-        i++;
-    }
-    if ( i >= modules.MODULES_LIST.ENUM.length ) { 
-        return -1; 
-    } else {
-        return modules.MODULES_LIST.ENUM[i];
-    }
 }
 
 // Вывод инфомации об ошибке в контентной области
