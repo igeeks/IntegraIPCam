@@ -8,10 +8,10 @@ ThreadPool.dll|177664
 Engine.dll|226816
 WatchDogClient.dll|182784
 MemBuf.dll|146944
-H264.dll|511488
-Http.dll|861696
+H264.dll|508928
+Http.dll|865792
 VideoFrame.dll|177152
-FileIn.dll|286720
+FileIn.dll|287744
 MsgService.dll|350720
 Zip.dll|206336
 WatchDog.dll|206336
