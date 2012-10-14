@@ -65,6 +65,23 @@
 	margin-left: 5px;
 }
 
+.input_file_wrap {
+	text-align: center; 
+	overflow: hidden; 
+	width: 43px; 
+	display: inline-block;
+}
+
+.input_file {
+	margin-top: -50px; 
+	margin-left:-410px;  
+	-moz-opacity: 0;  
+	filter: alpha(opacity=0);   
+	opacity: 0;  
+	font-size: 150px; 
+	height: 100px;
+}
+
 section {
 	padding-top: 10px;
 	padding-bottom: 20px;

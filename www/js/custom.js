@@ -141,11 +141,23 @@ $('#saveBtn').live('click', function () {
 $('.submit_btn').live( 'click', function() {
     // TODO откуда-то брать файл и отправлять
     
-    sendCmd( 'test', cbSetParams, 'POST' );
+    sendCmd( {'COMMAND': 'CMD_ENGINE_UPDATE'}, cbSetParams, 'POST' );
 });
 
 $('.browse_btn').live( 'click', function() {
     // TODO Открывать диалог и сохранять содержимое файла
+});
+
+$('input.input_file').live( 'change', function() {
+    var fileTitle = this.value;
+
+    reWin = /.*\\(.*)/;
+    fileTitle = fileTitle.replace(reWin, "$1");
+    reUnix = /.*\/(.*)/;
+    fileTitle = fileTitle.replace(reUnix, "$1");
+
+    var input = $( '#' + $(this).attr('for') )[0];
+    input.value = fileTitle;
 });
 
 $('#returnArrow').live('click', function () {
@@ -383,25 +395,36 @@ function addControl(parent, paramName, attrs) {
         }
     } 
     else if ( attrs.TYPE == "FILE" ) {
-        var input = 
-            $('<input type="text" clas="input-xlarge">')
-                .attr('value', '')
-                .attr( 'id', paramName )
+        var form = 
+            $('<form style="margin: 0;"></form>')
+                .attr( 'id', paramName + '_form' )
+                .attr( 'action', 'CMD_ENGINE_UPDATE' ) // TODO привести к стандартному виду
+                .attr( 'method', 'post' )
+                .attr( 'enctype', 'multipart/form-data' )
                 .appendTo(parent);
-        var browse_btn = 
-            $('<button class="btn browse_btn">...</button>')
+
+        $('<input type="text" clas="input-xlarge">')
+            .attr('value', '')
+            .attr( 'id', paramName )
+            .appendTo(form);
+
+        $('<div class="input_file_wrap"><button class="btn browse_btn">...</button><input type="file" size="1" for="' + paramName + '" class="input_file"></div>')
             .attr( 'for', paramName )
-            .appendTo(parent);
-        var submit_btn = 
-            $('<button class="btn submit_btn">Отправить</button>')
+            .appendTo(form);
+
+
+        $('<button class="btn submit_btn">Отправить</button>')
             .attr( 'for', paramName )
-            .appendTo(parent);
+            .appendTo(form);
     }
     else {
         // Создание обычного инпута для чисел, строки и даты
         
         // Создать и добавить контрол
-        var input = $('<input type="text" >').attr('value', attrs.VALUE).attr( 'id', paramName ).appendTo(parent);
+        var input = $('<input type="text" >')
+            .attr('value', attrs.VALUE)
+            .attr( 'id', paramName )
+            .appendTo(parent);
 
         // Инициализация календаря
         if ( attrs.TYPE == 'DATETIME' ) { 
@@ -517,22 +540,21 @@ function postJSON( url, data, callback ) {
 
 //Отправить команду на сервер
 function sendCmd(params, callback, type) {
-    var answer;
+    var cmd = "/?action=command"
+    if (params) {
+        for (var key in params) {
+            cmd += "&";
+            cmd += key;
+            cmd += "="
+            cmd += params[key];
+        }
+    }
 
+    var answer;
     if ( type == "POST" ) {
-        answer = postJSON( "/", params, callback);
+        answer = postJSON( cmd, 'test', callback); // Переписать через плагин
     }
     else {
-        var cmd = "/?action=command"
-        if (params) {
-            for (var key in params) {
-                cmd += "&";
-                cmd += key;
-                cmd += "="
-                cmd += params[key];
-            }
-        }
-
         answer = $.getJSON(cmd, callback);
     }
 
