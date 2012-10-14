@@ -138,16 +138,6 @@ $('#saveBtn').live('click', function () {
     }
 });
 
-$('.submit_btn').live( 'click', function() {
-    // TODO откуда-то брать файл и отправлять
-    
-    sendCmd( {'COMMAND': 'CMD_ENGINE_UPDATE'}, cbSetParams, 'POST' );
-});
-
-$('.browse_btn').live( 'click', function() {
-    // TODO Открывать диалог и сохранять содержимое файла
-});
-
 $('input.input_file').live( 'change', function() {
     var fileTitle = this.value;
 
@@ -416,6 +406,22 @@ function addControl(parent, paramName, attrs) {
         $('<button class="btn submit_btn">Отправить</button>')
             .attr( 'for', paramName )
             .appendTo(form);
+
+        var options = { 
+            // beforeSubmit: function() {
+            //     // Включить анимацию отправки данных
+            //     show_loader( 'send', 'Обновление прошивки' ); // TODO выводить мессеседж параметра
+            // },
+            success:   cbSetParams,  // post-submit callback 
+            type:      'post',
+            dataType:  'json',  
+            resetForm: true
+            // $.ajax options can be used here too, for example: 
+            // timeout:   3000 
+        }; 
+     
+        // bind form using 'ajaxForm' 
+        $(form).ajaxForm(options);
     }
     else {
         // Создание обычного инпута для чисел, строки и даты
@@ -538,8 +544,9 @@ function postJSON( url, data, callback ) {
     return $.post(url, data, callback, "json");
 }
 
-//Отправить команду на сервер
-function sendCmd(params, callback, type) {
+// Отправить команду на сервер
+// Отправка файлов выполняется не здесь, а по клику на submit
+function sendCmd(params, callback) {
     var cmd = "/?action=command"
     if (params) {
         for (var key in params) {
@@ -550,13 +557,7 @@ function sendCmd(params, callback, type) {
         }
     }
 
-    var answer;
-    if ( type == "POST" ) {
-        answer = postJSON( cmd, 'test', callback); // Переписать через плагин
-    }
-    else {
-        answer = $.getJSON(cmd, callback);
-    }
+    var answer = $.getJSON(cmd, callback);
 
     answer.error(
         function(jqXHR, textStatus, errorThrown) {
