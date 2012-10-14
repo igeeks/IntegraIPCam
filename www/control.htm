@@ -1,0 +1,413 @@
+<html>
+  <head>
+    <script language="javascript" type="text/javascript" src="/functions.js"></script>
+    <script language="javascript">
+
+      function send_command(cmd) {
+        document.getElementById('hints').firstChild.nodeValue = "Send command: " + cmd;
+        AJAX_get('/?action=command&COMMAND='+ cmd)
+      }
+
+      function AJAX_response(text) {
+        document.getElementById('hints').firstChild.nodeValue = "Got response: " + text;
+      }
+
+      function KeyDown(ev) {
+        ev = ev || window.event;
+        pressed = ev.which || ev.keyCode;
+
+        switch (pressed) {
+          case 37:
+              send_command('pan_plus');
+            break;
+          case 39:
+              send_command('pan_minus');
+            break;
+          case 38:
+              send_command('tilt_minus');
+            break;
+          case 40:
+              send_command('tilt_plus');
+            break;
+          case 32:
+              send_command('reset_pan_tilt');
+          break;
+          default:
+              break;
+        }
+      }
+
+      document.onkeydown = KeyDown;
+
+    </script>
+  </head>
+  <body>
+
+<form name="command_panel" action="" onsubmit="return false;" style="background-color: navy; ">
+<table cellpadding="0" cellspacing="2" border="2" align="left" valign="top" width="1800" >
+	<tr>
+	<td>
+	<font color=FFFFFF>Capture options</font>
+	<br />
+	<font color=FFFFFF>Capture resolution</font>
+	<select name="cap_res" size="1" onchange="send_command('capture_res&channel=1&value='+this.form.cap_res.value)">
+   			<option value="1">1280x1024</option>
+    		<option value="2">1280x720</option>
+			<option value="3">640x480</option>
+    		<option value="4">640x512 - binning</option>
+			<option value="5">640x480 - binning</option>
+			<option value="6">320x240 - binning</option>
+	</select>
+	<br />
+	<font color=FFFFFF>Flicker</font>
+	<select name="flicker" size="1" onchange="send_command('CMD_SET_FLICKER&CHANNEL_ID=0&value='+this.form.flicker.value)">
+   			<option selected value="0">No flicker</option>
+    		<option value="4">60Hz flicker var1</option>
+			<option value="5">60Hz flicker var2</option>
+    		<option value="6">50Hz flicker var1</option>
+			<option value="7">50Hz flicker var2</option>
+	</select>
+	<br />
+	<font color=FFFFFF>Saturation %</font>
+	<input type="range" min="0" max="100" step="1" value="50" id="saturation" name="saturation" onchange="send_command('saturation_set&value='+this.form.saturation.value)">
+	<br />
+	<font color=FFFFFF>Contrast %</font>
+	<input type="range" min="0" max="100" step="1" value="50" id="contrast" name="contrast" onchange="send_command('contrast_set&value='+this.form.contrast.value)">
+	<br />
+	<font color=FFFFFF>Brightness %</font>
+	<input type="range" min="0" max="100" step="1" value="50" id="brightness" name="brightness" onchange="send_command('brightness_set&value='+this.form.brightness.value)">
+	<br />
+	<font color=FFFFFF>IR Cut filter</font>
+	<select name="ircut" size="1" onchange="send_command('ircut_set&value='+this.form.ircut.value)">
+   		<option selected value="1">On</option>
+    		<option value="2">Off</option>
+		<option value="3">Auto</option>
+	</select>
+	<br />
+	<font color=FFFFFF>Resizer 1</font>
+	<select name="reziser1_res" disable size="1" onchange="send_command('CMD_SET_RESIZER_SIZE&CHANNEL_ID=1&RESOLUTION='+this.form.reziser1_res.value)">
+   		<option value="1">1280x1024</option>
+    		<option value="2">1280x720</option>
+		<option value="3">800x600</option>
+		<option value="4">720x576</option>
+		<option value="5">720x480</option>
+		<option value="6">640x480</option>
+    		<option value="7">640x512</option>
+		<option select value="8">320x240</option>
+	</select>
+	<br />
+	<font color=FFFFFF>Resizer 2</font>
+	<select name="reziser2_res" disable size="1" onchange="send_command('CMD_SET_RESIZER_SIZE&CHANNEL_ID=2&RESOLUTION='+this.form.reziser2_res.value)">
+		<option select value="1">320x240</option>
+		<option select value="2">640x480</option>
+	</select>
+	<br />	
+
+
+	<td>
+	<font color=FFFFFF>Channel #1 setting</font>
+	<br />
+	<font color=FFFFFF>Channel resolution source</font>
+	<select name="ch1_res" disable size="1" onchange="send_command('CMD_SET_CODEC_SOURCE&CHANNEL_ID=1&SOURCE='+this.form.ch1_res.value)">
+		<option select value="1">Resizer 1</option>
+		<option select value="2">Resizer 2</option>
+	</select>
+	<br />
+	<font color=FFFFFF>Channel codec type</font>
+	<select name="ch1_codec" disable size="1" onchange="send_command('ch0_codec&value='+this.form.ch1_codec.value)">
+   		<option value="1">MJPEG</option>
+    		<option value="2">MPEG2</option>
+		<option value="3">MPEG4</option>
+		<option value="4">H.263</option>
+		<option value="5">H.264</option>
+		<option value="6">UYVY</option>
+	</select>
+	<br />
+	<font color=FFFFFF>Noise filter</font>
+	<select name="ch1_nf" size="1" onchange="send_command('ch0_nf_set&value='+this.form.ch1_nf.value)">
+   		<option selected value="1">Off</option>
+    		<option value="2">KNF</option>
+		<option value="3">TNF</option>
+		<option value="4">KTNF</option>
+	</select>
+	<br />
+	<font color=FFFFFF>Channel codec quality</font>
+	<input type="text" min="0" max="100" step="1" value="50" id="ch0_codec_quality" name="ch0_codec_quality" onchange="send_command('ch0_codec_quality_set&value='+this.form.ch0_codec_quality.value)">
+	<br />
+	<font color=FFFFFF>Channel network transport</font>
+	<select name="ch1_net" disable size="1" onchange="send_command('ch0_net&value='+this.form.ch1_net.value)">
+   		<option value="1">HTTP</option>
+    		<option value="2">RTSP</option>
+		<option value="3">UDP</option>
+	</select>
+	<br />
+	</td>
+
+
+	<td>
+	<input type="button" value="Channel #2 setting">
+	<br />
+	<input type="button" value="Channel resolution">
+	<select name="ch2_res" disable size="1" onchange="send_command('CMD_SET_OPTION&CHANNEL_ID=1&RESOLUTION='+this.form.ch2_res.value)">
+   		<option value="1">1280x1024</option>
+    		<option value="2">1280x720</option>
+		<option value="3">800x600</option>
+		<option value="4">720x576 - PAL</option>
+		<option value="5">720x480 - NTSC</option>
+		<option value="6">640x480</option>
+    		<option value="7">640x512</option>
+		<option select value="8">320x240</option>
+	</select>
+	<br />
+	<input type="button" value="Channel codec type">
+	<select name="ch2_codec" disable size="1" onchange="send_command('ch2_codec&value='+this.form.ch2_codec.value)">
+   		<option value="1">MJPEG</option>
+    		<option value="2">MPEG2</option>
+		<option value="3">MPEG4</option>
+		<option value="4">H.263</option>
+		<option value="5">H.264</option>
+		<option value="6">UYVY</option>
+	</select>
+	<br />
+	<input type="button" value="Noise filter">
+	<select name="ch2_nf" size="1" onchange="send_command('ch2_nf_set&value='+this.form.ch2_nf.value)">
+   		<option selected value="1">Off</option>
+    		<option value="2">KNF</option>
+		<option value="3">TNF</option>
+		<option value="4">KTNF</option>
+	</select>
+	<br />
+	<input type="button" value="Channel codec quality">
+	<input type="text" min="0" max="100" step="1" value="50" id="ch2_codec_quality" name="ch2_codec_quality" onchange="send_command('ch2_codec_quality_set&value='+this.form.ch2_codec_quality.value)">
+	<br />
+	<input type="button" value="Channel network transport">
+	<select name="ch2_net" disable size="1" onchange="send_command('ch2_net&value='+this.form.ch2_net.value)">
+   		<option value="1">HTTP</option>
+    		<option value="2">RTSP</option>
+		<option value="3">UDP</option>
+	</select>
+	<br />
+	</td>
+
+
+	<td>
+		<input type="button" value="Channel #3 setting">
+	<br />
+	<input type="button" value="Channel resolution">
+	<select name="ch2_res" disable size="1" onchange="send_command('ch2_res&value='+this.form.ch2_res.value)">
+   		<option value="1">1280x1024</option>
+    		<option value="2">1280x720</option>
+		<option value="3">800x600</option>
+		<option value="4">720x576 - PAL</option>
+		<option value="5">720x480 - NTSC</option>
+		<option value="6">640x480</option>
+    		<option value="7">640x512</option>
+		<option select value="8">320x240</option>
+	</select>
+	<br />
+	<input type="button" value="Channel codec type">
+	<select name="ch2_codec" disable size="1" onchange="send_command('ch2_codec&value='+this.form.ch2_codec.value)">
+   		<option value="1">MJPEG</option>
+    		<option value="2">MPEG2</option>
+		<option value="3">MPEG4</option>
+		<option value="4">H.263</option>
+		<option value="5">H.264</option>
+		<option value="6">UYVY</option>
+	</select>
+	<br />
+	<input type="button" value="Noise filter">
+	<select name="ch2_nf" size="1" onchange="send_command('ch2_nf_set&value='+this.form.ch2_nf.value)">
+   		<option selected value="1">Off</option>
+    		<option value="2">KNF</option>
+		<option value="3">TNF</option>
+		<option value="4">KTNF</option>
+	</select>
+	<br />
+	<input type="button" value="Channel codec quality">
+	<input type="text" min="0" max="100" step="1" value="50" id="ch2_codec_quality" name="ch2_codec_quality" onchange="send_command('ch2_codec_quality_set&value='+this.form.ch2_codec_quality.value)">
+	<br />
+	<input type="button" value="Channel network transport">
+	<select name="ch2_net" disable size="1" onchange="send_command('ch2_net&value='+this.form.ch2_net.value)">
+   		<option value="1">HTTP</option>
+    		<option value="2">RTSP</option>
+		<option value="3">UDP</option>
+	</select>
+	<br />
+	</td>
+
+	<td>
+		<input type="button" value="Channel #3 setting">
+	<br />
+	<input type="button" value="Channel resolution">
+	<select name="ch3_res" disable size="1" onchange="send_command('ch3_res&value='+this.form.ch3_res.value)">
+   		<option value="1">1280x1024</option>
+    		<option value="2">1280x720</option>
+		<option value="3">800x600</option>
+		<option value="4">720x576 - PAL</option>
+		<option value="5">720x480 - NTSC</option>
+		<option value="6">640x480</option>
+    		<option value="7">640x512</option>
+		<option select value="8">320x240</option>
+	</select>
+	<br />
+	<input type="button" value="Channel codec type">
+	<select name="ch3_codec" disable size="1" onchange="send_command('ch3_codec&value='+this.form.ch3_codec.value)">
+   		<option value="1">MJPEG</option>
+    		<option value="2">MPEG2</option>
+		<option value="3">MPEG4</option>
+		<option value="4">H.263</option>
+		<option value="5">H.264</option>
+		<option value="6">UYVY</option>
+	</select>
+	<br />
+	<input type="button" value="Noise filter">
+	<select name="ch3_nf" size="1" onchange="send_command('ch3_nf_set&value='+this.form.ch3_nf.value)">
+   		<option selected value="1">Off</option>
+    		<option value="2">KNF</option>
+		<option value="3">TNF</option>
+		<option value="4">KTNF</option>
+	</select>
+	<br />
+	<input type="button" value="Channel codec quality">
+	<input type="text" min="0" max="100" step="1" value="50" id="ch3_codec_quality" name="ch3_codec_quality" onchange="send_command('ch3_codec_quality_set&value='+this.form.ch3_codec_quality.value)">
+	<br />
+	<input type="button" value="Channel network transport">
+	<select name="ch3_net" disable size="1" onchange="send_command('ch3_net&value='+this.form.ch3_net.value)">
+   		<option value="1">HTTP</option>
+    		<option value="2">RTSP</option>
+		<option value="3">UDP</option>
+	</select>
+	<br />
+	</td>
+</tr>
+<tr>
+</tr>
+</table>
+	<br />
+	<br />
+
+	<font color=FFFFFF>Network setting</font>
+	<br />
+	<font color=FFFFFF>IP address config</font>
+	<select name="ip_config" size="1" onchange="send_command('net_type_set&value='+this.form.net_type.value)">
+   		<option value="DHCP">DHCP</option>
+    		<option value="Static">Static</option>
+    		<option value="Bonjour">Bonjour</option>
+	</select>
+	<br />
+
+	<font color=FFFFFF>IP address</font>
+	<input type="text" min="0" max="255" step="1" value="192" id="IPADDR1" name="IPADDR1" size="2">
+	<font color=FFFFFF>.</font>
+	<input type="text" min="0" max="255" step="1" value="168" id="IPADDR2" name="IPADDR2" size="2">
+	<font color=FFFFFF>.</font>
+	<input type="text" min="0" max="255" step="1" value="20" id="IPADDR3" name="IPADDR3" size="2">
+	<font color=FFFFFF>.</font>
+	<input type="text" min="0" max="255" step="1" value="2" id="IPADDR4" name="IPADDR4" size="2">
+	<br />
+	<font color=FFFFFF>Net mask_</font>
+	<input type="text" min="0" max="255" step="1" value="255" id="NETMASK1" name="NETMASK1" size="2">
+	<font color=FFFFFF>.</font>
+	<input type="text" min="0" max="255" step="1" value="255" id="NETMASK2" name="NETMASK2" size="2">
+	<font color=FFFFFF>.</font>
+	<input type="text" min="0" max="255" step="1" value="255" id="NETMASK3" name="NETMASK3" size="2">
+	<font color=FFFFFF>.</font>
+	<input type="text" min="0" max="255" step="1" value="0" id="NETMASK4" name="NETMASK4" size="2">
+	<br />
+	<font color=FFFFFF>Route____</font>
+	<input type="text" min="0" max="255" step="1" value="192" id="ROUTE1" name="ROUTE1" size="2">
+	<font color=FFFFFF>.</font>
+	<input type="text" min="0" max="255" step="1" value="168" id="ROUTE2" name="ROUTE2" size="2">
+	<font color=FFFFFF>.</font>
+	<input type="text" min="0" max="255" step="1" value="20" id="ROUTE3" name="ROUTE3" size="2">
+	<font color=FFFFFF>.</font>
+	<input type="text" min="0" max="255" step="1" value="252" id="ROUTE4" name="ROUTE4" size="2">
+	<br />
+	<input type="button" value="Send network settings" onclick="send_command('CMD_SET_NETWORK&CHANNEL_ID=0'
+		+'&'+
+		'IP_CONFIG='+this.form.ip_config.value
+		+'&'+
+		'IPADDR='+this.form.IPADDR1.value+'.'+this.form.IPADDR2.value+'.'+this.form.IPADDR3.value+'.'+this.form.IPADDR4.value
+		+'&'+
+		'NETMASK='+this.form.NETMASK1.value+'.'+this.form.NETMASK2.value+'.'+this.form.NETMASK3.value+'.'+this.form.NETMASK4.value
+		+'&'+
+		'ROUTE='+this.form.ROUTE1.value+'.'+this.form.ROUTE2.value+'.'+this.form.ROUTE3.value+'.'+this.form.ROUTE4.value)">
+	<br />
+	<input type="button" value="Set Date & Time">
+	<input type="datetime-local" name="data" onchange="send_command('data_set&value='+this.form.data.value)">
+
+	  
+    </form>
+
+
+	<br />
+      <input type="button" value="reset" onclick="send_command('CMD_ENGINE_EXIT')">	
+<input type="button" value="Build Update" onclick="send_command('CMD_BUILD_UPDATE')">
+<form method='get' action='get_update.cgi' >
+<p>Get Engine Update:
+  <input type='submit' value='Download' name='download_open' /> 
+</form>
+
+<form method="POST" action="CMD_ENGINE_UPDATE" enctype="multipart/form-data">
+<p>Engine File:
+  <input type="file" name="myfile1" size="40">
+  <input type="submit" value="Upgrade">
+  <input type="reset" value="Clear" name="B2">
+</form>
+<input type="button" value="Reset" onclick="send_command('CMD_ENGINE_EXIT')">
+
+<form method="POST" action="CMD_UBL_UPDATE" enctype="multipart/form-data">
+<p>UBL File:
+  <input type="file" name="myfile1" size="40">
+  <input type="submit" value="Upgrade">
+  <input type="reset" value="Clear" name="B2">
+</form>
+
+<form method="POST" action="CMD_UBOOT_UPDATE" enctype="multipart/form-data">
+<p>UBoot File:
+  <input type="file" name="myfile1" size="40">
+  <input type="submit" value="Upgrade">
+  <input type="reset" value="Clear" name="B2">
+</form>
+
+<form method="POST" action="CMD_KERNELENV_UPDATE" enctype="multipart/form-data">
+<p>KernelEnv File:
+  <input type="file" name="myfile1" size="40">
+  <input type="submit" value="Upgrade">
+  <input type="reset" value="Clear" name="B2">
+</form>
+
+<form method="POST" action="CMD_KERNEL_UPDATE" enctype="multipart/form-data">
+<p>Kernel File:
+  <input type="file" name="myfile1" size="40">
+  <input type="submit" value="Upgrade">
+  <input type="reset" value="Clear" name="B2">
+</form>
+
+<form method="POST" action="CMD_FILE_SYSTEM_UPDATE" enctype="multipart/form-data">
+<p>FileSystem File:
+  <input type="file" name="myfile1" size="40">
+  <input type="submit" value="Upgrade">
+  <input type="reset" value="Clear" name="B2">
+</form>
+
+<select name="log_level" size="1">
+	<option selected value="CRITICAL">CRITICAL</option>
+	<option value="WARNING">WARNING</option>
+	<option value="INFO">INFO</option>
+	<option value="DEBUG">DEBUG</option>
+</select>
+<input type="button" value="Get Log" onclick="send_command('CMD_GET_LOG&CHANNEL_ID=3840&LOG_LEVEL='+log_level.value)">
+
+<br />
+<input type="button" value="Save" onclick="send_command('CMD_SAVE_ALL&CHANNEL_ID=4096')">
+
+<br />
+<input type="button" value="Get Channels List" onclick="send_command('CMD_GET_CHANNELS_LIST')">	
+<input type="button" value="Get Modules List" onclick="send_command('CMD_GET_MODULES_LIST&CHANNEL_LIST_ID=500')">	
+    
+<div id="hints" style="background-color: yellow; position: absolute; top: 2px">communication hints</div>
+
+</body>
+</html>
+

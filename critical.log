@@ -145,3 +145,11 @@
 14/10/2012 19:27:33 [ICEngine 001CB528] Test DMA Copy End!
 14/10/2012 19:27:33 [ICEngine 001CB528] Engine Srart! (is not error!)
 14/10/2012 19:27:44 [ICH264 0113E608] Error! bad CODEC fourcc!
+14/10/2012 19:32:18 [ICEngine 001CB528] Test DMA Copy Begin...
+14/10/2012 19:32:19 [ICEngine 001CB528] Test DMA Copy End!
+14/10/2012 19:32:19 [ICEngine 001CB528] Engine Srart! (is not error!)
+14/10/2012 19:32:29 [ICH264 0113E118] Error! bad CODEC fourcc!
+14/10/2012 19:37:03 [ICUpdateService 01153990] Read UpdateVersion failed!
+14/10/2012 19:37:04 [ICUpdateService 01153990] Engine Update Failed!
+14/10/2012 19:48:50 [ICUpdateService 01153990] Checksum failed!
+14/10/2012 19:48:50 [ICUpdateService 01153990] Engine Update Failed!
