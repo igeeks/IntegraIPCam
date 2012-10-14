@@ -1,4 +1,4 @@
 *.log
 *.txt
-cfg/*
-critical.log
+cfg/*.txt
+cfg/*.log

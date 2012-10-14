@@ -57,6 +57,14 @@
 	width: 24px;
 }
 
+.browse_btn {
+	margin-left: 9px;
+}
+
+.submit_btn {
+	margin-left: 5px;
+}
+
 section {
 	padding-top: 10px;
 	padding-bottom: 20px;

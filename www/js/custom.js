@@ -108,8 +108,7 @@ $('#paramsTable input').live('change', function() {
 })
 
 $('#paramsTable select').live('change', function() {
-        
-    newParams[ $(this).attr('id') ].VALUE = this.value;
+    set_new_param( $(this).attr('id'), this.value );
     $('#saveBtn').removeClass('disabled').removeAttr('disabled');
     
     return true;
@@ -137,6 +136,16 @@ $('#saveBtn').live('click', function () {
         });
         sendCmd( cmd, cbSetParams );
     }
+});
+
+$('.submit_btn').live( 'click', function() {
+    // TODO откуда-то брать файл и отправлять
+    
+    sendCmd( 'test', cbSetParams, 'POST' );
+});
+
+$('.browse_btn').live( 'click', function() {
+    // TODO Открывать диалог и сохранять содержимое файла
 });
 
 $('#returnArrow').live('click', function () {
@@ -300,19 +309,11 @@ function addParams(data) {
                     .addClass('col1').appendTo( row );
                 
                 // Создать и добавить контрол для параметра
+                // TODO перенсти в addControl
                 var parent = $('<td class="control-group"></td>')
                     .addClass('col2').appendTo( row );
                 
-                var input = 
-                    $('<input type="text" clas="input-xlarge">')
-                        .attr('value', '')
-                        .appendTo(parent);
-                var browse_btn = 
-                    $('<button class="btn">...</button>')
-                    .appendTo(parent);
-                var submit_btn = 
-                    $('<button class="btn">submit</button>')
-                    .appendTo(parent);
+                addControl(parent, key, val);
             }
         }
 
@@ -321,7 +322,6 @@ function addParams(data) {
         curParams = data;
         newParams = null;
         newParams = $.extend( true, newParams, curParams ); // Рекурсивное клонирование объекта
-        
     } else {
         myAlert( data.RESULT.VALUE.TEXT.VALUE, data.RESULT.VALUE.MESSAGE.VALUE, 'alert-error' );
     }
@@ -382,6 +382,21 @@ function addControl(parent, paramName, attrs) {
             return;
         }
     } 
+    else if ( attrs.TYPE == "FILE" ) {
+        var input = 
+            $('<input type="text" clas="input-xlarge">')
+                .attr('value', '')
+                .attr( 'id', paramName )
+                .appendTo(parent);
+        var browse_btn = 
+            $('<button class="btn browse_btn">...</button>')
+            .attr( 'for', paramName )
+            .appendTo(parent);
+        var submit_btn = 
+            $('<button class="btn submit_btn">Отправить</button>')
+            .attr( 'for', paramName )
+            .appendTo(parent);
+    }
     else {
         // Создание обычного инпута для чисел, строки и даты
         
@@ -496,27 +511,40 @@ function myCreateElement(name, attrs, style, text) {
     return e;
 }
 
+function postJSON( url, data, callback ) {
+    return $.post(url, data, callback, "json");
+}
+
 //Отправить команду на сервер
-function sendCmd(params, callback) {
-    var cmd = "/?action=command"
-    if (params) {
-        for (var key in params) {
-            cmd += "&";
-            cmd += key;
-            cmd += "="
-            cmd += params[key];
-        }
+function sendCmd(params, callback, type) {
+    var answer;
+
+    if ( type == "POST" ) {
+        answer = postJSON( "/", params, callback);
     }
-    $.getJSON(cmd, callback)
-        .error(
-            function(jqXHR, textStatus, errorThrown) {
-            console.log("error " + textStatus);
-            console.log("incoming Text " + jqXHR.responseText);
+    else {
+        var cmd = "/?action=command"
+        if (params) {
+            for (var key in params) {
+                cmd += "&";
+                cmd += key;
+                cmd += "="
+                cmd += params[key];
+            }
+        }
 
-            $('div.span9').empty();
+        answer = $.getJSON(cmd, callback);
+    }
 
-            myAlert( 'Error', 'Ошибка парсинга ответа сервера', 'alert-error' );
-        });
+    answer.error(
+        function(jqXHR, textStatus, errorThrown) {
+        console.log("error " + textStatus);
+        console.log("incoming Text " + jqXHR.responseText);
+
+        $('div.span9').empty();
+
+        myAlert( 'Error', 'Ошибка парсинга ответа сервера', 'alert-error' );
+    });
 }
 
 // Вывод инфомации об ошибке в контентной области

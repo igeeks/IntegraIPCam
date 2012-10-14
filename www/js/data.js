@@ -184,3 +184,6 @@ function get_param_comment(param, data) {
         param;
 }
 
+function set_new_param(param, value) {
+    newParams[ param ].VALUE = value;
+}
