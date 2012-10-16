@@ -11,12 +11,6 @@ $(document).ready(function() {
     sendCmd( {'COMMAND': 'CMD_GET_CHANNELS_LIST'}, addChannels );
 });
 
-$('.btn-getlogs').bind('click', function(){
-    $('.btn-getlogs').button('loading');
-    alert ('Логика получения логов');
-    $('.btn-getlogs').button('reset');
-});
-
 $('.nav-list li').live('click', function(){
     // Выбор активного пункта меню
     $('#accordion1 li').removeClass("active");
@@ -385,34 +379,32 @@ function addControl(parent, paramName, attrs) {
         }
     } 
     else if ( attrs.TYPE == "FILE" ) {
+        $('<input type="text" clas="input-xlarge">')
+            .attr('value', '')
+            .attr( 'id', paramName )
+            .appendTo(parent);
+
         var form = 
             $('<form style="margin: 0;"></form>')
                 .attr( 'id', paramName + '_form' )
-                .attr( 'action', 'CMD_ENGINE_UPDATE' ) // TODO привести к стандартному виду
+                .attr( 'action', 'CMD_ENGINE_UPDATE' )
                 .attr( 'method', 'post' )
                 .attr( 'enctype', 'multipart/form-data' )
                 .appendTo(parent);
 
-        $('<input type="text" clas="input-xlarge">')
-            .attr('value', '')
-            .attr( 'id', paramName )
-            .appendTo(form);
-
-        $('<div class="input_file_wrap"><button class="btn browse_btn">...</button><input type="file" size="1" for="' + paramName + '" class="input_file"></div>')
+        $('<div class="input_file_wrap"><button class="btn browse_btn">...</button><input type="file" name="file" size="1" for="' + paramName + '" class="input_file"></div>')
             .attr( 'for', paramName )
             .appendTo(form);
 
 
         $('<button class="btn submit_btn">Отправить</button>')
-            .attr( 'for', paramName )
             .appendTo(form);
 
         var options = { 
-            // beforeSubmit: function() {
-            //     // Включить анимацию отправки данных
-            //     show_loader( 'send', 'Обновление прошивки' ); // TODO выводить мессеседж параметра
-            // },
-            success:   cbSetParams,  // post-submit callback 
+            beforeSubmit: function() {
+                show_loader( 'send', 'Обновление прошивки' ); // TODO выводить мессеседж параметра
+            },
+            success:   cbSetParams,
             type:      'post',
             dataType:  'json',  
             resetForm: true
@@ -575,7 +567,7 @@ function myAlert(head, msg, alertClass) {
     $('.alert').remove();
     $('<div id="myAlert" class="alert alert-block fade in"><button type="button" class="close" data-dismiss="alert">×</button><h3>' + head + '</h3><p>' + msg + '</p></div>').addClass(alertClass).appendTo( $('div.span9') );
     $('#myAlert').alert();
-    // $('#myAlert').delay(2000).fadeOut(400);
+    $('#myAlert').delay(60000).fadeOut(400);
 }
 
 function show_loader(type, msg) {

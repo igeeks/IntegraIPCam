@@ -145,3 +145,23 @@
 14/10/2012 19:27:33 [ICEngine 001CB528] Test DMA Copy End!
 14/10/2012 19:27:33 [ICEngine 001CB528] Engine Srart! (is not error!)
 14/10/2012 19:27:44 [ICH264 0113E608] Error! bad CODEC fourcc!
+16/10/2012 20:25:41 [ICEngine 001CB528] Test DMA Copy Begin...
+16/10/2012 20:25:41 [ICEngine 001CB528] Test DMA Copy End!
+16/10/2012 20:25:43 [ICEngine 001CB528] Engine Srart! (is not error!)
+16/10/2012 20:26:04 [ICH264 0113E5A8] Error! bad CODEC fourcc!
+16/10/2012 20:35:39 [ICUpdateService 011539E8] Checksum failed!
+16/10/2012 20:35:39 [ICUpdateService 011539E8] Engine Update Failed!
+16/10/2012 20:48:14 [ICUpdateService 011539E8] Checksum failed!
+16/10/2012 20:48:14 [ICUpdateService 011539E8] Engine Update Failed!
+16/10/2012 20:56:53 [ICUpdateService 011539E8] Checksum failed!
+16/10/2012 20:56:54 [ICUpdateService 011539E8] Engine Update Failed!
+16/10/2012 21:02:20 [ICUpdateService 011539E8] Checksum failed!
+16/10/2012 21:02:20 [ICUpdateService 011539E8] Engine Update Failed!
+16/10/2012 21:12:39 [ICUpdateService 011539E8] Checksum failed!
+16/10/2012 21:12:40 [ICUpdateService 011539E8] Engine Update Failed!
+16/10/2012 21:14:36 [ICUpdateService 011539E8] Checksum failed!
+16/10/2012 21:14:36 [ICUpdateService 011539E8] Engine Update Failed!
+16/10/2012 21:21:52 [ICUpdateService 011539E8] Checksum failed!
+16/10/2012 21:21:52 [ICUpdateService 011539E8] Engine Update Failed!
+16/10/2012 21:24:57 [ICUpdateService 011539E8] Read UpdateVersion failed!
+16/10/2012 21:24:57 [ICUpdateService 011539E8] Engine Update Failed!
