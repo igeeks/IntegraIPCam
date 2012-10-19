@@ -2,26 +2,16 @@
 <html lang="en">
     <head>
         <!--<meta charset="cp1251">-->
-        <title>Конфигурация камеры</title>
+        <title>Конфигурация камеры - Настройка</title>
         <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
         <meta name="description" content="">
         <meta name="author" content="">
-    	
+        
         <!-- Le styles -->
         <link href="/css/bootstrap.css" rel="stylesheet">
         
-        <style type="text/css">
-          body {
-            padding-top: 20px;
-            padding-bottom: 40px;
-          }
-          .sidebar-nav {
-            padding: 9px 0;
-          }
-        </style>
-    	
         <link href="/css/style.css" rel="stylesheet">
-    	
+        
         <link href="/css/jquery-ui-1.8.23.custom.css" rel="stylesheet">
         
         <!-- Datetime picker css -->
@@ -42,21 +32,44 @@
             </div>
         </div>
 
+        <div class="navbar navbar-inverse navbar-fixed-top">
+          <div class="navbar-inner">
+            <div class="container-fluid">
+              <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </a>
+              <a class="brand" href="/">IntegraIPCam</a>
+              <div class="nav-collapse collapse">
+                <p class="navbar-text pull-right">
+                  Logged in as <a href="#" class="navbar-link">Username</a>
+                </p>
+                <ul class="nav">
+                  <li><a href="/">Home</a></li>
+                  <li class="active"><a href="/control.html">Control</a></li>
+                  <li><a href="/about.html">About</a></li>
+                </ul>
+              </div><!--/.nav-collapse -->
+            </div>
+          </div>
+        </div>
+
         <div class="container">
           <div class="row-fluid">
-    		<div class="span3" id="left_menu">
-    		  <div class="accordion" id="accordion1">
+            <div class="span3" id="left_menu">
+              <div class="accordion" id="accordion1">
               </div><!--/accordion-->
             </div><!--/span-->
             
-    		<div class="span9">
+            <div class="span9">
                 <section>
-        			<div class="welcome">
-        				<h3>Начало работы</h3>
-        				<p>Чтобы начать работу выберите один из каналов для конфигурирования</p>
-        			</div>
+                    <div class="welcome">
+                        <h3>Начало работы</h3>
+                        <p>Чтобы начать работу выберите один из каналов для конфигурирования</p>
+                    </div>
                 </sectin>
-    		</div><!--/span-->
+            </div><!--/span-->
           </div><!--/row-->
 
           <hr>
@@ -66,7 +79,7 @@
           </footer>
 
         </div><!--/.container-->
-    	
+        
         <!-- Le javascript
         ================================================== -->
         <!-- Placed at the end of the document so the pages load faster -->
@@ -76,12 +89,13 @@
         <script src="/js/jquery.form.js"></script>
 
         <script src="/js/data.js"></script>
-    	<script src="/js/custom.js"></script>
+        <script src="/js/common_functions.js"></script>
+        <script src="/js/control_functions.js"></script>
 
         <!-- Datetime picker js -->
         <script type="text/javascript" src="/js/jquery-ui-timepicker-addon.js"></script>
         <script type="text/javascript" src="/js/jquery-ui-sliderAccess.js"></script>
 
-    	<script src="/js/bootstrap.js"></script>
+        <script src="/js/bootstrap.js"></script>
     </body>
 </html>

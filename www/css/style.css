@@ -39,7 +39,7 @@
    width:100%;
    left: 0px; top: 0px; right: 0px; bottom: 0px;
    background:#FFFFFF;
-   z-index: 50;
+   z-index: 1040;
 }
 
 .sendLoader {
@@ -80,6 +80,10 @@
 	opacity: 0;  
 	font-size: 150px; 
 	height: 100px;
+}
+
+body {
+	padding-top: 60px;
 }
 
 section {

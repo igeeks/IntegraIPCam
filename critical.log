@@ -165,3 +165,19 @@
 16/10/2012 21:21:52 [ICUpdateService 011539E8] Engine Update Failed!
 16/10/2012 21:24:57 [ICUpdateService 011539E8] Read UpdateVersion failed!
 16/10/2012 21:24:57 [ICUpdateService 011539E8] Engine Update Failed!
+16/10/2012 21:31:05 [ICUpdateService 011539E8] Read UpdateVersion failed!
+16/10/2012 21:31:05 [ICUpdateService 011539E8] Engine Update Failed!
+16/10/2012 21:31:15 [ICUpdateService 011539E8] Checksum failed!
+16/10/2012 21:31:15 [ICUpdateService 011539E8] Engine Update Failed!
+19/10/2012 22:12:30 [ICEngine 001CB528] Test DMA Copy Begin...
+19/10/2012 22:12:30 [ICEngine 001CB528] Test DMA Copy End!
+19/10/2012 22:12:30 [ICEngine 001CB528] Engine Srart! (is not error!)
+19/10/2012 22:12:39 [ICH264 0113E5E0] Error! bad CODEC fourcc!
+19/10/2012 22:15:32 [ICUpdateService 01153B88] Checksum failed!
+19/10/2012 22:15:32 [ICUpdateService 01153B88] Engine Update Failed!
+19/10/2012 22:15:48 [ICH264 0113E5E0] Error! bad CODEC fourcc!
+19/10/2012 22:15:50 [ICTransformWorker 01154508] ::SaveConfig() Error! GetInfo() 'ICWatchDog' failed!
+19/10/2012 22:16:03 [ICUpdateService 01153B88] Checksum failed!
+19/10/2012 22:16:03 [ICUpdateService 01153B88] Engine Update Failed!
+19/10/2012 22:32:58 [ICUpdateService 01153B88] Read UpdateVersion failed!
+19/10/2012 22:32:58 [ICUpdateService 01153B88] Engine Update Failed!
