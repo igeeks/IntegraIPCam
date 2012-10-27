@@ -379,11 +379,6 @@ function addControl(parent, paramName, attrs) {
         }
     } 
     else if ( attrs.TYPE == "FILE" ) {
-        $('<input type="text" clas="input-xlarge">')
-            .attr('value', '')
-            .attr( 'id', paramName )
-            .appendTo(parent);
-
         var form = 
             $('<form style="margin: 0;"></form>')
                 .attr( 'id', paramName + '_form' )
@@ -392,10 +387,23 @@ function addControl(parent, paramName, attrs) {
                 .attr( 'enctype', 'multipart/form-data' )
                 .appendTo(parent);
 
-        $('<div class="input_file_wrap"><button class="btn browse_btn">...</button><input type="file" name="file" size="1" for="' + paramName + '" class="input_file"></div>')
-            .attr( 'for', paramName )
-            .appendTo(form);
+        var input_file;
+        if ( $.browser.msie ) {
+            input_file = $('<input type="file" name="file">');
+        }
+        else {
+            $('<input type="text" clas="input-xlarge">')
+                .attr('value', '')
+                .attr( 'id', paramName )
+                .appendTo(parent);
 
+            input_file = $('<div class="input_file_wrap"><button class="btn browse_btn">...</button><input type="file" name="file" size="1" for="' + paramName + '" class="input_file"></div>');
+
+            input_file
+                .attr( 'for', paramName );
+        }
+
+        input_file.appendTo(form);
 
         $('<button class="btn submit_btn">Отправить</button>')
             .appendTo(form);
