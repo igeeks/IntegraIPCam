@@ -189,3 +189,16 @@
 27/10/2012 20:22:38 [ICEngine 001CB9C0] Test DMA Copy End!
 27/10/2012 20:22:38 [ICEngine 001CB9C0] Engine Srart! (is not error!)
 27/10/2012 20:23:00 [ICH264 0114F648] Error! bad CODEC fourcc!
+27/10/2012 20:37:54 [ICEngine 001CB9C0] Test DMA Copy Begin...
+27/10/2012 20:37:54 [ICEngine 001CB9C0] Test DMA Copy End!
+27/10/2012 20:37:54 [ICEngine 001CB9C0] Engine Srart! (is not error!)
+27/10/2012 20:38:11 [ICH264 0114F5C0] Error! bad CODEC fourcc!
+27/10/2012 21:04:29 [ICEngine 001CB9C0] Test DMA Copy Begin...
+27/10/2012 21:04:29 [ICEngine 001CB9C0] Test DMA Copy End!
+27/10/2012 21:04:30 [ICEngine 001CB9C0] Engine Srart! (is not error!)
+27/10/2012 21:04:54 [ICEngine 001CB9C0] Test DMA Copy Begin...
+27/10/2012 21:04:54 [ICEngine 001CB9C0] Test DMA Copy End!
+27/10/2012 21:04:55 [ICEngine 001CB9C0] Engine Srart! (is not error!)
+27/10/2012 21:05:19 [ICH264 0114F8D8] Error! bad CODEC fourcc!
+27/10/2012 21:05:59 [ICUpdateService 011650F8] Read UpdateVersion failed!
+27/10/2012 21:06:03 [ICUpdateService 011650F8] Read UpdateVersion failed!

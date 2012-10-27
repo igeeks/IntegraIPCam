@@ -379,14 +379,6 @@ function addControl(parent, paramName, attrs) {
         }
     } 
     else if ( attrs.TYPE == "FILE" ) {
-        var form = 
-            $('<form style="margin: 0;"></form>')
-                .attr( 'id', paramName + '_form' )
-                .attr( 'action', 'CMD_ENGINE_UPDATE' )
-                .attr( 'method', 'post' )
-                .attr( 'enctype', 'multipart/form-data' )
-                .appendTo(parent);
-
         var input_file;
         if ( $.browser.msie ) {
             input_file = $('<input type="file" name="file">');
@@ -402,6 +394,14 @@ function addControl(parent, paramName, attrs) {
             input_file
                 .attr( 'for', paramName );
         }
+        
+        var form = 
+            $('<form style="margin: 0;"></form>')
+                .attr( 'id', paramName + '_form' )
+                .attr( 'action', 'CMD_ENGINE_UPDATE' )
+                .attr( 'method', 'post' )
+                .attr( 'enctype', 'multipart/form-data' )
+                .appendTo(parent);
 
         input_file.appendTo(form);
 
