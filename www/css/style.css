@@ -82,8 +82,22 @@
 	height: 100px;
 }
 
-body {
-	padding-top: 60px;
+.navbar-rubber .navbar-inner {
+  padding-right: 0;
+  padding-left: 0;
+  -webkit-border-radius: 0;
+     -moz-border-radius: 0;
+          border-radius: 0;
+}
+
+div.phead {
+    background: url(/img/pheadBG.jpg) repeat-x 100% 100%;
+    color: white;
+}
+
+div.phead div.pheadV {
+    background: url(/img/phead.jpg) no-repeat 100% 100%;
+    height: 215px;
 }
 
 section {
