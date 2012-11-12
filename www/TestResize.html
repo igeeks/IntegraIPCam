@@ -1,7 +1,7 @@
 <HTML>
 <HEAD>
 <TITLE>Scriptable Plug-in Test</TITLE>
-<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="/js/jquery.js"></script>
 <script type="text/javascript">
 var widthRes = 0;
 var heightRes = 0;
@@ -84,7 +84,7 @@ Test plugin IVRTSP
 </div>
 
 <form name="formname">
-  <input type=button value="Start1" onclick='embed1231.url="rtsp://192.168.20.225:8554/ch1"'>
+  <input type=button value="Start1" onclick='embed1231.url="rtsp://localhost:8554/ch1"'>
   <input type=button value="Stop 1" onclick='embed1231.Stop()'>    
   <input type=button value="StartEx 1" onclick='embed1231.Start()'>    
   <input type=button value="Resize 1" onclick='ResizeEmbed();'>
@@ -98,7 +98,7 @@ Test plugin IVRTSP
 <div>
 <table border="0" cellspacing="0" cellpadding="0" width="100%">
 	<tr>
-		<td><div id="resizeObl"><embed id="embed1231" type="application/mozilla-npivrtsp-scriptable-plugin" width=320 height=240 url="rtsp://192.168.20.225:8554/ch1" autostart="true"></div></td>
+		<td><div id="resizeObl"><embed id="embed1231" type="application/mozilla-npivrtsp-scriptable-plugin" width=320 height=240 url="rtsp://localhost:8554/ch1" autostart="true"></div></td>
 		
 	</tr>
 
