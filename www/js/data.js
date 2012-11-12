@@ -147,6 +147,7 @@ function get_params(data) {
         if (
             key == "CHANNEL_ID" ||
             key == "RESULT" ||
+            key == "COMMENT" ||
             get_param_type( data[key] ) == "FILE"
         ) {
             continue;

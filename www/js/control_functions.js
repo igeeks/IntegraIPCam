@@ -250,40 +250,42 @@ function addParams(data) {
         }
         
         // ================== Создание таблицы параметров
-        // Создание контейнера для таблицы
-        var table = add_table_container( 'params', get_cur_mod_comment() );
-        $('<thead><tr><th>Параметр</th><th>Значение</th><th>Сбросить</th></tr></thead><tbody></tbody>')
-            .appendTo( table );
-
-        // Заполнение таблицы с параметрами
         var params = get_params(data);
-        for ( var key in params ) {
-            var val = params[key];
+        if ( ! $.isEmptyObject( params ) ) {
+            // Создание контейнера для таблицы
+            var table = add_table_container( 'params', get_cur_mod_comment() );
+            $('<thead><tr><th>Параметр</th><th>Значение</th><th>Сбросить</th></tr></thead><tbody></tbody>')
+                .appendTo( table );
 
-            // Создать ряд таблицы
-            var row = $('<tr></tr>').appendTo( $('#paramsTable tbody') );
-            
-            // Добавить название параметра в таблицу
-            $('<td><span>'+ get_param_comment( key, data ) +'</span></td>')
-                .addClass('col1').appendTo( row );
-            
-            // Создать и добавить контрол для параметра
-            var parent = $('<td class="control-group"></td>')
-                .addClass('col2').appendTo( row );
-            
-            addControl(parent, key, val);
-            
-            // Создать и добавить кнопку "отменить"
-            parent = $('<td></td>').addClass('col3').appendTo(row);
-            $( '<a href="#"><span id="returnArrow" for="' + key + '" class="ui-icon ui-icon-arrowreturnthick-1-w"></span></a>' ).appendTo(parent);
+            // Заполнение таблицы с параметрами
+            for ( var key in params ) {
+                var val = params[key];
+
+                // Создать ряд таблицы
+                var row = $('<tr></tr>').appendTo( $('#paramsTable tbody') );
+                
+                // Добавить название параметра в таблицу
+                $('<td><span>'+ get_param_comment( key, data ) +'</span></td>')
+                    .addClass('col1').appendTo( row );
+                
+                // Создать и добавить контрол для параметра
+                var parent = $('<td class="control-group"></td>')
+                    .addClass('col2').appendTo( row );
+                
+                addControl(parent, key, val);
+                
+                // Создать и добавить кнопку "отменить"
+                parent = $('<td></td>').addClass('col3').appendTo(row);
+                $( '<a href="#"><span id="returnArrow" for="' + key + '" class="ui-icon ui-icon-arrowreturnthick-1-w"></span></a>' ).appendTo(parent);
+            }
+
+            // Создать и добавить кнопку "Сохранить изменения"
+            $('<button>Сохранить изменения</button>')
+                .addClass('btn disabled')
+                .attr('id', 'saveBtn')
+                .attr( 'disabled', 'disabled' )
+                .appendTo( $('#paramsSection') );
         }
-
-        // Создать и добавить кнопку "Сохранить изменения"
-        $('<button>Сохранить изменения</button>')
-            .addClass('btn disabled')
-            .attr('id', 'saveBtn')
-            .attr( 'disabled', 'disabled' )
-            .appendTo( $('#paramsSection') );
 
         // ================== Создание таблицы файлов
         params = get_files_params(data);
@@ -398,7 +400,7 @@ function addControl(parent, paramName, attrs) {
         var form = 
             $('<form style="margin: 0;"></form>')
                 .attr( 'id', paramName + '_form' )
-                .attr( 'action', 'CMD_ENGINE_UPDATE' )
+                .attr( 'action', paramName )
                 .attr( 'method', 'post' )
                 .attr( 'enctype', 'multipart/form-data' )
                 .appendTo(parent);
