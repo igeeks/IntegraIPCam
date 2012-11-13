@@ -620,3 +620,40 @@
 13/11/2012 18:48:34 [ICEngine 00231F18] Test DMA Copy End!
 13/11/2012 18:48:34 [ICEngine 00231F18] Engine Srart! (is not error!)
 13/11/2012 18:48:35 [ICH264 0243CCD0] Error! bad CODEC fourcc!
+13/11/2012 19:24:04 [ICEngine 003B1F18] Test DMA Copy Begin...
+13/11/2012 19:24:04 [ICEngine 003B1F18] Test DMA Copy End!
+13/11/2012 19:24:04 [ICEngine 003B1F18] Engine Srart! (is not error!)
+13/11/2012 19:24:06 [ICH264 0257C048] Error! bad CODEC fourcc!
+13/11/2012 19:24:18 [ICH264 0257C048] Error! bad CODEC fourcc!
+13/11/2012 19:24:18 [ICTransformWorker 02585D48] ::SaveConfig() Error! GetInfo() 'ICWatchDog' failed!
+13/11/2012 19:24:25 [ICH264 0257C048] Error! bad CODEC fourcc!
+13/11/2012 19:24:26 [ICTransformWorker 02585D48] ::SaveConfig() Error! GetInfo() 'ICWatchDog' failed!
+13/11/2012 19:24:32 [ICH264 0257C048] Error! bad CODEC fourcc!
+13/11/2012 19:24:32 [ICTransformWorker 02585D48] ::SaveConfig() Error! GetInfo() 'ICWatchDog' failed!
+13/11/2012 19:25:04 [ICEngine 00451F18] Test DMA Copy Begin...
+13/11/2012 19:25:05 [ICEngine 00451F18] Test DMA Copy End!
+13/11/2012 19:25:05 [ICEngine 00451F18] Engine Srart! (is not error!)
+13/11/2012 19:25:06 [ICH264 0245C090] Error! bad CODEC fourcc!
+13/11/2012 19:27:11 [ICEngine 00391F18] Test DMA Copy Begin...
+13/11/2012 19:27:11 [ICEngine 00391F18] Test DMA Copy End!
+13/11/2012 19:27:11 [ICEngine 00391F18] Engine Srart! (is not error!)
+13/11/2012 19:27:13 [ICH264 024FC090] Error! bad CODEC fourcc!
+13/11/2012 19:27:40 [ICEngine 00431F18] Test DMA Copy Begin...
+13/11/2012 19:27:40 [ICEngine 00431F18] Test DMA Copy End!
+13/11/2012 19:27:40 [ICEngine 00431F18] Engine Srart! (is not error!)
+13/11/2012 19:27:42 [ICH264 025EC560] Error! bad CODEC fourcc!
+13/11/2012 19:27:55 [ICH264 025EC560] Error! bad CODEC fourcc!
+13/11/2012 19:27:55 [ICTransformWorker 025F65A0] ::SaveConfig() Error! GetInfo() 'ICWatchDog' failed!
+13/11/2012 19:28:20 [ICH264 025EC560] Error! bad CODEC fourcc!
+13/11/2012 19:28:21 [ICTransformWorker 025F65A0] ::SaveConfig() Error! GetInfo() 'ICWatchDog' failed!
+13/11/2012 19:28:25 [ICH264 004EFD68] doGetNextFrame() Error! MaxSize = 868576 or ReferenceCount = 0
+13/11/2012 19:28:28 [ICH264 004EFD68] doGetNextFrame() Error! MaxSize = 688576 or ReferenceCount = 0
+13/11/2012 19:28:57 [ICH264 025EC560] Error! bad CODEC fourcc!
+13/11/2012 19:28:57 [ICTransformWorker 025F65A0] ::SaveConfig() Error! GetInfo() 'ICWatchDog' failed!
+13/11/2012 19:29:00 [ICH264 004EFD68] doGetNextFrame() Error! MaxSize = 868576 or ReferenceCount = 0
+13/11/2012 19:29:04 [ICEngine 00501F18] Test DMA Copy Begin...
+13/11/2012 19:29:04 [ICEngine 00501F18] Test DMA Copy End!
+13/11/2012 19:29:05 [ICEngine 00501F18] Engine Srart! (is not error!)
+13/11/2012 19:29:06 [ICH264 0255C228] Error! bad CODEC fourcc!
+13/11/2012 19:30:45 [ICH264 005BFD68] doGetNextFrame() Error! MaxSize = 8532 or ReferenceCount = 1
+13/11/2012 19:30:54 [ICH264 005BFD68] doGetNextFrame() Error! MaxSize = 1048576 or ReferenceCount = 1

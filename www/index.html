@@ -63,6 +63,29 @@
         <div class="container">
           <div class="row-fluid">
 
+            <form name="formname">
+              <input type=button value="Start1" onclick='embed1231.url="rtsp://admin:admin@192.168.1.35:8554/ch1"'>
+              <input type=button value="Stop 1" onclick='embed1231.Stop()'>    
+              <input type=button value="StartEx 1" onclick='embed1231.Start()'>    
+              <input type=button value="Resize 1" onclick='ResizeEmbed();'>
+
+              <input type=button value="Scren 2:1" onclick='ScreenEmbed1();'>
+              <input type=button value="Scren 1:1" onclick='ScreenEmbed2();'>
+              <input type=button value="Scren 1:2" onclick='ScreenEmbed3();'>
+              <input type=button value="Scren 320:240" onclick='ScreenEmbed4();'>
+             
+            </form><br>
+            <div>
+            <table border="0" cellspacing="0" cellpadding="0" width="100%">
+              <tr>
+                <td><div id="resizeObl"><embed id="embed1231" type="application/mozilla-npivrtsp-scriptable-plugin" width=320 height=240 url="rtsp://admin:admin@192.168.1.35:8554/ch1" autostart="true"></div></td>
+                
+              </tr>
+
+            </table>
+            </div>
+
+
           </div><!--/row-->
 
           <hr>
