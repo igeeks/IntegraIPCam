@@ -460,7 +460,7 @@ function addModules(data) {
             $('#accordion-group' + chanId + ' ul').empty();
             $.each(data.MODULES_LIST.ENUM, function(key, val){
                 $('<li></li>').attr('chanId', chanId).attr('modName', val.NAME.VALUE).appendTo($('#accordion-group' + chanId + ' ul'));
-                $('<a>'+val.COMMENT.VALUE+'</a>').attr('href', '#').appendTo($("[modName = "+val.NAME.VALUE+"][chanId = "+chanId+"]")); // $('<a>'+val.NAME.VALUE+'</a>').attr('href', '#').appendTo($("[modName = "+val.NAME.VALUE+"][chanId = "+chanId+"]"));
+                $('<a>'+val.COMMENT.VALUE+'</a>').attr('href', '#content').appendTo($("[modName = "+val.NAME.VALUE+"][chanId = "+chanId+"]")); // $('<a>'+val.NAME.VALUE+'</a>').attr('href', '#').appendTo($("[modName = "+val.NAME.VALUE+"][chanId = "+chanId+"]"));
             });
         }
         else { alert('Нет номера канала'); }
