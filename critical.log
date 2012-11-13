@@ -592,3 +592,31 @@
 12/11/2012 15:13:16 [ICEngine 001D1608] Test DMA Copy End!
 12/11/2012 15:13:17 [ICEngine 001D1608] Engine Srart! (is not error!)
 12/11/2012 15:13:26 [ICH264 00FCE438] Error! bad CODEC fourcc!
+13/11/2012 18:40:11 [ICEngine 002F1F18] Test DMA Copy Begin...
+13/11/2012 18:40:11 [ICEngine 002F1F18] Test DMA Copy End!
+13/11/2012 18:40:11 [ICEngine 002F1F18] Engine Srart! (is not error!)
+13/11/2012 18:40:13 [ICH264 0245C138] Error! bad CODEC fourcc!
+13/11/2012 18:43:15 [ICEngine 003D1F18] Test DMA Copy Begin...
+13/11/2012 18:43:15 [ICEngine 003D1F18] Test DMA Copy End!
+13/11/2012 18:43:15 [ICEngine 003D1F18] Engine Srart! (is not error!)
+13/11/2012 18:43:16 [ICH264 0252C020] Error! bad CODEC fourcc!
+13/11/2012 18:43:53 [ICEngine 000E1F18] Test DMA Copy Begin...
+13/11/2012 18:43:53 [ICEngine 000E1F18] Test DMA Copy End!
+13/11/2012 18:43:53 [ICEngine 000E1F18] Engine Srart! (is not error!)
+13/11/2012 18:43:54 [ICH264 02655C80] Error! bad CODEC fourcc!
+13/11/2012 18:44:25 [ICEngine 00591F18] Test DMA Copy Begin...
+13/11/2012 18:44:25 [ICEngine 00591F18] Test DMA Copy End!
+13/11/2012 18:44:25 [ICEngine 00591F18] Engine Srart! (is not error!)
+13/11/2012 18:44:27 [ICH264 02405CA8] Error! bad CODEC fourcc!
+13/11/2012 18:46:12 [ICEngine 003C1F18] Test DMA Copy Begin...
+13/11/2012 18:46:12 [ICEngine 003C1F18] Test DMA Copy End!
+13/11/2012 18:46:12 [ICEngine 003C1F18] Engine Srart! (is not error!)
+13/11/2012 18:46:13 [ICH264 02697AF0] Error! bad CODEC fourcc!
+13/11/2012 18:47:35 [ICEngine 000C1F18] Test DMA Copy Begin...
+13/11/2012 18:47:35 [ICEngine 000C1F18] Test DMA Copy End!
+13/11/2012 18:47:36 [ICEngine 000C1F18] Engine Srart! (is not error!)
+13/11/2012 18:47:37 [ICH264 025295C0] Error! bad CODEC fourcc!
+13/11/2012 18:48:34 [ICEngine 00231F18] Test DMA Copy Begin...
+13/11/2012 18:48:34 [ICEngine 00231F18] Test DMA Copy End!
+13/11/2012 18:48:34 [ICEngine 00231F18] Engine Srart! (is not error!)
+13/11/2012 18:48:35 [ICH264 0243CCD0] Error! bad CODEC fourcc!
