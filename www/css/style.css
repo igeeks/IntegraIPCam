@@ -82,6 +82,11 @@
 	height: 100px;
 }
 
+.navbar {
+    min-width: 774px;
+    width: auto;
+}
+
 .navbar-rubber .navbar-inner {
   padding-right: 0;
   padding-left: 0;
@@ -90,9 +95,17 @@
           border-radius: 0;
 }
 
+.container {
+    min-width: 774px;
+    max-width: 940px;
+    width: auto;
+}
+
 div.phead {
     background: url(/img/pheadBG.jpg) repeat-x 100% 100%;
     color: white;
+    min-width: 774px;
+    width: auto;
 }
 
 div.phead div.pheadV {
