@@ -657,3 +657,13 @@
 13/11/2012 19:29:06 [ICH264 0255C228] Error! bad CODEC fourcc!
 13/11/2012 19:30:45 [ICH264 005BFD68] doGetNextFrame() Error! MaxSize = 8532 or ReferenceCount = 1
 13/11/2012 19:30:54 [ICH264 005BFD68] doGetNextFrame() Error! MaxSize = 1048576 or ReferenceCount = 1
+13/11/2012 19:32:29 [ICEngine 00371F18] Test DMA Copy Begin...
+13/11/2012 19:32:29 [ICEngine 00371F18] Test DMA Copy End!
+13/11/2012 19:32:29 [ICEngine 00371F18] Engine Srart! (is not error!)
+13/11/2012 19:32:31 [ICH264 0256C020] Error! bad CODEC fourcc!
+13/11/2012 19:40:46 [ICH264 0042FD68] doGetNextFrame() Error! MaxSize = 1 or ReferenceCount = 1
+13/11/2012 19:40:55 [ICH264 0042FD68] doGetNextFrame() Error! MaxSize = 1048576 or ReferenceCount = 1
+13/11/2012 19:41:09 [ICEngine 00491F18] Test DMA Copy Begin...
+13/11/2012 19:41:09 [ICEngine 00491F18] Test DMA Copy End!
+13/11/2012 19:41:09 [ICEngine 00491F18] Engine Srart! (is not error!)
+13/11/2012 19:41:11 [ICH264 0241C2D8] Error! bad CODEC fourcc!

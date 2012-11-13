@@ -7,19 +7,19 @@ var resizeBtn = true;
 function fullScrin(){
     $(window).scrollTop(0); 
     var pObj = $('#resizeObl');
-    var pObjEmbd = $('#embed1231');
+    var pObjEmbd = $('#video_container');
     widthRes = pObjEmbd.width();
     heightRes = pObjEmbd.height();
     pObj.css("position", "absolute");
     pObj.css("z-index", "8999");
-    pObj.width(embed1231.picwidth);
-    pObj.height(embed1231.picheight);
-    pObjEmbd.width(embed1231.picwidth);
-    pObjEmbd.height(embed1231.picheight);
+    pObj.width(video_container.picwidth);
+    pObj.height(video_container.picheight);
+    pObjEmbd.width(video_container.picwidth);
+    pObjEmbd.height(video_container.picheight);
 }
 function miniScrin(){
     var pObj = $('#resizeObl');
-    var pObjEmbd = $('#embed1231');
+    var pObjEmbd = $('#video_container');
     pObj.css({left:'', top:''});
     pObj.width(widthRes);
     pObj.height(heightRes);
@@ -34,30 +34,30 @@ function ResizeEmbed(){
     else
         miniScrin();
     resizeBtn = !resizeBtn;
-    embed1231.Resize();
+    video_container.Resize();
 }
 
 function ScreenEmbed1(){
     $(window).scrollTop(0); 
-    var pObjEmbd = $('#embed1231');
-    pObjEmbd.width(embed1231.picwidth*2);
-    pObjEmbd.height(embed1231.picheight*2);
+    var pObjEmbd = $('#video_container');
+    pObjEmbd.width(video_container.picwidth*2);
+    pObjEmbd.height(video_container.picheight*2);
 }
 function ScreenEmbed2(){
     $(window).scrollTop(0); 
-    var pObjEmbd = $('#embed1231');
-    pObjEmbd.width(embed1231.picwidth);
-    pObjEmbd.height(embed1231.picheight);
+    var pObjEmbd = $('#video_container');
+    pObjEmbd.width(video_container.picwidth);
+    pObjEmbd.height(video_container.picheight);
 }
 function ScreenEmbed3(){
     $(window).scrollTop(0); 
-    var pObjEmbd = $('#embed1231');
-    pObjEmbd.width(embed1231.picwidth/2);
-    pObjEmbd.height(embed1231.picheight/2);
+    var pObjEmbd = $('#video_container');
+    pObjEmbd.width(video_container.picwidth/2);
+    pObjEmbd.height(video_container.picheight/2);
 }
 function ScreenEmbed4(){
     $(window).scrollTop(0); 
-    var pObjEmbd = $('#embed1231');
+    var pObjEmbd = $('#video_container');
     pObjEmbd.width(320);
     pObjEmbd.height(240);
 }
