@@ -1,31 +1,101 @@
-$(document).ready(function() {
-    // РђРЅРёРјР°С†РёСЏ РёРЅРёС†РёР°Р»РёР·Р°С†РёРё
-    show_loader('init', 'Р—Р°РіСЂСѓР·РєР°');
 
-    // РћС‚РєР»СЋС‡РёС‚СЊ Р°РЅРёРјР°С†РёСЋ РёРЅРёС†РёР°Р»РёР·Р°С†РёРё
+// ========================= Video =========================
+var widthRes = 0;
+var heightRes = 0;
+var resizeBtn = true;
+
+function fullScrin(){
+    $(window).scrollTop(0); 
+    var pObj = $('#resizeObl');
+    var pObjEmbd = $('#video_container');
+    widthRes = pObjEmbd.width();
+    heightRes = pObjEmbd.height();
+    pObj.css("position", "absolute");
+    pObj.css("z-index", "8999");
+    pObj.width(video_container.picwidth);
+    pObj.height(video_container.picheight);
+    pObjEmbd.width(video_container.picwidth);
+    pObjEmbd.height(video_container.picheight);
+}
+function miniScrin(){
+    var pObj = $('#resizeObl');
+    var pObjEmbd = $('#video_container');
+    pObj.css({left:'', top:''});
+    pObj.width(widthRes);
+    pObj.height(heightRes);
+    pObjEmbd.width(widthRes);
+    pObjEmbd.height(heightRes);
+    pObj.css("position", "");
+    pObj.css("z-index", "");
+}
+function ResizeEmbed(){
+    if (resizeBtn)
+        fullScrin();
+    else
+        miniScrin();
+    resizeBtn = !resizeBtn;
+    video_container.Resize();
+}
+
+function ScreenEmbed1(){
+    $(window).scrollTop(0); 
+    var pObjEmbd = $('#video_container');
+    pObjEmbd.width(video_container.picwidth*2);
+    pObjEmbd.height(video_container.picheight*2);
+}
+function ScreenEmbed2(){
+    $(window).scrollTop(0); 
+    var pObjEmbd = $('#video_container');
+    pObjEmbd.width(video_container.picwidth);
+    pObjEmbd.height(video_container.picheight);
+}
+function ScreenEmbed3(){
+    $(window).scrollTop(0); 
+    var pObjEmbd = $('#video_container');
+    pObjEmbd.width(video_container.picwidth/2);
+    pObjEmbd.height(video_container.picheight/2);
+}
+function ScreenEmbed4(){
+    $(window).scrollTop(0); 
+    var pObjEmbd = $('#video_container');
+    pObjEmbd.width(320);
+    pObjEmbd.height(240);
+}
+function ScreenNewURL(url){
+    $(window).scrollTop(0);  
+    var pObjEmbd = $('#video_container');
+    pObjEmbd.url=url;
+}
+
+// ========================= Page logic =========================
+$(document).ready(function() {
+    // Анимация инициализации
+    show_loader('init', 'Загрузка');
+
+    // Отключить анимацию инициализации
     hide_loader('init');
 });
 
-// РћР±СЂР°Р±РѕС‚РєР° РѕС‚РІРµС‚Р° РєРѕРјР°РЅРґС‹ SET_PARAMS
+// Обработка ответа команды SET_PARAMS
 function cbSetParams(data) {
     
-    // РЈРґР°Р»РёС‚СЊ Р°РЅРёРјР°С†РёСЋ РѕС‚РїСЂР°РІРєРё Рё РїРѕРєР°Р·Р°С‚СЊ С‚Р°Р±Р»РёС†Сѓ СЃ РїР°СЂР°РјРµС‚СЂР°РјРё
+    // Удалить анимацию отправки и показать таблицу с параметрами
     hide_loader('send');
     
-    // Р’С‹РІРµСЃС‚Рё СЃРѕРѕР±С‰РµРЅРёРµ СЃ СЂРµР·СѓР»СЊС‚Р°С‚РѕРј РѕРїРµСЂР°С†РёРё
+    // Вывести сообщение с результатом операции
     if ( !data.RESULT ) {
-        myAlert( 'ERROR', 'РќРµРІРµСЂРЅС‹Р№ С„РѕСЂРјР°С‚ РѕС‚РІРµС‚Р°', 'alert-error' );
+        myAlert( 'ERROR', 'Неверный формат ответа', 'alert-error' );
     
-    } else if (data.RESULT.VALUE.CODE.VALUE == 0) { // РЈСЃРїРµС€РЅРѕРµ СЃРѕС…СЂР°РЅРµРЅРёРµ РёР·РјРµРЅРµРЅРёР№
+    } else if (data.RESULT.VALUE.CODE.VALUE == 0) { // Успешное сохранение изменений
         
         myAlert( data.RESULT.VALUE.TEXT.VALUE, data.RESULT.VALUE.MESSAGE.VALUE, 'alert-success' ); 
         
-        // Р”РµР°РєС‚РёРІР°С†РёСЏ РєРЅРѕРїРєРё "РЎРѕС…СЂР°РЅРёС‚СЊ РёР·РјРµРЅРµРЅРёСЏ"
+        // Деактивация кнопки "Сохранить изменения"
         $( '#saveBtn' ).addClass('btn disabled').attr( 'disabled', 'disabled' );
         
-        // РЈСЃС‚Р°РЅРѕРІРёС‚СЊ РґРµС„РѕР»С‚РЅС‹Рµ Р·РЅР°С‡РµРЅРёСЏ РІ РѕС‚РїСЂР°РІР»РµРЅРЅС‹Рµ
+        // Установить дефолтные значения в отправленные
         curParams = null;
-        curParams = $.extend( true, curParams, newParams ); // Р РµРєСѓСЂСЃРёРІРЅРѕРµ РєР»РѕРЅРёСЂРѕРІР°РЅРёРµ РѕР±СЉРµРєС‚Р°
+        curParams = $.extend( true, curParams, newParams ); // Рекурсивное клонирование объекта
     } 
     else { // fail
         myAlert( data.RESULT.VALUE.TEXT.VALUE, data.RESULT.VALUE.MESSAGE.VALUE, 'alert-error' );

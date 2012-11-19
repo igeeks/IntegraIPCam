@@ -592,7 +592,91 @@
 12/11/2012 15:13:16 [ICEngine 001D1608] Test DMA Copy End!
 12/11/2012 15:13:17 [ICEngine 001D1608] Engine Srart! (is not error!)
 12/11/2012 15:13:26 [ICH264 00FCE438] Error! bad CODEC fourcc!
+<<<<<<< HEAD
 13/11/2012 12:57:34 [ICEngine 001D1608] Test DMA Copy Begin...
 13/11/2012 12:57:34 [ICEngine 001D1608] Test DMA Copy End!
 13/11/2012 12:57:34 [ICEngine 001D1608] Engine Srart! (is not error!)
 13/11/2012 12:57:46 [ICH264 00FCE4D0] Error! bad CODEC fourcc!
+=======
+13/11/2012 18:40:11 [ICEngine 002F1F18] Test DMA Copy Begin...
+13/11/2012 18:40:11 [ICEngine 002F1F18] Test DMA Copy End!
+13/11/2012 18:40:11 [ICEngine 002F1F18] Engine Srart! (is not error!)
+13/11/2012 18:40:13 [ICH264 0245C138] Error! bad CODEC fourcc!
+13/11/2012 18:43:15 [ICEngine 003D1F18] Test DMA Copy Begin...
+13/11/2012 18:43:15 [ICEngine 003D1F18] Test DMA Copy End!
+13/11/2012 18:43:15 [ICEngine 003D1F18] Engine Srart! (is not error!)
+13/11/2012 18:43:16 [ICH264 0252C020] Error! bad CODEC fourcc!
+13/11/2012 18:43:53 [ICEngine 000E1F18] Test DMA Copy Begin...
+13/11/2012 18:43:53 [ICEngine 000E1F18] Test DMA Copy End!
+13/11/2012 18:43:53 [ICEngine 000E1F18] Engine Srart! (is not error!)
+13/11/2012 18:43:54 [ICH264 02655C80] Error! bad CODEC fourcc!
+13/11/2012 18:44:25 [ICEngine 00591F18] Test DMA Copy Begin...
+13/11/2012 18:44:25 [ICEngine 00591F18] Test DMA Copy End!
+13/11/2012 18:44:25 [ICEngine 00591F18] Engine Srart! (is not error!)
+13/11/2012 18:44:27 [ICH264 02405CA8] Error! bad CODEC fourcc!
+13/11/2012 18:46:12 [ICEngine 003C1F18] Test DMA Copy Begin...
+13/11/2012 18:46:12 [ICEngine 003C1F18] Test DMA Copy End!
+13/11/2012 18:46:12 [ICEngine 003C1F18] Engine Srart! (is not error!)
+13/11/2012 18:46:13 [ICH264 02697AF0] Error! bad CODEC fourcc!
+13/11/2012 18:47:35 [ICEngine 000C1F18] Test DMA Copy Begin...
+13/11/2012 18:47:35 [ICEngine 000C1F18] Test DMA Copy End!
+13/11/2012 18:47:36 [ICEngine 000C1F18] Engine Srart! (is not error!)
+13/11/2012 18:47:37 [ICH264 025295C0] Error! bad CODEC fourcc!
+13/11/2012 18:48:34 [ICEngine 00231F18] Test DMA Copy Begin...
+13/11/2012 18:48:34 [ICEngine 00231F18] Test DMA Copy End!
+13/11/2012 18:48:34 [ICEngine 00231F18] Engine Srart! (is not error!)
+13/11/2012 18:48:35 [ICH264 0243CCD0] Error! bad CODEC fourcc!
+13/11/2012 19:24:04 [ICEngine 003B1F18] Test DMA Copy Begin...
+13/11/2012 19:24:04 [ICEngine 003B1F18] Test DMA Copy End!
+13/11/2012 19:24:04 [ICEngine 003B1F18] Engine Srart! (is not error!)
+13/11/2012 19:24:06 [ICH264 0257C048] Error! bad CODEC fourcc!
+13/11/2012 19:24:18 [ICH264 0257C048] Error! bad CODEC fourcc!
+13/11/2012 19:24:18 [ICTransformWorker 02585D48] ::SaveConfig() Error! GetInfo() 'ICWatchDog' failed!
+13/11/2012 19:24:25 [ICH264 0257C048] Error! bad CODEC fourcc!
+13/11/2012 19:24:26 [ICTransformWorker 02585D48] ::SaveConfig() Error! GetInfo() 'ICWatchDog' failed!
+13/11/2012 19:24:32 [ICH264 0257C048] Error! bad CODEC fourcc!
+13/11/2012 19:24:32 [ICTransformWorker 02585D48] ::SaveConfig() Error! GetInfo() 'ICWatchDog' failed!
+13/11/2012 19:25:04 [ICEngine 00451F18] Test DMA Copy Begin...
+13/11/2012 19:25:05 [ICEngine 00451F18] Test DMA Copy End!
+13/11/2012 19:25:05 [ICEngine 00451F18] Engine Srart! (is not error!)
+13/11/2012 19:25:06 [ICH264 0245C090] Error! bad CODEC fourcc!
+13/11/2012 19:27:11 [ICEngine 00391F18] Test DMA Copy Begin...
+13/11/2012 19:27:11 [ICEngine 00391F18] Test DMA Copy End!
+13/11/2012 19:27:11 [ICEngine 00391F18] Engine Srart! (is not error!)
+13/11/2012 19:27:13 [ICH264 024FC090] Error! bad CODEC fourcc!
+13/11/2012 19:27:40 [ICEngine 00431F18] Test DMA Copy Begin...
+13/11/2012 19:27:40 [ICEngine 00431F18] Test DMA Copy End!
+13/11/2012 19:27:40 [ICEngine 00431F18] Engine Srart! (is not error!)
+13/11/2012 19:27:42 [ICH264 025EC560] Error! bad CODEC fourcc!
+13/11/2012 19:27:55 [ICH264 025EC560] Error! bad CODEC fourcc!
+13/11/2012 19:27:55 [ICTransformWorker 025F65A0] ::SaveConfig() Error! GetInfo() 'ICWatchDog' failed!
+13/11/2012 19:28:20 [ICH264 025EC560] Error! bad CODEC fourcc!
+13/11/2012 19:28:21 [ICTransformWorker 025F65A0] ::SaveConfig() Error! GetInfo() 'ICWatchDog' failed!
+13/11/2012 19:28:25 [ICH264 004EFD68] doGetNextFrame() Error! MaxSize = 868576 or ReferenceCount = 0
+13/11/2012 19:28:28 [ICH264 004EFD68] doGetNextFrame() Error! MaxSize = 688576 or ReferenceCount = 0
+13/11/2012 19:28:57 [ICH264 025EC560] Error! bad CODEC fourcc!
+13/11/2012 19:28:57 [ICTransformWorker 025F65A0] ::SaveConfig() Error! GetInfo() 'ICWatchDog' failed!
+13/11/2012 19:29:00 [ICH264 004EFD68] doGetNextFrame() Error! MaxSize = 868576 or ReferenceCount = 0
+13/11/2012 19:29:04 [ICEngine 00501F18] Test DMA Copy Begin...
+13/11/2012 19:29:04 [ICEngine 00501F18] Test DMA Copy End!
+13/11/2012 19:29:05 [ICEngine 00501F18] Engine Srart! (is not error!)
+13/11/2012 19:29:06 [ICH264 0255C228] Error! bad CODEC fourcc!
+13/11/2012 19:30:45 [ICH264 005BFD68] doGetNextFrame() Error! MaxSize = 8532 or ReferenceCount = 1
+13/11/2012 19:30:54 [ICH264 005BFD68] doGetNextFrame() Error! MaxSize = 1048576 or ReferenceCount = 1
+13/11/2012 19:32:29 [ICEngine 00371F18] Test DMA Copy Begin...
+13/11/2012 19:32:29 [ICEngine 00371F18] Test DMA Copy End!
+13/11/2012 19:32:29 [ICEngine 00371F18] Engine Srart! (is not error!)
+13/11/2012 19:32:31 [ICH264 0256C020] Error! bad CODEC fourcc!
+13/11/2012 19:40:46 [ICH264 0042FD68] doGetNextFrame() Error! MaxSize = 1 or ReferenceCount = 1
+13/11/2012 19:40:55 [ICH264 0042FD68] doGetNextFrame() Error! MaxSize = 1048576 or ReferenceCount = 1
+13/11/2012 19:41:09 [ICEngine 00491F18] Test DMA Copy Begin...
+13/11/2012 19:41:09 [ICEngine 00491F18] Test DMA Copy End!
+13/11/2012 19:41:09 [ICEngine 00491F18] Engine Srart! (is not error!)
+13/11/2012 19:41:11 [ICH264 0241C2D8] Error! bad CODEC fourcc!
+13/11/2012 19:51:48 [ICH264 0054FD68] doGetNextFrame() Error! MaxSize = 1 or ReferenceCount = 1
+13/11/2012 19:51:57 [ICH264 0054FD68] doGetNextFrame() Error! MaxSize = 1048576 or ReferenceCount = 1
+13/11/2012 19:52:10 [ICEngine 00421F18] Test DMA Copy Begin...
+13/11/2012 19:52:10 [ICEngine 00421F18] Test DMA Copy End!
+13/11/2012 19:52:10 [ICEngine 00421F18] Engine Srart! (is not error!)
+13/11/2012 19:52:12 [ICH264 0259C348] Error! bad CODEC fourcc!
+>>>>>>> aea28e4cbd5d8c88d0ad5a9b12800f4e6abb1e1e
