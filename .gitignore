@@ -1,9 +1,10 @@
 UserManager.dll
 update.WIN32.0.1.bin
+critical.log
+info.log
+warning.log
 www/TestResize3.html
 www/control2.htm
 www/functions.js
 www/jwplayer/
 www/video.html
-*.log
-*.txt
