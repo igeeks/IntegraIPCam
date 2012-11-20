@@ -1,2 +1,2 @@
 ICUpdateService _ICUpdateService.txt
-ICWatchDog _ICWatchDog.txt
+ICUserManager _ICUserManager.txt

@@ -3,3 +3,4 @@
 + _graph_jpeg.txt
 + _graph_mpeg4.txt
 + _graph_update.txt
++ _graph_watchdog.txt
