@@ -89,3 +89,8 @@ function myCreateElement(name, attrs, style, text) {
     }
     return e;
 }
+
+// Получить host name текущего устройства
+function get_host_name() {
+    return document.domain;
+}

@@ -63,12 +63,14 @@ function ScreenEmbed4(){
 }
 function ScreenNewURL(url){
     $(window).scrollTop(0);  
-    var pObjEmbd = $('#video_container');
-    pObjEmbd.url=url;
+    $('#video_container').attr( 'url', url);
 }
 
 // ========================= Page logic =========================
 $(document).ready(function() {
+    // Инициализация и запуск видео
+    video_capture_init();
+
     // Анимация инициализации
     show_loader('init', 'Загрузка');
 
@@ -100,4 +102,43 @@ function cbSetParams(data) {
     else { // fail
         myAlert( data.RESULT.VALUE.TEXT.VALUE, data.RESULT.VALUE.MESSAGE.VALUE, 'alert-error' );
     }
+}
+
+function video_capture_init() {
+    // Получить хост
+    var host = get_host_name();
+
+    // Прочитать установить порт
+    var port = 8554;
+
+    // Прочитать канал
+    var channel = "ch1";
+
+    // Добавить инпуты
+    $('<input type="text" class="input-small">')
+        .attr( 'value', host )
+        .attr( 'id', 'host' )
+        .appendTo(
+            $('#video_control')
+        );
+
+    $('<input type="text" class="input-small">')
+        .attr( 'value', port )
+        .attr( 'id', 'port' )
+        .appendTo(
+            $('#video_control')
+        );
+
+    $('<input type="text" class="input-small">')
+        .attr( 'value', channel )
+        .attr( 'id', 'channel' )
+        .appendTo(
+            $('#video_control')
+        );
+
+    // Настроить видео
+    ScreenNewURL( 'rtsp://admin:admin@' + host + ':' + port + '/' + channel );
+
+    // Запустить получение видео
+
 }
