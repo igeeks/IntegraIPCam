@@ -22,7 +22,7 @@ $('.nav-list li').live('click', function(){
     sendCmd( {'COMMAND': 'CMD_GET_PARAMS', 'CHANNEL_ID': $(this).attr('chanid'), 'MODULE_NAME': $(this).attr('modname') }, addParams );
     // Сохранить выбранный модуль
     curMod = $(this).attr('modname');
-    curChan = $(this).attr('chanid');
+    curChanID = $(this).attr('chanid');
 });
 
 $('.accordion-heading').live('click', function(event){
@@ -117,17 +117,17 @@ $('#saveBtn').live('click', function () {
         // Отправить команду на установку параметров
         var cmd = {};
         cmd['COMMAND'] = 'CMD_SET_PARAMS';
-        cmd['CHANNEL_ID'] = "dw:" + newParams.CHANNEL_ID.VALUE;
-        cmd['MODULE_NAME'] = "s:'" + getCurModParam(curMod).NAME.VALUE + "'";
-        $.each( newParams, function(key, val) {
-            if ( key != "RESULT" && key != "CHANNEL_ID" ) {
-                if ( val.TYPE == 'STRING' )  {
-                    cmd[key] = DATA_TYPES[ val.TYPE ].ABBREVIATED_NAME + ":'" + encodeURIComponent(val.VALUE) + "'";
-                } else {
-                    cmd[key] = DATA_TYPES[ val.TYPE ].ABBREVIATED_NAME + ":" + encodeURIComponent(val.VALUE);
-                }
+        cmd['CHANNEL_ID'] = "dw:" + curChanID;
+        cmd['MODULE_NAME'] = "s:'" + curMod + "'";
+
+        $.each( get_params( newParams ), function(key, val) {
+            if ( val.TYPE == 'STRING' )  {
+                cmd[key] = DATA_TYPES[ val.TYPE ].ABBREVIATED_NAME + ":'" + encodeURIComponent(val.VALUE) + "'";
+            } else {
+                cmd[key] = DATA_TYPES[ val.TYPE ].ABBREVIATED_NAME + ":" + encodeURIComponent(val.VALUE);
             }
         });
+
         sendCmd( cmd, cbSetParams );
     }
 });

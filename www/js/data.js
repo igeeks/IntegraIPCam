@@ -1,4 +1,4 @@
-var curParams, newParams, curChan, curMod, channels, modules;
+var curParams, newParams, curChanID, curMod, channels, modules;
 
 var DATA_TYPES = {  
     DWORD: {
@@ -118,9 +118,24 @@ function check_result(data) {
     return data.RESULT.VALUE.CODE.VALUE == 0;
 }
 
-// ================== Свойства
+// ================== Аксессоры
+
 function get_param_type(param) {
     return param.TYPE;
+}
+
+function get_cur_mod_comment() {
+    return getCurModParam(curMod).COMMENT.VALUE;
+}
+
+function get_param_comment(param, data) {
+    return data[param].COMMENT !== undefined ? 
+        data[param].COMMENT : 
+        param;
+}
+
+function set_new_param(param, value) {
+    newParams[ param ].VALUE = value;
 }
 
 // ================== Работа с данными
@@ -145,14 +160,12 @@ function get_params(data) {
 
     for ( var key in data ) {
         if (
-            key == "CHANNEL_ID" ||
-            key == "RESULT" ||
-            key == "COMMENT" ||
-            get_param_type( data[key] ) == "FILE"
+            key != "HIDDEN"
+            &&
+            key != "RESULT"
+            &&
+            get_param_type( data[key] ) != "FILE"
         ) {
-            continue;
-        }
-        else {
             result[key] = data[key];
         }
     }
@@ -173,18 +186,4 @@ function get_files_params(data) {
     }
 
     return result;
-}
-
-function get_cur_mod_comment() {
-    return getCurModParam(curMod).COMMENT.VALUE;
-}
-
-function get_param_comment(param, data) {
-    return data[param].COMMENT !== undefined ? 
-        data[param].COMMENT : 
-        param;
-}
-
-function set_new_param(param, value) {
-    newParams[ param ].VALUE = value;
 }
