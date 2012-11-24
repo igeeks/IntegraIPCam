@@ -57,9 +57,9 @@ $('#paramsTable input').live('change', function() {
       curParams[ $(this).attr('id') ].TYPE == "STRING" ) 
     {
         // Если строка пустая преобразовать в 0
-        if ( $.trim( this.value ) == '' ) {
-            this.value = 0;
-        }
+        // if ( $.trim( this.value ) == '' ) {
+        //     this.value = 0;
+        // }
 
         // Проверка соответсвия всего выражения формату
         if( ! DATA_TYPES[ curParams[ $(this).attr('id') ].TYPE ].FORMAT.test( this.value ) )    { 
