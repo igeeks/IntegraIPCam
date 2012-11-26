@@ -3,10 +3,10 @@ $(document).ready(function() {
       toggle: false
     });
     //$('#accordion1 .accordion-body').collapse('show');
-    
+
     // Анимация инициализации
     show_loader('init', 'Загрузка');
-    
+
     // Запрос списка каналов
     sendCmd( {'COMMAND': 'CMD_GET_CHANNELS_LIST'}, addChannels );
 });
@@ -18,7 +18,7 @@ $('.nav-list li').live('click', function(){
     // Очистка контентной области, анимация загрузки
     $('div.span9').empty();
     $('<div></div>').addClass('contentLoaderWrap').appendTo($('div.span9'));
-    // Отправка запроса параметров модуля 
+    // Отправка запроса параметров модуля
     sendCmd( {'COMMAND': 'CMD_GET_PARAMS', 'CHANNEL_ID': $(this).attr('chanid'), 'MODULE_NAME': $(this).attr('modname') }, addParams );
     // Сохранить выбранный модуль
     curMod = $(this).attr('modname');
@@ -37,24 +37,24 @@ $('#paramsTable input').live('keydown', function(event) {
         keyCode = event.keyCode;
     }
     var val = String.fromCharCode( keyCode );
-    
-    // спец. сочетание - не обрабатываем 
+
+    // спец. сочетание - не обрабатываем
     if ( event.ctrlKey || event.altKey || event.metaKey || event.shiftKey ) return;
     if ( keyCode < 48 ) return; // спец. символ - не обрабатываем
-    
+
     return DATA_TYPES[ curParams[ $(this).attr('id') ].TYPE ].ALLOW_CHARS.test( val );
 })
 
 $('#paramsTable input').live('change', function() {
-    
+
     // Удалить сообщения об ошибках
     $(this).parent().removeClass( 'error' );
     $( '.control-group#' + $(this).attr( 'id' ) + ' > .help-inline' ).remove();
-    
+
     // Если цифровой или строковый инпут
     if ( curParams[ $(this).attr('id') ].TYPE == "DWORD" || curParams[ $(this).attr('id') ].TYPE == "WORD" || curParams[ $(this).attr('id') ].TYPE == "INT32" ||
       curParams[ $(this).attr('id') ].TYPE == "INT64" || curParams[ $(this).attr('id') ].TYPE == "FLOAT" || curParams[ $(this).attr('id') ].TYPE == "DOUBLE" ||
-      curParams[ $(this).attr('id') ].TYPE == "STRING" ) 
+      curParams[ $(this).attr('id') ].TYPE == "STRING" )
     {
         // Если строка пустая преобразовать в 0
         if ( $.trim( this.value ) == '' ) {
@@ -62,7 +62,7 @@ $('#paramsTable input').live('change', function() {
         }
 
         // Проверка соответсвия всего выражения формату
-        if( ! DATA_TYPES[ curParams[ $(this).attr('id') ].TYPE ].FORMAT.test( this.value ) )    { 
+        if( ! DATA_TYPES[ curParams[ $(this).attr('id') ].TYPE ].FORMAT.test( this.value ) )    {
             // Если нет, то добавить сообщение об ошибке
             if ( !$(this).parent().is( '.error' ) ) {
                 $(this).parent().addClass( 'error' );
@@ -94,23 +94,23 @@ $('#paramsTable input').live('change', function() {
     else if ( curParams[ $(this).attr('id') ].TYPE == "BOOL" ) { // Если чекбокс
         newParams[ $(this).attr('id') ].VALUE = this.checked;
     }
-    
+
     // Сделать кнопку сохранения изменения активной
     $('#saveBtn').removeClass('disabled').removeAttr('disabled');
-    
+
     return true;
 })
 
 $('#paramsTable select').live('change', function() {
     set_new_param( $(this).attr('id'), this.value );
     $('#saveBtn').removeClass('disabled').removeAttr('disabled');
-    
+
     return true;
 })
 
 $('#saveBtn').live('click', function () {
     if ( !$(this).is('.disabled') ) {
-        
+
         // Включить анимацию отправки данных
         show_loader( 'send', 'Сохранение изменений' );
 
@@ -148,10 +148,10 @@ $('#returnArrow').live('click', function () {
     // Поиск и получение соответствующего инпута
     var input = $( '#' + $(this).attr('for') )[0];
     var parent = $(input).parent()[0];
-    
+
     // Отмена изменений
     // Если выбранный инпут типа селект
-    if ( input.tagName == 'SELECT' && input.value != curParams[ $(this).attr('for') ].VALUE ) { 
+    if ( input.tagName == 'SELECT' && input.value != curParams[ $(this).attr('for') ].VALUE ) {
         // Найти опцию с соответствующим значением и установить выбранной
         var i = 0;
         while ( i < input.childNodes.length && input.childNodes[i].value != curParams[ $(this).attr('for') ].VALUE ) {
@@ -164,26 +164,26 @@ $('#returnArrow').live('click', function () {
         else {
             // Отменить изменения в форме
             input.childNodes[i].selected = true;
-            
+
             // Отменить изменения в переменных
             newParams[ $(this).attr('for') ].VALUE = curParams[ $(this).attr('for') ].VALUE;
         }
     }
     // Checkbox
-    else if ( input.type == 'checkbox' && input.checked != curParams[ $(this).attr('for') ].VALUE ) { 
+    else if ( input.type == 'checkbox' && input.checked != curParams[ $(this).attr('for') ].VALUE ) {
         // Отменить изменения в форме
         input.checked = curParams[ $(this).attr('for') ].VALUE;
-        
+
         // Отменить изменения в переменных
         newParams[ $(this).attr('for') ].VALUE = curParams[ $(this).attr('for') ].VALUE;
     }
     // Все остальные инпуты
-    else if ( input.value != curParams[ $(this).attr('for') ].VALUE ) { 
+    else if ( input.value != curParams[ $(this).attr('for') ].VALUE ) {
         input.value = curParams[ $(this).attr('for') ].VALUE;
-        
+
         // Отменить изменения в переменных
         newParams[ $(this).attr('for') ].VALUE = curParams[ $(this).attr('for') ].VALUE;
-        
+
         // Сгенерировать событие change для изменения значения слайдера
         $(input).trigger('change');
     }
@@ -191,25 +191,25 @@ $('#returnArrow').live('click', function () {
 
 // Обработка ответа команды SET_PARAMS
 function cbSetParams(data) {
-    
+
     // Удалить анимацию отправки и показать таблицу с параметрами
     hide_loader('send');
-    
+
     // Вывести сообщение с результатом операции
     if ( !data.RESULT ) {
         myAlert( 'ERROR', 'Неверный формат ответа', 'alert-error' );
-    
+
     } else if (data.RESULT.VALUE.CODE.VALUE == 0) { // Успешное сохранение изменений
-        
-        myAlert( data.RESULT.VALUE.TEXT.VALUE, data.RESULT.VALUE.MESSAGE.VALUE, 'alert-success' ); 
-        
+
+        myAlert( data.RESULT.VALUE.TEXT.VALUE, data.RESULT.VALUE.MESSAGE.VALUE, 'alert-success' );
+
         // Деактивация кнопки "Сохранить изменения"
         $( '#saveBtn' ).addClass('btn disabled').attr( 'disabled', 'disabled' );
-        
+
         // Установить дефолтные значения в отправленные
         curParams = null;
         curParams = $.extend( true, curParams, newParams ); // Рекурсивное клонирование объекта
-    } 
+    }
     else { // fail
         myAlert( data.RESULT.VALUE.TEXT.VALUE, data.RESULT.VALUE.MESSAGE.VALUE, 'alert-error' );
     }
@@ -223,7 +223,7 @@ function add_table_container(prefix, header) {
         .appendTo( $('div.span9') );
 
     $('<h1>'+ header +'</h1>')
-        .appendTo( 
+        .appendTo(
             $('<div></div>')
                 .addClass('page-header')
                 .appendTo( $('#' + section_id) )
@@ -237,10 +237,10 @@ function add_table_container(prefix, header) {
 
 // Создание HTMl кода для параметров камеры
 function addParams(data) {
-    
+
     // Очистка основного контейнера
     $('div.span9').empty();
-    
+
     // Если запрос выполнен успешно
     if ( check_result(data) ) {
         if ( ! check_data(data) ) {
@@ -248,7 +248,7 @@ function addParams(data) {
             myAlert( 'ERROR', Error_code, 'alert-error' );
             return;
         }
-        
+
         // ================== Создание таблицы параметров
         var params = get_params(data);
         if ( ! $.isEmptyObject( params ) ) {
@@ -263,17 +263,17 @@ function addParams(data) {
 
                 // Создать ряд таблицы
                 var row = $('<tr></tr>').appendTo( $('#paramsTable tbody') );
-                
+
                 // Добавить название параметра в таблицу
                 $('<td><span>'+ get_param_comment( key, data ) +'</span></td>')
                     .addClass('col1').appendTo( row );
-                
+
                 // Создать и добавить контрол для параметра
                 var parent = $('<td class="control-group"></td>')
                     .addClass('col2').appendTo( row );
-                
+
                 addControl(parent, key, val);
-                
+
                 // Создать и добавить кнопку "отменить"
                 parent = $('<td></td>').addClass('col3').appendTo(row);
                 $( '<a href="#"><span id="returnArrow" for="' + key + '" class="ui-icon ui-icon-arrowreturnthick-1-w"></span></a>' ).appendTo(parent);
@@ -301,16 +301,16 @@ function addParams(data) {
 
                 // Создать ряд таблицы
                 var row = $('<tr></tr>').appendTo( $('#filesTable tbody') );
-                
+
                 // Добавить название параметра в таблицу
                 $('<td><span>'+ get_param_comment( key, data ) +'</span></td>')
                     .addClass('col1').appendTo( row );
-                
+
                 // Создать и добавить контрол для параметра
                 // TODO перенсти в addControl
                 var parent = $('<td class="control-group"></td>')
                     .addClass('col2').appendTo( row );
-                
+
                 addControl(parent, key, val);
             }
         }
@@ -345,20 +345,20 @@ function addControl(parent, paramName, attrs) {
                 opt.attr('selected', 'selected');
             }
         }
-    } 
+    }
     else if ( attrs.TYPE == "BOOL" ) {
         // Создание CheckBox
-        
+
         // Создать и добавить элемент
         var checkbox = $( '<input type="checkbox" id="' + paramName + '">' ).appendTo(parent);
-        
+
         // Инициализация
         checkbox[0].checked = attrs.VALUE;
     }
-    else if (attrs.hasOwnProperty("MIN") && attrs.hasOwnProperty("MAX")) { 
+    else if (attrs.hasOwnProperty("MIN") && attrs.hasOwnProperty("MAX")) {
         // Создание обычного инпута со слайдером для цифровых тпиов
-        if ( attrs.VALUE >= attrs.MIN && attrs.VALUE <= attrs.MAX ) { 
-            
+        if ( attrs.VALUE >= attrs.MIN && attrs.VALUE <= attrs.MAX ) {
+
             // Создать и добавить инпут
             $('<input type="text" for="slider" class="input-small" id="' + paramName + '">').attr( 'value', attrs.VALUE ).appendTo(parent);
 
@@ -379,7 +379,7 @@ function addControl(parent, paramName, attrs) {
             myAlert( 'Error', 'Не корректные входные данные. Value находится за диапозоном значений MIN MAX', 'alert-error' );
             return;
         }
-    } 
+    }
     else if ( attrs.TYPE == "FILE" ) {
         var input_file;
         if ( $.browser.msie ) {
@@ -396,8 +396,8 @@ function addControl(parent, paramName, attrs) {
             input_file
                 .attr( 'for', paramName );
         }
-        
-        var form = 
+
+        var form =
             $('<form style="margin: 0;"></form>')
                 .attr( 'id', paramName + '_form' )
                 .attr( 'action', paramName )
@@ -410,7 +410,7 @@ function addControl(parent, paramName, attrs) {
         $('<button class="btn submit_btn">Отправить</button>')
             .appendTo(form);
 
-        var options = { 
+        var options = {
             beforeSubmit: function() {
                 show_loader( 'send', 'Обновление прошивки' ); // TODO выводить мессеседж параметра
             },
@@ -419,12 +419,18 @@ function addControl(parent, paramName, attrs) {
             type:      'post',
             dataType:  'json',
             resetForm: true
-            // $.ajax options can be used here too, for example: 
-            // timeout:   3000 
-        }; 
-     
-        // bind form using 'ajaxForm' 
+            // $.ajax options can be used here too, for example:
+            // timeout:   3000
+        };
+
+        // bind form using 'ajaxForm'
         $(form).ajaxForm(options);
+    }
+    else if ( attrs.TYPE == "TEXT" ) {
+        // Многострочный инпут
+        var textarea = $('<textarea rows="3">' + attrs.VALUE + '</textarea>')
+            .attr( 'id', paramName )
+            .appendTo(parent);
     }
     else {
         // Создание обычного инпута для чисел, строки и даты
@@ -434,14 +440,14 @@ function addControl(parent, paramName, attrs) {
             .appendTo(parent);
 
         // Инициализация календаря
-        if ( attrs.TYPE == 'DATETIME' ) { 
-            $( 'input#' + paramName ).datetimepicker(); 
+        if ( attrs.TYPE == 'DATETIME' ) {
+            $( 'input#' + paramName ).datetimepicker();
         }
-        
+
         // Определить размер поля в зависимости от типа данных
         if ( attrs.TYPE == 'STRING' ) {
             input.addClass('input-xlarge');
-        } 
+        }
         else if ( attrs.TYPE == 'DATETIME' ) {
             input.addClass('input-medium');
         }
@@ -464,44 +470,44 @@ function addModules(data) {
             });
         }
         else { alert('Нет номера канала'); }
-        
-        
+
+
         // Если collapse раскрыт пересчитать высоту под загруженный контент
         if ( $('#collapse' + chanId).is('.in') ) {
             $('#collapse' + chanId).height( $('#accordion-group' + chanId + ' ul').height() + 19 );
         }
-        
+
         // Сохранение всего списка модулей
         modules = data;
     } else {
         $('<div><h3>' + data.RESULT.VALUE.TEXT.VALUE + '</h3><p>' + data.RESULT.VALUE.MESSAGE.VALUE + '</p></div>').appendTo( $('div.span9') );
     }
-    
+
     // Отключить анимацию загрузки
     $('#accordion-group' + chanId + ' div.modLoader').hide();
 }
 
 //Создание акордеона с каналами, подготовка контейнера для меню модулей
 function addChannels(data) {
-    if (data.RESULT.VALUE.CODE.VALUE == 0) {    
+    if (data.RESULT.VALUE.CODE.VALUE == 0) {
         $.each(data.CHANNELS_LIST.ENUM, function(key, val) {
             var parent = document.getElementById('accordion1');
             parent.appendChild(myCreateElement('div',
               {'class': 'accordion-group', 'id': 'accordion-group' + val.ID.VALUE }));
-            
+
             parent = document.getElementById( 'accordion-group' + val.ID.VALUE );
             parent.appendChild(myCreateElement('div',
               {'class': 'accordion-heading', 'id': val.ID.VALUE }));
             parent.appendChild(myCreateElement('div',
               {'class': 'accordion-body collapse', 'id': 'collapse' + val.ID.VALUE },
               {'height': '0px'} )); //  {'height': 'auto', 'display': 'none'} ));
-            
+
             parent = document.getElementById( val.ID.VALUE );
             parent.appendChild(myCreateElement('a',
               {'class': 'accordion-toggle', 'data-toggle': 'collapse', 'data-parent':'#accordion1', 'href':'#collapse' + val.ID.VALUE },
               {},
               val.COMMENT.VALUE ));//'Channel #' + val.ID.VALUE ));
-                        
+
             $('<div></div>').addClass('accordion-inner').appendTo($('#accordion-group' + val.ID.VALUE + ' > #collapse' + val.ID.VALUE ));
             $('<ul></ul>').addClass('nav nav-list').appendTo($('#accordion-group' + val.ID.VALUE + ' > #collapse' + val.ID.VALUE + ' > .accordion-inner'));
             $('<div></div>').addClass('modLoader').appendTo($('#accordion-group' + val.ID.VALUE + ' div.accordion-inner'));
@@ -511,7 +517,7 @@ function addChannels(data) {
     } else {
         $('<div><h3>' + data.RESULT.VALUE.TEXT.VALUE + '</h3><p>' + data.RESULT.VALUE.MESSAGE.VALUE + '</p></div>').appendTo( $('div.span9') );
     }
-    
+
     // Отключить анимацию инициализации
     hide_loader('init');
 }
