@@ -1,0 +1,20 @@
+<<<<<<< HEAD
+=======
+20/11/2012 20:28:15 [ICEngine 001D2858] Test DMA Copy Begin...
+20/11/2012 20:28:15 [ICEngine 001D2858] Test DMA Copy End!
+20/11/2012 20:28:15 [ICEngine 001D2858] Engine Srart! (is not error!)
+20/11/2012 20:37:57 [ICEngine 001D2858] Test DMA Copy Begin...
+20/11/2012 20:37:57 [ICEngine 001D2858] Test DMA Copy End!
+20/11/2012 20:37:58 [ICEngine 001D2858] Engine Srart! (is not error!)
+24/11/2012 20:16:19 [ICEngine 002390B0] Test DMA Copy Begin...
+24/11/2012 20:16:19 [ICEngine 002390B0] Test DMA Copy End!
+24/11/2012 20:16:19 [ICEngine 002390B0] Engine Srart! (is not error!)
+24/11/2012 20:16:20 [SYSTEM 00239170] Load Error! Object: ICUserManager, Need Version 11, Owner ICTransformWorker, CurrentDir: C:\www\IntegraIPCam\
+24/11/2012 20:16:20 [ICEngine 002390B0] Modeule 'ICUserManager' not found!
+24/11/2012 20:43:13 [ICEngine 00208200] Test DMA Copy Begin...
+24/11/2012 20:43:13 [ICEngine 00208200] Test DMA Copy End!
+24/11/2012 20:43:13 [ICEngine 00208200] Engine Srart! (is not error!)
+24/11/2012 20:45:37 [ICEngine 00158200] Test DMA Copy Begin...
+24/11/2012 20:45:37 [ICEngine 00158200] Test DMA Copy End!
+24/11/2012 20:45:37 [ICEngine 00158200] Engine Srart! (is not error!)
+>>>>>>> dc6c9557925afb8e717f97484cd9b45c723a38f5

@@ -1,11 +1,7 @@
 CMutex.dll|186368
-Thread.dll|214528
-TransTempl.dll|178176
-ObjectMan.dll|375808
-FileOut.dll|219136
-UpdateService.dll|487424
-ThreadPool.dll|180224
+DebugLog.dll|313856
 Engine.dll|230912
+<<<<<<< HEAD
 WatchDogClient.dll|185344
 MemBuf.dll|146944
 H264.dll|518656
@@ -19,3 +15,23 @@ WatchDog.dll|209408
 VideoBuf.dll|189952
 DebugLog.dll|318464
 TransformWorker.dll|355328
+=======
+FileIn.dll|290816
+FileOut.dll|219136
+H264.dll|518144
+Http.dll|923136
+MemBuf.dll|146944
+MsgService.dll|376320
+ObjectMan.dll|375808
+Thread.dll|214528
+ThreadPool.dll|180224
+TransformWorker.dll|355328
+TransTempl.dll|178176
+UpdateService.dll|487424
+UserManager.dll|204800
+VideoBuf.dll|189952
+VideoFrame.dll|179712
+WatchDog.dll|209408
+WatchDogClient.dll|185344
+Zip.dll|209408
+>>>>>>> dc6c9557925afb8e717f97484cd9b45c723a38f5
