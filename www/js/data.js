@@ -1,6 +1,6 @@
 var curParams, newParams, curChanID, curMod, channels, modules;
 
-var DATA_TYPES = {  
+var DATA_TYPES = {
     DWORD: {
         MIN:                0,
         MAX:                4294967295,
@@ -61,7 +61,7 @@ var DATA_TYPES = {
         HINT:               "Формат данных строка",
         ABBREVIATED_NAME:   "fcc"
     },
-    DATETIME: {             
+    DATETIME: {
         ALLOW_CHARS:        /[\d\.\/\s\:]/,
         FORMAT:             /(^.*$)/,
         HINT:               "Формат данных: 00/00/0000 00:00:00.000",
@@ -70,22 +70,25 @@ var DATA_TYPES = {
     BOOL: {
         ABBREVIATED_NAME:   "b"
     },
-    FILE: {                 
+    FILE: {
         // TODO пока это только заглушка
     },
-    TEXT: {                 
+    TEXT: {
+        ALLOW_CHARS:        /./,
+        FORMAT:             /(^.*$)/,
+        HINT:               "Формат данных строка",
+        ABBREVIATED_NAME:   "s"
+    },
+    DATA: {
         // TODO пока это только заглушка
     },
-    DATA: {                 
+    DATE: {
         // TODO пока это только заглушка
     },
-    DATE: {                 
+    TIME: {
         // TODO пока это только заглушка
     },
-    TIME: {                 
-        // TODO пока это только заглушка
-    },
-    PARAMS: { 
+    PARAMS: {
         // Ответ сервера.
     }
 }
@@ -99,7 +102,7 @@ function check_data(data) {
     for ( var key in data ) {
         if ( DATA_TYPES[ data[key].TYPE ] == undefined )  {
             Error_code = 'Неизвестный тип данных: ' + data[key].TYPE + ', у параметра: ' + key;
-            
+
             return;
         }
 
@@ -108,7 +111,7 @@ function check_data(data) {
             Error_code = 'Ошибка парсинга ответа сервера: имена свойств должны быть без пробелов, параметр: ' + key;
 
             return;
-        }   
+        }
     }
 
     return true;
@@ -129,8 +132,8 @@ function get_cur_mod_comment() {
 }
 
 function get_param_comment(param, data) {
-    return data[param].COMMENT !== undefined ? 
-        data[param].COMMENT : 
+    return data[param].COMMENT !== undefined ?
+        data[param].COMMENT :
         param;
 }
 
@@ -146,8 +149,8 @@ function getCurModParam(modName) {
     while ( i < modules.MODULES_LIST.ENUM.length && modules.MODULES_LIST.ENUM[i].NAME.VALUE != modName ) {
         i++;
     }
-    if ( i >= modules.MODULES_LIST.ENUM.length ) { 
-        return -1; 
+    if ( i >= modules.MODULES_LIST.ENUM.length ) {
+        return -1;
     } else {
         return modules.MODULES_LIST.ENUM[i];
     }
