@@ -70,21 +70,18 @@ $('#paramsTable input').live('change', function() {
     $(this).parent().find('.help-inline').remove();
 
     // Если цифровой или строковый инпут
-    if ( curParams[ $(this).attr('id') ].TYPE == "DWORD" || curParams[ $(this).attr('id') ].TYPE == "WORD" || curParams[ $(this).attr('id') ].TYPE == "INT32" ||
-      curParams[ $(this).attr('id') ].TYPE == "INT64" || curParams[ $(this).attr('id') ].TYPE == "FLOAT" || curParams[ $(this).attr('id') ].TYPE == "DOUBLE" ||
-      curParams[ $(this).attr('id') ].TYPE == "STRING" )
-    {
-        // Если строка пустая преобразовать в 0
-        // if ( $.trim( this.value ) == '' ) {
-        //     this.value = 0;
-        // }
+    var cur_param_type = get_param_type( curParams[ $(this).attr('id') ] );
 
+    if ( cur_param_type == "DWORD" || cur_param_type == "WORD" || cur_param_type == "INT32" ||
+      cur_param_type == "INT64" || cur_param_type == "FLOAT" || cur_param_type == "DOUBLE" ||
+      cur_param_type == "STRING" )
+    {
         // Проверка соответсвия всего выражения формату
-        if( ! DATA_TYPES[ curParams[ $(this).attr('id') ].TYPE ].FORMAT.test( this.value ) )    {
+        if( ! DATA_TYPES[ cur_param_type ].FORMAT.test( this.value ) )    {
             // Если нет, то добавить сообщение об ошибке
             if ( !$(this).parent().is( '.error' ) ) {
                 $(this).parent().addClass( 'error' );
-                $(this).parent().append( '<span class="help-inline">' +  DATA_TYPES[ curParams[ $(this).attr('id') ].TYPE ].HINT + '</span>' );
+                $(this).parent().append( '<span class="help-inline">' +  DATA_TYPES[ cur_param_type ].HINT + '</span>' );
             }
             return false;
         } else {
@@ -98,18 +95,18 @@ $('#paramsTable input').live('change', function() {
                 }
                 // Установить значение слайдера равное значению инпута
                 $(this).parent().find('#slider-range-min').slider( "value", this.value );
-            } else if ( parseInt( this.value ) < parseInt( DATA_TYPES[ curParams[ $(this).attr('id') ].TYPE ].MIN ) ) {
+            } else if ( parseInt( this.value ) < parseInt( DATA_TYPES[ cur_param_type ].MIN ) ) {
                 $(this).parent().addClass( 'error' );
-                $(this).parent().append( '<span class="help-inline">Минимальное значение для этого параметра: ' + DATA_TYPES[ curParams[ $(this).attr('id') ].TYPE ].MIN + '</span>' );
+                $(this).parent().append( '<span class="help-inline">Минимальное значение для этого параметра: ' + DATA_TYPES[ cur_param_type ].MIN + '</span>' );
             } else if ( parseInt( this.value ) > parseInt( DATA_TYPES[ curParams[ $(this).attr('id') ].TYPE ].MAX ) ) {
                 $(this).parent().addClass( 'error' );
-                $(this).parent().append( '<span class="help-inline">Максимальное значение для этого параметра: ' + DATA_TYPES[ curParams[ $(this).attr('id') ].TYPE ].MAX + '</span>' );
+                $(this).parent().append( '<span class="help-inline">Максимальное значение для этого параметра: ' + DATA_TYPES[ cur_param_type ].MAX + '</span>' );
             }
         }
 
         newParams[ $(this).attr('id') ].VALUE = this.value;
     }
-    else if ( curParams[ $(this).attr('id') ].TYPE == "BOOL" ) { // Если чекбокс
+    else if ( cur_param_type == "BOOL" ) { // Если чекбокс
         newParams[ $(this).attr('id') ].VALUE = this.checked;
     }
 
