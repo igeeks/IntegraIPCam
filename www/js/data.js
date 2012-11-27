@@ -75,7 +75,7 @@ var DATA_TYPES = {
     },
     TEXT: {
         ALLOW_CHARS:        /./,
-        FORMAT:             /(^.*$)/,
+        FORMAT:             /.*/,
         HINT:               "Формат данных строка",
         ABBREVIATED_NAME:   "s"
     },

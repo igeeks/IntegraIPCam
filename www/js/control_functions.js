@@ -11,6 +11,10 @@ $(document).ready(function() {
     sendCmd( {'COMMAND': 'CMD_GET_CHANNELS_LIST'}, addChannels );
 });
 
+// ===================================================
+//  Подпункты левого меню
+//
+// ===================================================
 $('.nav-list li').live('click', function(){
     // Выбор активного пункта меню
     $('#accordion1 li').removeClass("active");
@@ -25,10 +29,19 @@ $('.nav-list li').live('click', function(){
     curChanID = $(this).attr('chanid');
 });
 
+// ===================================================
+//  Пункты левого меню
+//
+// ===================================================
 $('.accordion-heading').live('click', function(event){
     sendCmd( {'COMMAND': 'CMD_GET_MODULES_LIST', 'CHANNEL_LIST_ID': this.id }, addModules ); //Отправка команды на получение списка модулей канала
 });
 
+// ===================================================
+//  Обработка ввода данных в обычный инпут
+//  для ограничения возможных введеных символов
+//
+// ===================================================
 $('#paramsTable input').live('keydown', function(event) {
     var keyCode;
     if ( event.keyCode >= 96 && event.keyCode <= 105 ) {
@@ -45,11 +58,16 @@ $('#paramsTable input').live('keydown', function(event) {
     return DATA_TYPES[ curParams[ $(this).attr('id') ].TYPE ].ALLOW_CHARS.test( val );
 })
 
+// ===================================================
+//  Изменение параметра типов: строка, число,
+//    чекбокс
+//
+// ===================================================
 $('#paramsTable input').live('change', function() {
 
     // Удалить сообщения об ошибках
     $(this).parent().removeClass( 'error' );
-    $( '.control-group#' + $(this).attr( 'id' ) + ' > .help-inline' ).remove();
+    $(this).parent().find('.help-inline').remove();
 
     // Если цифровой или строковый инпут
     if ( curParams[ $(this).attr('id') ].TYPE == "DWORD" || curParams[ $(this).attr('id') ].TYPE == "WORD" || curParams[ $(this).attr('id') ].TYPE == "INT32" ||
@@ -101,6 +119,37 @@ $('#paramsTable input').live('change', function() {
     return true;
 })
 
+// ===================================================
+//  Изменение параметра типа: многострочный текст
+//
+// ===================================================
+$('#paramsTable textarea').live('change', function() {
+    // Удалить сообщения об ошибках
+    $(this).parent().removeClass( 'error' );
+    $(this).parent().find('.help-inline').remove();
+
+    // Проверка соответсвия всего выражения формату
+    if( ! DATA_TYPES[ curParams[ $(this).attr('id') ].TYPE ].FORMAT.test( this.value ) )    {
+        // Если нет, то добавить сообщение об ошибке
+        if ( !$(this).parent().is( '.error' ) ) {
+            $(this).parent().addClass( 'error' );
+            $(this).parent().append( '<span class="help-inline">' +  DATA_TYPES[ curParams[ $(this).attr('id') ].TYPE ].HINT + '</span>' );
+        }
+        return false;
+    }
+
+    newParams[ $(this).attr('id') ].VALUE = this.value;
+
+    // Сделать кнопку сохранения изменения активной
+    $('#saveBtn').removeClass('disabled').removeAttr('disabled');
+
+    return true;
+})
+
+// ===================================================
+//  Изменения параметра типа "Выпадающий список"
+//
+// ===================================================
 $('#paramsTable select').live('change', function() {
     set_new_param( $(this).attr('id'), this.value );
     $('#saveBtn').removeClass('disabled').removeAttr('disabled');
@@ -108,6 +157,10 @@ $('#paramsTable select').live('change', function() {
     return true;
 })
 
+// ===================================================
+//  Сохранить изменения
+//
+// ===================================================
 $('#saveBtn').live('click', function () {
     if ( !$(this).is('.disabled') ) {
 
@@ -121,7 +174,7 @@ $('#saveBtn').live('click', function () {
         cmd['MODULE_NAME'] = "s:'" + curMod + "'";
 
         $.each( get_params( newParams ), function(key, val) {
-            if ( val.TYPE == 'STRING' )  {
+            if ( val.TYPE == 'STRING' || val.TYPE == 'TEXT' )  {
                 cmd[key] = DATA_TYPES[ val.TYPE ].ABBREVIATED_NAME + ":'" + encodeURIComponent(val.VALUE) + "'";
             } else {
                 cmd[key] = DATA_TYPES[ val.TYPE ].ABBREVIATED_NAME + ":" + encodeURIComponent(val.VALUE);
@@ -132,6 +185,10 @@ $('#saveBtn').live('click', function () {
     }
 });
 
+// ===================================================
+//  Выбор файла для загрузки
+//
+// ===================================================
 $('input.input_file').live( 'change', function() {
     var fileTitle = this.value;
 
@@ -144,6 +201,10 @@ $('input.input_file').live( 'change', function() {
     input.value = fileTitle;
 });
 
+// ===================================================
+//  Отмена изменений параметра
+//
+// ===================================================
 $('#returnArrow').live('click', function () {
     // Поиск и получение соответствующего инпута
     var input = $( '#' + $(this).attr('for') )[0];
