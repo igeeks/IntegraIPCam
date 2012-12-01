@@ -77,7 +77,7 @@ var DATA_TYPES = {
         ALLOW_CHARS:        /./,
         FORMAT:             /.*/,
         HINT:               "Формат данных строка",
-        ABBREVIATED_NAME:   "s"
+        ABBREVIATED_NAME:   "text"
     },
     DATA: {
         // TODO пока это только заглушка
