@@ -21,6 +21,8 @@ function error_handler(jqXHR, textStatus, errorThrown) {
 
     $('div.span9').empty();
 
+    hide_loader('load');
+
     myAlert( 'Error', 'Ошибка парсинга ответа сервера', 'alert-error' );
 }
 
