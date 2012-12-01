@@ -486,7 +486,7 @@ function addControl(parent, paramName, attrs) {
     }
     else if ( attrs.TYPE == "TEXT" ) {
         // Многострочный инпут
-        var textarea = $('<textarea rows="3">' + attrs.VALUE + '</textarea>')
+        var textarea = $('<textarea rows="5" class="textarea-large">' + attrs.VALUE + '</textarea>')
             .attr( 'id', paramName )
             .appendTo(parent);
     }
