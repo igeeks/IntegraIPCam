@@ -70,7 +70,7 @@ $('#paramsTable input').live('change', function() {
     $(this).parent().find('.help-inline').remove();
 
     // Если цифровой или строковый инпут
-    var cur_param_type = get_param_type( curParams[ $(this).attr('id') ] );
+    var cur_param_type = curParams.get_param_type( $(this).attr('id') );
 
     if ( cur_param_type == "DWORD" || cur_param_type == "WORD" || cur_param_type == "INT32" ||
       cur_param_type == "INT64" || cur_param_type == "FLOAT" || cur_param_type == "DOUBLE" ||
@@ -148,7 +148,7 @@ $('#paramsTable textarea').live('change', function() {
 //
 // ===================================================
 $('#paramsTable select').live('change', function() {
-    set_new_param( $(this).attr('id'), this.value );
+    newParams.set_param( $(this).attr('id'), this.value );
     $('#saveBtn').removeClass('disabled').removeAttr('disabled');
 
     return true;
@@ -170,7 +170,7 @@ $('#saveBtn').live('click', function () {
         cmd['CHANNEL_ID'] = "dw:" + curChanID;
         cmd['MODULE_NAME'] = "s:'" + curMod + "'";
 
-        $.each( get_params( newParams ), function(key, val) {
+        $.each( newParams.get_data_params(), function(key, val) {
             if ( val.TYPE == 'STRING' || val.TYPE == 'TEXT' )  {
                 cmd[key] = DATA_TYPES[ val.TYPE ].ABBREVIATED_NAME + ":'" + encodeURIComponent(val.VALUE) + "'";
             } else {
@@ -307,8 +307,13 @@ function addParams(data) {
             return;
         }
 
+        // Сохранение данных в объект.
+        curParams = new Params(data);
+        newParams = new Params(data);
+
         // ================== Создание таблицы параметров
-        var params = get_params(data);
+        var params = curParams.get_sorted_params();
+
         if ( ! $.isEmptyObject( params ) ) {
             // Создание контейнера для таблицы
             var table = add_table_container( 'params', get_cur_mod_comment() );
@@ -323,7 +328,7 @@ function addParams(data) {
                 var row = $('<tr></tr>').appendTo( $('#paramsTable tbody') );
 
                 // Добавить название параметра в таблицу
-                $('<td><span>'+ get_param_comment( key, data ) +'</span></td>')
+                $('<td><span>'+ curParams.get_param_comment( key ) +'</span></td>')
                     .addClass('col1').appendTo( row );
 
                 // Создать и добавить контрол для параметра
@@ -334,7 +339,7 @@ function addParams(data) {
 
                 // Создать и добавить кнопку "отменить"
                 parent = $('<td></td>').addClass('col3').appendTo(row);
-                $( '<a href="#"><span id="returnArrow" for="' + key + '" class="ui-icon ui-icon-arrowreturnthick-1-w"></span></a>' ).appendTo(parent);
+                $( '<a href="#content"><span id="returnArrow" for="' + key + '" class="ui-icon ui-icon-arrowreturnthick-1-w"></span></a>' ).appendTo(parent);
             }
 
             // Создать и добавить кнопку "Сохранить изменения"
@@ -346,22 +351,22 @@ function addParams(data) {
         }
 
         // ================== Создание таблицы файлов
-        params = get_files_params(data);
-        if ( ! $.isEmptyObject( params ) ) {
+        files = curParams.get_files_params();
+        if ( ! $.isEmptyObject( files ) ) {
             // Создание контейнера для таблицы
             var table = add_table_container( 'files', 'Файлы' );
             $('<tbody></tbody>')
                 .appendTo( table );
 
             // Заполнение таблицы
-            for ( var key in params ) {
-                var val = params[key];
+            for ( var key in files ) {
+                var val = files[key];
 
                 // Создать ряд таблицы
                 var row = $('<tr></tr>').appendTo( $('#filesTable tbody') );
 
                 // Добавить название параметра в таблицу
-                $('<td><span>'+ get_param_comment( key, data ) +'</span></td>')
+                $('<td><span>'+ curParams.get_param_comment( key ) +'</span></td>')
                     .addClass('col1').appendTo( row );
 
                 // Создать и добавить контрол для параметра
@@ -372,12 +377,6 @@ function addParams(data) {
                 addControl(parent, key, val);
             }
         }
-
-        // Сохранение данных в объект.
-        // TODO не хранить информацию о файлах, ее же все равно не надо отправлять на сервер?
-        curParams = data;
-        newParams = null;
-        newParams = $.extend( true, newParams, curParams ); // Рекурсивное клонирование объекта
     } else {
         myAlert( data.RESULT.VALUE.TEXT.VALUE, data.RESULT.VALUE.MESSAGE.VALUE, 'alert-error' );
     }

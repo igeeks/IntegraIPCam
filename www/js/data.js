@@ -93,11 +93,138 @@ var DATA_TYPES = {
     }
 }
 
+// ============================== Параметры
+
+// Конструктор объекта с параметрами
+function Params(data) {
+    var params = _get_params(data);
+
+    if ( ! $.isEmptyObject( params ) ) {
+        for ( var key in params ) {
+            this[key] = $.extend( true, this[key], params[key] );
+        }
+    }
+
+    // Получить параметры обычного типа отсортированными
+    this.get_sorted_params = function () {
+        var keys = new Array();
+
+        var params = this.get_data_params();
+        for ( var key in params ) {
+            keys[keys.length] = key;
+        }
+
+        keys.sort( function (a, b){
+            if ( curParams.get_param_priority(a) < curParams.get_param_priority(b) )
+                return -1
+            if ( curParams.get_param_priority(a) > curParams.get_param_priority(b) )
+                return 1
+            // в случае а = b вернуть 0
+            return 0
+        });
+
+        params = new Object();
+        for ( var i in keys) {
+            var key = keys[i];
+            var val = this.get_param( key );
+            params[key] = val;
+        }
+
+        return params;
+    }
+
+    // Возвращает параметры
+    // кроме файлов и служебных данных
+    this.get_data_params = function () {
+        var result = {};
+
+        for ( var key in this ) {
+            if (
+                key != "HIDDEN"
+                &&
+                key != "RESULT"
+                &&
+                ! $.isFunction( this[key] )
+                &&
+                this.get_param_type( this[key] ) != "FILE"
+            ) {
+                result[key] = this[key];
+            }
+        }
+
+        return result;
+    }
+
+    // Возвращает параметры типа FILE
+    this.get_files_params = function () {
+        var result = {};
+
+        for ( var key in this ) {
+            if (
+                this.get_param_type( this[key] ) == "FILE"
+            ) {
+                result[key] = this[key];
+            }
+        }
+
+        return result;
+    }
+
+    // Получить тип параметра
+    this.get_param_type = function (param) {
+        return this[param] !== undefined ?
+            this[param].TYPE :
+            undefined;
+    }
+
+    // Получить коммент параметра
+    this.get_param_comment = function (param) {
+        return this[param].COMMENT !== undefined ?
+            this[param].COMMENT :
+            param;
+    }
+
+    // Получить приоритет параметра
+    this.get_param_priority = function (param) {
+        return this[param] !== undefined ?
+            this[param].PRIORITY :
+            9999; // Если нет приорита - в конец списка    
+    }
+
+    this.set_param = function (param, value) {
+        this[param].VALUE = value;
+    }
+
+    this.get_param = function (param) {
+        return this[param];
+    }
+}
+
+
+
+
+// ============================== Работа с остальными данными
+
 var Error_code;
 
-// ================== Провека данных
+// Возвращает все параметры из ответа сервера
+function _get_params(data) {
+    var result = {};
 
-// Проверка полученных данных
+    for ( var key in data ) {
+        if (
+            key != "HIDDEN"
+            &&
+            key != "RESULT"
+        ) {
+            result[key] = data[key];
+        }
+    }
+
+    return result;
+}
+
+// Проверка полученных данных от сервера
 function check_data(data) {
     for ( var key in data ) {
         if ( DATA_TYPES[ data[key].TYPE ] == undefined )  {
@@ -121,27 +248,9 @@ function check_result(data) {
     return data.RESULT.VALUE.CODE.VALUE == 0;
 }
 
-// ================== Аксессоры
-
-function get_param_type(param) {
-    return param.TYPE;
-}
-
 function get_cur_mod_comment() {
     return getCurModParam(curMod).COMMENT.VALUE;
 }
-
-function get_param_comment(param, data) {
-    return data[param].COMMENT !== undefined ?
-        data[param].COMMENT :
-        param;
-}
-
-function set_new_param(param, value) {
-    newParams[ param ].VALUE = value;
-}
-
-// ================== Работа с данными
 
 // Получить экземпляр объекта выбранного модуля
 function getCurModParam(modName) {
@@ -156,37 +265,3 @@ function getCurModParam(modName) {
     }
 }
 
-// Возвращает параметры
-// кроме файлов и служебных данных
-function get_params(data) {
-    var result = {};
-
-    for ( var key in data ) {
-        if (
-            key != "HIDDEN"
-            &&
-            key != "RESULT"
-            &&
-            get_param_type( data[key] ) != "FILE"
-        ) {
-            result[key] = data[key];
-        }
-    }
-
-    return result;
-}
-
-// Возвращает параметры типа FILE
-function get_files_params(data) {
-    var result = {};
-
-    for ( var key in data ) {
-        if (
-            get_param_type( data[key] ) == "FILE"
-        ) {
-            result[key] = data[key];
-        }
-    }
-
-    return result;
-}

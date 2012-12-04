@@ -1,3 +1,48 @@
 asdfasdf\r\nasdf\nasdf\n02/12/2012 00:07:34 [ICEngine 002DDF60] Test DMA Copy Begin...
 02/12/2012 00:07:34 [ICEngine 002DDF60] Test DMA Copy End!
 02/12/2012 00:07:34 [ICEngine 002DDF60] Engine Srart! (is not error!)
+04/12/2012 21:19:38 [ICEngine 0042DF60] Test DMA Copy Begin...
+04/12/2012 21:19:38 [ICEngine 0042DF60] Test DMA Copy End!
+04/12/2012 21:19:38 [ICEngine 0042DF60] Engine Srart! (is not error!)
+04/12/2012 22:58:49 [ICEngine 0042DF60] Engine STOP! Objects: 235
+04/12/2012 22:59:22 [ICEngine 0054DF60] Test DMA Copy Begin...
+04/12/2012 22:59:22 [ICEngine 0054DF60] Test DMA Copy End!
+04/12/2012 22:59:22 [ICEngine 0054DF60] Engine Srart! (is not error!)
+04/12/2012 22:59:35 [ICEngine 0054DF60] Engine STOP! Objects: 235
+04/12/2012 23:00:05 [ICEngine 0028DF60] Test DMA Copy Begin...
+04/12/2012 23:00:05 [ICEngine 0028DF60] Test DMA Copy End!
+04/12/2012 23:00:05 [ICEngine 0028DF60] Engine Srart! (is not error!)
+04/12/2012 23:00:33 [ICUpdateService 02383DD8] ERROR Software RAW Update ... buf = 00000000, size = 0
+04/12/2012 23:00:33 [ICUpdateService 02383DD8] RAW Update Failed!
+04/12/2012 23:00:49 [ICEngine 0028DF60] Engine STOP! Objects: 235
+04/12/2012 23:01:18 [ICUpdateService 02383DD8] ERROR Software RAW Update - No create file '/mnt/nand/ipcam/update.tar.gz'
+04/12/2012 23:01:19 [ICUpdateService 02383DD8] RAW Update Failed!
+04/12/2012 23:01:29 [SYSTEM 00278F58] Leak Object: ICMutex, Count: 13
+04/12/2012 23:01:29 [SYSTEM 00278F58]  | Object: ICMutex, Owner: ICMemBuf
+04/12/2012 23:01:29 [SYSTEM 00278F58]  | Object: ICMutex, Owner: ICDebugLog
+04/12/2012 23:01:29 [SYSTEM 00278F58]  | Object: ICMutex, Owner: ICMemBuf
+04/12/2012 23:01:29 [SYSTEM 00278F58]  | Object: ICMutex, Owner: ICDebugLog
+04/12/2012 23:01:29 [SYSTEM 00278F58]  | Object: ICMutex, Owner: ICDebugLog
+04/12/2012 23:01:29 [SYSTEM 00278F58]  | Object: ICMutex, Owner: ICMemBuf
+04/12/2012 23:01:29 [SYSTEM 00278F58]  | Object: ICMutex, Owner: ICMemBuf
+04/12/2012 23:01:29 [SYSTEM 00278F58]  | Object: ICMutex, Owner: ICDebugLog
+04/12/2012 23:01:29 [SYSTEM 00278F58]  | Object: ICMutex, Owner: ICMemBuf
+04/12/2012 23:01:29 [SYSTEM 00278F58]  | Object: ICMutex, Owner: ICMemBuf
+04/12/2012 23:01:29 [SYSTEM 00278F58]  | Object: ICMutex, Owner: ICDebugLog
+04/12/2012 23:01:29 [SYSTEM 00278F58]  | Object: ICMutex, Owner: ICMemBuf
+04/12/2012 23:01:30 [SYSTEM 00278F58]  | Object: ICMutex, Owner: ICMemBuf
+04/12/2012 23:01:30 [SYSTEM 00278F58] Leak Object: ICDebugLog, Count: 1
+04/12/2012 23:01:30 [SYSTEM 00278F58]  | Object: ICDebugLog, Owner: UNKNOWN
+04/12/2012 23:01:30 [SYSTEM 00278F58] Leak Object: ICMemBuf, Count: 8
+04/12/2012 23:01:30 [SYSTEM 00278F58]  | Object: ICMemBuf, Owner: ICDebugLog
+04/12/2012 23:01:30 [SYSTEM 00278F58]  | Object: ICMemBuf, Owner: ICDebugLog
+04/12/2012 23:01:30 [SYSTEM 00278F58]  | Object: ICMemBuf, Owner: ICDebugLog
+04/12/2012 23:01:30 [SYSTEM 00278F58]  | Object: ICMemBuf, Owner: ICDebugLog
+04/12/2012 23:01:30 [SYSTEM 00278F58]  | Object: ICMemBuf, Owner: ICDebugLog
+04/12/2012 23:01:30 [SYSTEM 00278F58]  | Object: ICMemBuf, Owner: ICDebugLog
+04/12/2012 23:01:30 [SYSTEM 00278F58]  | Object: ICMemBuf, Owner: ICDebugLog
+04/12/2012 23:01:30 [SYSTEM 00278F58]  | Object: ICMemBuf, Owner: ICDebugLog
+04/12/2012 23:01:55 [ICEngine 002ADF60] Test DMA Copy Begin...
+04/12/2012 23:01:55 [ICEngine 002ADF60] Test DMA Copy End!
+04/12/2012 23:01:55 [ICEngine 002ADF60] Engine Srart! (is not error!)
+04/12/2012 23:12:40 [ICTransformWorker 023D8EE8] ::SaveConfig() Error! GetInfo() 'ICWatchDog' failed!
