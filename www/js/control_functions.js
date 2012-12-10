@@ -424,8 +424,9 @@ function addControl(parent, paramName, attrs) {
             $('<div id="slider-range-min"></div>').appendTo(parent).slider({
                     range: "min",
                     value: attrs.VALUE,
-                    min: attrs.MIN,
-                    max: attrs.MAX,
+                    min:   attrs.MIN,
+                    max:   attrs.MAX,
+                    step:  attrs.STEP || 1, 
                     slide: function( event, ui ) {
                         $( 'input#' + paramName ).val( ui.value );
                         $( 'input#' + paramName ).trigger('change');
