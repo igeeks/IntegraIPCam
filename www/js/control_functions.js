@@ -438,6 +438,37 @@ function addControl(parent, paramName, attrs) {
             return;
         }
     }
+    else if ( attrs.TYPE == "BUTTON" ) {
+        if ( attrs.hasOwnProperty("ENUM") ) {
+            // TODO несколько кнопок
+        }
+        else {
+            var form =
+                $('<form style="margin: 0;"></form>')
+                    .attr( 'id', paramName + '_form' )
+                    .attr( 'action', paramName )
+                    .attr( 'method', 'post' )
+                    .attr( 'enctype', 'multipart/form-data' )
+                    .appendTo(parent);
+
+            $('<button class="btn submit_btn">' + attrs.VALUE + '</button>')
+                .appendTo(form);
+
+            var options = {
+                beforeSubmit: function() {
+                    show_loader( 'send', attrs.VALUE ); // TODO выводить мессеседж параметра
+                },
+                success:   cbSetParams,
+                error:     error_handler,
+                type:      'post',
+                dataType:  'json',
+                resetForm: true
+            };
+
+            // bind form using 'ajaxForm'
+            $(form).ajaxForm(options);
+        }
+    }
     else if ( attrs.TYPE == "FILE" ) {
         var input_file;
         if ( $.browser.msie ) {
