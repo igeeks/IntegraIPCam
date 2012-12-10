@@ -94,5 +94,5 @@ function myCreateElement(name, attrs, style, text) {
 
 // Получить host name текущего устройства
 function get_host_name() {
-    return document.domain;
+    return document.domain == 'localhost' ? '127.0.0.1' : document.domain;
 }

@@ -6,20 +6,20 @@ var resizeBtn = true;
 
 function fullScrin(){
     $(window).scrollTop(0); 
-    var pObj = $('#resizeObl');
-    var pObjEmbd = $('#video_container');
+    var pObj = $('#video_container');
+    var pObjEmbd = $('#video_embed');
     widthRes = pObjEmbd.width();
     heightRes = pObjEmbd.height();
     pObj.css("position", "absolute");
     pObj.css("z-index", "8999");
-    pObj.width(video_container.picwidth);
-    pObj.height(video_container.picheight);
-    pObjEmbd.width(video_container.picwidth);
-    pObjEmbd.height(video_container.picheight);
+    pObj.width(video_embed.picwidth);
+    pObj.height(video_embed.picheight);
+    pObjEmbd.width(video_embed.picwidth);
+    pObjEmbd.height(video_embed.picheight);
 }
 function miniScrin(){
-    var pObj = $('#resizeObl');
-    var pObjEmbd = $('#video_container');
+    var pObj = $('#video_container');
+    var pObjEmbd = $('#video_embed');
     pObj.css({left:'', top:''});
     pObj.width(widthRes);
     pObj.height(heightRes);
@@ -34,42 +34,44 @@ function ResizeEmbed(){
     else
         miniScrin();
     resizeBtn = !resizeBtn;
-    video_container.Resize();
+    video_embed.Resize();
 }
 
 function ScreenEmbed1(){
     $(window).scrollTop(0); 
-    var pObjEmbd = $('#video_container');
-    pObjEmbd.width(video_container.picwidth*2);
-    pObjEmbd.height(video_container.picheight*2);
+    var pObjEmbd = $('#video_embed');
+    pObjEmbd.width(video_embed.picwidth*2);
+    pObjEmbd.height(video_embed.picheight*2);
 }
 function ScreenEmbed2(){
     $(window).scrollTop(0); 
-    var pObjEmbd = $('#video_container');
-    pObjEmbd.width(video_container.picwidth);
-    pObjEmbd.height(video_container.picheight);
+    var pObjEmbd = $('#video_embed');
+    pObjEmbd.width(video_embed.picwidth);
+    pObjEmbd.height(video_embed.picheight);
 }
 function ScreenEmbed3(){
     $(window).scrollTop(0); 
-    var pObjEmbd = $('#video_container');
-    pObjEmbd.width(video_container.picwidth/2);
-    pObjEmbd.height(video_container.picheight/2);
+    var pObjEmbd = $('#video_embed');
+    pObjEmbd.width(video_embed.picwidth/2);
+    pObjEmbd.height(video_embed.picheight/2);
 }
 function ScreenEmbed4(){
     $(window).scrollTop(0); 
-    var pObjEmbd = $('#video_container');
+    var pObjEmbd = $('#video_embed');
     pObjEmbd.width(320);
     pObjEmbd.height(240);
 }
 function ScreenNewURL(url){
     $(window).scrollTop(0);  
-    $('#video_container').attr( 'url', url);
+    $('#video_embed').attr( 'url', url);
 }
 
 // ========================= Page logic =========================
 $(document).ready(function() {
-    // Инициализация и запуск видео
-    video_capture_init();
+    // Запуск видео
+    add_video_control_form();
+
+    video_capture_start( get_url_from_vc_form() );
 
     // Анимация инициализации
     show_loader('init', 'Загрузка');
@@ -104,7 +106,8 @@ function cbSetParams(data) {
     }
 }
 
-function video_capture_init() {
+// Настроить видео
+function add_video_control_form() {
     // Получить хост
     var host = get_host_name();
 
@@ -115,6 +118,7 @@ function video_capture_init() {
     var channel = "ch1";
 
     // Добавить инпуты
+    $('<br/><br/>').appendTo( $('#video_control') );
     $('<input type="text" class="input-small">')
         .attr( 'value', host )
         .attr( 'id', 'host' )
@@ -136,9 +140,34 @@ function video_capture_init() {
             $('#video_control')
         );
 
-    // Настроить видео
-    ScreenNewURL( 'rtsp://admin:admin@' + host + ':' + port + '/' + channel );
+    $('<input type="button" class="btn" value="ok">')
+        .attr( 'id', 'url_change_btn' )
+        .attr( 'onclick', 'video_capture_start( get_url_from_vc_form() );' )
+        .appendTo(
+            $('#video_control')
+        );
+}
 
-    // Запустить получение видео
+// Запустить видео с параметрами из формы
+function get_url_from_vc_form() {
+    return 'rtsp://admin:admin@' + $('#host').val() + 
+        ':' + $('#port').val() + 
+        '/' + $('#channel').val();
+}
 
+// Запустить получение видео
+function video_capture_start(url) {
+    video_capture_stop();
+
+    $( 
+        '<embed id="video_embed" ' +
+        'type="application/mozilla-npivrtsp-scriptable-plugin" ' +
+        'width=320 height=240 ' +
+        'url="' + url + '" ' +
+        'autostart="true">' 
+    ).appendTo( $('#video_container') );
+}
+
+function video_capture_stop() {
+    $('#video_container').empty();
 }
