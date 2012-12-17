@@ -140,7 +140,7 @@ function add_video_control_form() {
             $('#video_control')
         );
 
-    $('<input type="button" class="btn" value="ok">')
+    $('<input type="button" class="btn" value="Start">')
         .attr( 'id', 'url_change_btn' )
         .attr( 'onclick', 'video_capture_start( get_url_from_vc_form() );' )
         .appendTo(
