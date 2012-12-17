@@ -79,6 +79,7 @@ var DATA_TYPES = {
         HINT:               "Формат данных строка",
         ABBREVIATED_NAME:   "text"
     },
+    BUTTON: {},
     DATA: {
         // TODO пока это только заглушка
     },
@@ -115,9 +116,12 @@ function Params(data) {
         }
 
         keys.sort( function (a, b){
-            if ( curParams.get_param_priority(a) < curParams.get_param_priority(b) )
+            var aObj = new Param( curParams, a );
+            var bObj = new Param( curParams, b );
+            
+            if ( aObj.get_priority() < bObj.get_priority() )
                 return -1
-            if ( curParams.get_param_priority(a) > curParams.get_param_priority(b) )
+            if ( aObj.get_priority() > bObj.get_priority() )
                 return 1
             // в случае а = b вернуть 0
             return 0
@@ -145,8 +149,6 @@ function Params(data) {
                 key != "RESULT"
                 &&
                 ! $.isFunction( this[key] )
-                &&
-                this.get_param_type( this[key] ) != "FILE"
             ) {
                 result[key] = this[key];
             }
@@ -160,35 +162,16 @@ function Params(data) {
         var result = {};
 
         for ( var key in this ) {
+            var param = new Param( this, key );
+
             if (
-                this.get_param_type( this[key] ) == "FILE"
+                param.get_type() == "FILE"
             ) {
                 result[key] = this[key];
             }
         }
 
         return result;
-    }
-
-    // Получить тип параметра
-    this.get_param_type = function (param) {
-        return this[param] !== undefined ?
-            this[param].TYPE :
-            undefined;
-    }
-
-    // Получить коммент параметра
-    this.get_param_comment = function (param) {
-        return this[param].COMMENT !== undefined ?
-            this[param].COMMENT :
-            param;
-    }
-
-    // Получить приоритет параметра
-    this.get_param_priority = function (param) {
-        return this[param] !== undefined ?
-            this[param].PRIORITY :
-            9999; // Если нет приорита - в конец списка    
     }
 
     this.set_param = function (param, value) {
@@ -201,6 +184,50 @@ function Params(data) {
 }
 
 
+// Конструктор объекта параметра
+function Param( paramsObj, paramName ) {
+    for ( var key in paramsObj[paramName] ) {
+        this[key] =
+            $.isPlainObject( paramsObj[paramName][key] ) ?
+                $.extend( true, this[key], paramsObj[paramName][key] ) :
+                paramsObj[paramName][key];
+    }
+
+    // Можно ли отменять изменение параметра
+    this.is_cancelable = function () {
+        if (
+            this.TYPE !== "BUTTON"
+            &&
+            this.TYPE !== "FILE" 
+        ) {
+            return 1;
+        }
+        else {
+            return 0;
+        }
+    }
+
+    // Получить тип параметра
+    this.get_type = function () {
+        return this !== undefined ?
+            this.TYPE :
+            undefined;
+    }
+
+    // Получить коммент параметра
+    this.get_comment = function (param) {
+        return this.COMMENT !== undefined ?
+            this.COMMENT :
+            param;
+    }
+
+    // Получить приоритет параметра
+    this.get_priority = function (param) {
+        return this !== undefined ?
+            this.PRIORITY :
+            9999; // Если нет приорита - в конец списка    
+    }
+}
 
 
 // ============================== Работа с остальными данными

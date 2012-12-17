@@ -70,7 +70,8 @@ $('#paramsTable input').live('change', function() {
     $(this).parent().find('.help-inline').remove();
 
     // Если цифровой или строковый инпут
-    var cur_param_type = curParams.get_param_type( $(this).attr('id') );
+    var param = new Param( curParams, $(this).attr('id') );
+    var cur_param_type = param.get_type();
 
     if ( cur_param_type == "DWORD" || cur_param_type == "WORD" || cur_param_type == "INT32" ||
       cur_param_type == "INT64" || cur_param_type == "FLOAT" || cur_param_type == "DOUBLE" ||
@@ -318,64 +319,42 @@ function addParams(data) {
             // Создание контейнера для таблицы
             var table = add_table_container( 'params', get_cur_mod_comment() );
             $('<thead><tr><th>Параметр</th><th>Значение</th><th>Сбросить</th></tr></thead><tbody></tbody>')
-                .appendTo( table );
+                .appendTo( table ); // TODO определять необходимость заголовка "сбросить" динамически
 
             // Заполнение таблицы с параметрами
             for ( var key in params ) {
-                var val = params[key];
+                var param = new Param( curParams, key );
 
                 // Создать ряд таблицы
                 var row = $('<tr></tr>').appendTo( $('#paramsTable tbody') );
 
                 // Добавить название параметра в таблицу
-                $('<td><span>'+ curParams.get_param_comment( key ) +'</span></td>')
+                $('<td><span>'+ param.get_comment() +'</span></td>')
                     .addClass('col1').appendTo( row );
 
                 // Создать и добавить контрол для параметра
                 var parent = $('<td class="control-group"></td>')
                     .addClass('col2').appendTo( row );
 
-                addControl(parent, key, val);
+                addControl(parent, key, param);
 
                 // Создать и добавить кнопку "отменить"
-                parent = $('<td></td>').addClass('col3').appendTo(row);
-                $( '<a href="#content"><span id="returnArrow" for="' + key + '" class="ui-icon ui-icon-arrowreturnthick-1-w"></span></a>' ).appendTo(parent);
+                if ( param.is_cancelable() ) {
+                    parent = $('<td></td>').addClass('col3').appendTo(row);
+                    $( '<a href="#content"><span id="returnArrow" for="' + key + '" class="ui-icon ui-icon-arrowreturnthick-1-w"></span></a>' ).appendTo(parent);
+                }
+                else {
+                    $(parent).attr( 'colspan', 2 );
+                }
             }
 
             // Создать и добавить кнопку "Сохранить изменения"
+            // TODO Иногда она не нужна
             $('<button>Сохранить изменения</button>')
                 .addClass('btn disabled')
                 .attr('id', 'saveBtn')
                 .attr( 'disabled', 'disabled' )
                 .appendTo( $('#paramsSection') );
-        }
-
-        // ================== Создание таблицы файлов
-        files = curParams.get_files_params();
-        if ( ! $.isEmptyObject( files ) ) {
-            // Создание контейнера для таблицы
-            var table = add_table_container( 'files', 'Файлы' );
-            $('<tbody></tbody>')
-                .appendTo( table );
-
-            // Заполнение таблицы
-            for ( var key in files ) {
-                var val = files[key];
-
-                // Создать ряд таблицы
-                var row = $('<tr></tr>').appendTo( $('#filesTable tbody') );
-
-                // Добавить название параметра в таблицу
-                $('<td><span>'+ curParams.get_param_comment( key ) +'</span></td>')
-                    .addClass('col1').appendTo( row );
-
-                // Создать и добавить контрол для параметра
-                // TODO перенсти в addControl
-                var parent = $('<td class="control-group"></td>')
-                    .addClass('col2').appendTo( row );
-
-                addControl(parent, key, val);
-            }
         }
     } else {
         myAlert( data.RESULT.VALUE.TEXT.VALUE, data.RESULT.VALUE.MESSAGE.VALUE, 'alert-error' );
@@ -448,10 +427,9 @@ function addControl(parent, paramName, attrs) {
                     .attr( 'id', paramName + '_form' )
                     .attr( 'action', paramName )
                     .attr( 'method', 'post' )
-                    .attr( 'enctype', 'multipart/form-data' )
                     .appendTo(parent);
 
-            $('<button class="btn submit_btn">' + attrs.VALUE + '</button>')
+            $('<button class="btn">' + attrs.VALUE + '</button>')
                 .appendTo(form);
 
             var options = {
